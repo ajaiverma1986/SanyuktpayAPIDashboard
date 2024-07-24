@@ -1,0 +1,50 @@
+
+
+<div class="row justify-content-center align-items-center">
+  <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12">
+    <div class="card shadow">
+        <div class="card-body p-5">
+            <div class="d-flex justify-content-center mb-4">
+                <a href="https://sanyuktpay.com/">
+                    <img src="assets/logo/Logo.png"  alt="logo" class="desktop-logo" width="200px">
+                </a>
+            </div>
+            <p class="h5 fw-semibold mt-3 text-center">Sign In</p>
+           
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="row gy-3">
+                    <div class="col-12 mb-2">
+                        <label for="username" class="form-label text-default">User Name</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" formControlName="Usercode" >
+                        <div></div>
+                    </div>
+                    <div *ngIf="loginForm.controls['Usercode'].invalid && (loginForm.controls['Usercode'].dirty || loginForm.controls['Usercode'].touched)" class="mt-2">
+                        <div *ngIf="loginForm.controls['Usercode'].errors?.['required']" class="text-danger">
+                           Enter The Username
+                         </div>
+                     </div>
+                    <div class="col-12 mb-2">
+                        <label for="password" class="form-label text-default d-block">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" formControlName="password" >
+                            <button class="btn btn-light" type="button"  id="button-addon2" ><i class="ri-eye-off-line align-middle"></i></button>
+                        </div>
+                        <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="mt-2">
+                            <div *ngIf="loginForm.controls['password'].errors?.['required']" class="text-danger">
+                               Enter The Password
+                             </div>
+                         </div>
+                        <div class="mt-2">
+                            <a href="#" class="text-danger float-end">Forget password ?</a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mb-2 text-center">
+                        <button  id="loginBtn" name="loginBtn" [disabled]="loginForm.status == 'INVALID'" class="btn btn-primary w-100 mt-3" >SIGN IN</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
