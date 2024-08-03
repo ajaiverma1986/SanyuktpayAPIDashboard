@@ -1,44 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder,Validator, Validators} from '@angular/forms'
 import { MasterDataService } from '../../../services/master-data.service';
-import { SimpleResponse,PlanMasterListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { SimpleResponse, UserTypeListResponse } from '../../../RequestModel/MasterDatarESPONSE';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 
-
 @Component({
-  selector: 'app-commissiontype',
+  selector: 'app-user-type-master',
   standalone: true,
-  imports: [MatTableModule,MatPaginatorModule,MatCardModule],
-  templateUrl: './commissiontype.component.html',
-  styleUrl: './commissiontype.component.css'
+  imports: [MatCardModule,MatTableModule,MatPaginatorModule],
+  templateUrl: './user-type-master.component.html',
+  styleUrl: './user-type-master.component.css'
 })
-export class CommissiontypeComponent implements OnInit {
-
+export class UserTypeMasterComponent implements OnInit {
   frmcomtype!:FormGroup;
   listdata:any;
-  Modeldata!: PlanMasterListResponse[];
+  Modeldata!: UserTypeListResponse[];
 
 
   constructor(private frmbuilder:FormBuilder,private mstdataservice:MasterDataService){
 
   }
-  displayedColumns: string[] = ['PlanID', 'StatusName', 'PlanName'];
+  displayedColumns: string[] = ['UserTypeId', 'UserTypeName', 'StatusName'];
   dataSource = this.Modeldata;
   ngOnInit(): void {
-    this.frmcomtype=this.frmbuilder.group(
-      {
-        commissionName:['',Validators.required]
-      }
-     
-    )
-    this.mstdataservice.GetallPlan().subscribe({
+  
+    this.mstdataservice.UserTypeList().subscribe({
       next:(SimpleResponse)=>{
         this.listdata=SimpleResponse;
         this.Modeldata=this.listdata.Result;
       }
     });
   }
-
 }

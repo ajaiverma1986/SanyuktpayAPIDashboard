@@ -1,0 +1,67 @@
+<mat-card appearance="outlined">
+    <mat-card-title style=" background-color: #3f51b5;color: white;">KYC Type Master</mat-card-title>
+    <br>
+    <mat-card-content>
+        <form>
+            <mat-form-field>
+              <mat-label>Select Company Type</mat-label>
+              <mat-select [(ngModel)]="companytypeid" name="companytype" >
+                @for (company of Modeldata; track company) {
+                  <mat-option [value]="company.CompnayTypeId">{{company.CompanyTypeName}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Select User Type</mat-label>
+                <mat-select [(ngModel)]="UserTypeId" name="usertype" (ngModelChange)="GetAllKycType()">
+                  @for (usert of Modelusertype; track usert) {
+                    <mat-option [value]="usert.UserTypeId">{{usert.UserTypeName}}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+           
+          </form>
+    </mat-card-content>
+</mat-card>
+
+
+<mat-card appearance="outlined">
+    <mat-card-title style=" background-color: #3f51b5;color: white;">District List</mat-card-title>
+    <br>
+    <mat-card-content>
+  @if (Modelkyc!=null) {
+  
+  <table mat-table [dataSource]="Modelkyc" class="mat-elevation-z8">
+  
+     
+      <ng-container matColumnDef="KycTypeID">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.KycTypeID}} </td>
+      </ng-container>
+    
+      
+
+      <ng-container matColumnDef="UserTypeName">
+        <th mat-header-cell *matHeaderCellDef> User Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.UserTypeName}} </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="CompanyTypeName">
+        <th mat-header-cell *matHeaderCellDef> Company Tyoe Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.CompanyTypeName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="KycTypeName">
+        <th mat-header-cell *matHeaderCellDef> Kyc Type Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.KycTypeName}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+  }
+  </mat-card-content>
+  
+  </mat-card>
