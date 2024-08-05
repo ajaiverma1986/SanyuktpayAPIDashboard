@@ -21,6 +21,7 @@ import { LedgerTypeMasterComponent } from './component/Masters/ledger-type-maste
 import { ServiceTypeMasterComponent } from './component/Masters/service-type-master/service-type-master.component';
 import { PaymentModeMasterComponent } from './component/Masters/payment-mode-master/payment-mode-master.component';
 import { PaymentChanelComponent } from './component/Masters/payment-chanel/payment-chanel.component';
+import { PonboardingComponent } from './component/Onboarding/ponboarding/ponboarding.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -46,6 +47,7 @@ export const routes: Routes = [
       {path: 'ServiceType', component: ServiceTypeMasterComponent},
       {path: 'PaymentChanel', component: PaymentChanelComponent},
       {path: 'PaymentMode', component: PaymentModeMasterComponent},
+      {path: 'Onboard', component: PonboardingComponent},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 

@@ -1,6 +1,6 @@
-
-
-<div class="row justify-content-center align-items-center">
+<section class="vh-100 gradient-custom">
+<div class="container py-5 h-100">
+<div class="row justify-content-center align-items-center h-100">
   <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12">
     <div class="card shadow">
         <div class="card-body p-5">
@@ -27,7 +27,7 @@
                         <label for="password" class="form-label text-default d-block">Password</label>
                         <div class="input-group">
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" formControlName="password" >
-                            <button class="btn btn-light" type="button"  id="button-addon2" ><i class="ri-eye-off-line align-middle"></i></button>
+                            
                         </div>
                         <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="mt-2">
                             <div *ngIf="loginForm.controls['password'].errors?.['required']" class="text-danger">
@@ -48,3 +48,5 @@
     </div>
 </div>
 </div>
+</div>
+</section>
