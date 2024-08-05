@@ -1,5 +1,5 @@
 export class CreateUserWithLogoRequest {
-    fileBytes!: Uint8Array;
+    fileBytes!: File;
     fileName!: string;
     userTypeId!: number;
     mobileNo!: string;

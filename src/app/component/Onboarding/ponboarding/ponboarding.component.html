@@ -5,7 +5,7 @@
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
               <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Partner Onboarding</h3>
-              <form>
+              <form  [formGroup]="frmOnboarding" (ngSubmit)="OnboardingSubmit()" >
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <label class="form-label select-label">Choose Usertype</label>
@@ -71,8 +71,28 @@
                   <div class="col-12">
   
                     <div class="mb-3">
-                      <label for="formFile" class="form-label">Logo</label>
-                      <input class="form-control" type="file" id="formFile">
+                      <label for="formFile" class="form-label" >Logo</label>
+                      <input class="form-control" type="file" id="formFile" multiple (change)="onFileChange($event)">
+
+                      <button (click)="onUpload()" class="upload-button">Upload the file</button>
+
+                      @switch (status) {
+                        @case ("uploading") {
+                          <p>⏳ Uploading...</p>
+                        }
+                        @case ("success") {
+                          <p>✅ Done!</p>
+                        }
+                        @case ("fail") {
+                          <p >❌ Error!</p>
+                        }
+                        @default {
+                          <p>😶 Waiting to upload...</p>
+                        }
+                       
+                      }
+
+                   
                     </div>
   
                   </div>
