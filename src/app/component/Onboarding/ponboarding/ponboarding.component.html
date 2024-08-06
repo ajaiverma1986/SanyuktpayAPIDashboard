@@ -9,7 +9,7 @@
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <label class="form-label select-label">Choose Usertype</label>
-                    <select class="select form-control" [(ngModel)]="selectedValue" (change)="ChangeUserType()"  name="ddlusertype" >
+                    <select class="select form-control"   name="ddlusertype" formControlName="Usertype" >
                       <option [value]="0">--Select User Type--</option>
                       @for (item of Modeldata; track $index) {
                         <option  [value]="item.UserTypeId"  selected="item.UserTypeId=selectedValue">{{item.UserTypeName}}</option>
@@ -22,7 +22,7 @@
   
                     <div data-mdb-input-init class="form-outline">
                       <label class="form-label" for="firstName">First Name</label>
-                      <input type="text" id="firstName" class="form-control" />
+                      <input type="text" id="firstName" class="form-control" formControlName="firstName"  />
                     
                     </div>
   
@@ -35,13 +35,13 @@
   
                     <div data-mdb-input-init class="form-outline">
                       <label class="form-label" for="firstName">Middle Name</label>
-                      <input type="text" id="firstName" class="form-control" />
+                      <input type="text" id="middleName" class="form-control"  formControlName="middleName" />
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div data-mdb-input-init class="form-outline">
                       <label class="form-label" for="lastName">Last Name</label>
-                      <input type="text" id="lastName" class="form-control" />
+                      <input type="text" id="lastName" class="form-control" formControlName="lastName"  />
                     </div>
   
                   </div>
@@ -52,16 +52,18 @@
                   <div class="col-md-6 mb-4 pb-2">
   
                     <div data-mdb-input-init class="form-outline">
-                      <input type="email" id="emailAddress" class="form-control" />
-                      <label class="form-label" for="emailAddress">Email</label>
+                      <label class="form-label" for="emailAddress" >Email</label>
+                      <input type="email" id="emailAddress" class="form-control"  formControlName="email" />
+                      
                     </div>
   
                   </div>
                   <div class="col-md-6 mb-4 pb-2">
   
                     <div data-mdb-input-init class="form-outline">
-                      <input type="tel" id="phoneNumber" class="form-control" />
                       <label class="form-label" for="phoneNumber">Mobile Number</label>
+                      <input type="tel" id="phoneNumber" class="form-control" formControlName="Mobilename" />
+                     
                     </div>
   
                   </div>
@@ -72,25 +74,9 @@
   
                     <div class="mb-3">
                       <label for="formFile" class="form-label" >Logo</label>
-                      <input class="form-control" type="file" id="formFile" multiple (change)="onFileChange($event)">
+                      <input class="form-control" type="file" id="formFile"  (change)="onFileChange($event)">
 
-                      <button (click)="onUpload()" class="upload-button">Upload the file</button>
-
-                      @switch (status) {
-                        @case ("uploading") {
-                          <p>⏳ Uploading...</p>
-                        }
-                        @case ("success") {
-                          <p>✅ Done!</p>
-                        }
-                        @case ("fail") {
-                          <p >❌ Error!</p>
-                        }
-                        @default {
-                          <p>😶 Waiting to upload...</p>
-                        }
-                       
-                      }
+                     
 
                    
                     </div>

@@ -1,10 +1,12 @@
 export class CreateUserWithLogoRequest {
-    fileBytes!: File;
-    fileName!: string;
-    userTypeId!: number;
-    mobileNo!: string;
-    emailId!: string;
-    firstName!: string;
-    middleName!: string;
-    lastName!: string;
+    UserTypeId!: number;
+    MobileNo!: string;
+    EmailId!: string;
+    FirstName!: string;
+    MiddleName!: string;
+    LastName!: string;
+}
+export class UploadOrgLogo1 {
+    iform!: File;
+    UserId!: number;
 }
