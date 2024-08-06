@@ -82,7 +82,7 @@ export class PonboardingComponent implements OnInit {
   }
 
   onFileChange(event: any) {
-    const filesp = event.target.files;
+    const filesp = event.target.files[0];
 
     if (filesp.length) {
 
