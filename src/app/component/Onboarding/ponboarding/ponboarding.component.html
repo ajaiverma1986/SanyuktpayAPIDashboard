@@ -75,17 +75,30 @@
                     <div class="mb-3">
                       <label for="formFile" class="form-label" >Logo</label>
                       <input class="form-control" type="file" id="formFile"  (change)="onFileChange($event)">
-
-                     
-
-                   
                     </div>
   
                   </div>
+
+                  @if (message) {
+                    <div class="alert alert-secondary" role="alert">{{ message }}</div>
+                    }
+                    
+                    <div class="card mt-3">
+                      <div class="card-header">List of Files</div>
+                      <ul class="list-group list-group-flush">
+                        @for (file of fileInfos | async; track file.name) {
+                        <li class="list-group-item">
+                          <a href="{{ file.url }}">{{ file.name }}</a>
+                        </li>
+                        }
+                      </ul>
+                    </div>
+                 
                 </div>
+                
   
                 <div class="mt-4 pt-2">
-                  <input data-mdb-ripple-init class="btn btn-primary btn-md" type="submit" value="Submit" />
+                  <input data-mdb-ripple-init class="btn btn-primary btn-md" [disabled]="!currentFile" type="submit" value="Submit" />
                 </div>
   
               </form>
