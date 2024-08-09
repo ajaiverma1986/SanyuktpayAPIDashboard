@@ -40,7 +40,7 @@ export class PonboardingComponent  extends BasecomponentComponent implements OnI
   ngOnInit(): void {
     this.Model.UserTypeId = 0;
     this.selectedValue = "0";
-
+    
 
     this.mstdataservice.UserTypeList().subscribe({
       next: (SimpleResponse) => {
@@ -56,7 +56,7 @@ export class PonboardingComponent  extends BasecomponentComponent implements OnI
       firstName: ['', Validators.required],
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required,Validators.email]],
       Mobilename: ['', Validators.required]
 
     });
@@ -77,8 +77,7 @@ export class PonboardingComponent  extends BasecomponentComponent implements OnI
       next: (SimpleResponse) => {
         this.UserId = Number(SimpleResponse.Result);
         if (this.UserId > 0) {
-          console.log(this.UserId);
-          alert("Record Successfully Saved");
+        
           this.showToaster(1,"Record Saved Successfully","Partner Onboarding");
           // this.Model1.iform=this.files;
           // this.Model1.UserId=this.UserId;

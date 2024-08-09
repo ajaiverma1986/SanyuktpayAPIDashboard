@@ -6,6 +6,7 @@
             <mat-form-field>
               <mat-label>Select Company Type</mat-label>
               <mat-select [(ngModel)]="companytypeid" name="companytype" >
+                <mat-option [value]="0">--Select--</mat-option>
                 @for (company of Modeldata; track company) {
                   <mat-option [value]="company.CompnayTypeId">{{company.CompanyTypeName}}</mat-option>
                 }
@@ -15,6 +16,7 @@
             <mat-form-field>
                 <mat-label>Select User Type</mat-label>
                 <mat-select [(ngModel)]="UserTypeId" name="usertype" (ngModelChange)="GetAllKycType()">
+                  <mat-option [value]="0">--Select--</mat-option>
                   @for (usert of Modelusertype; track usert) {
                     <mat-option [value]="usert.UserTypeId">{{usert.UserTypeName}}</mat-option>
                   }

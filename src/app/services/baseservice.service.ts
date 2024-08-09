@@ -20,6 +20,7 @@ export class BaseserviceService {
     headers = headers.set("content-type", "application/json");
     headers = headers.set("APIToken", environment.APIToken);
     headers = headers.set("usertoken", userToken? '': '');
+    console.log("Token:-",userToken);
     return headers;
   }
   getDefaultHeaderFiles():HttpHeaders

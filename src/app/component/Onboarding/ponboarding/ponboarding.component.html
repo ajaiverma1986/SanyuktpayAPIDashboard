@@ -18,6 +18,11 @@
                     </select>
                    
                   </div>
+                  <div *ngIf="frmOnboarding.controls['Usertype'].invalid && (frmOnboarding.controls['Usertype'].dirty || frmOnboarding.controls['Usertype'].touched)" class="mt-2">
+                    <div *ngIf="frmOnboarding.controls['Usertype'].errors?.['required']" class="text-danger">
+                     User Type is Required
+                     </div>
+                 </div>
                   <div class="col-md-6 mb-4">
   
                     <div data-mdb-input-init class="form-outline">
@@ -27,6 +32,11 @@
                     </div>
   
                   </div>
+                  <div *ngIf="frmOnboarding.controls['firstName'].invalid && (frmOnboarding.controls['firstName'].dirty || frmOnboarding.controls['firstName'].touched)" class="mt-2">
+                    <div *ngIf="frmOnboarding.controls['firstName'].errors?.['required']" class="text-danger">
+                       First name is Required
+                     </div>
+                 </div>
                 </div>
 
   
@@ -34,7 +44,7 @@
                   <div class="col-md-6 mb-4">
   
                     <div data-mdb-input-init class="form-outline">
-                      <label class="form-label" for="firstName">Middle Name</label>
+                      <label class="form-label" for="middleName">Middle Name</label>
                       <input type="text" id="middleName" class="form-control"  formControlName="middleName" />
                     </div>
                   </div>
@@ -45,6 +55,11 @@
                     </div>
   
                   </div>
+                  <div *ngIf="frmOnboarding.controls['lastName'].invalid && (frmOnboarding.controls['lastName'].dirty || frmOnboarding.controls['lastName'].touched)" class="mt-2">
+                    <div *ngIf="frmOnboarding.controls['lastName'].errors?.['required']" class="text-danger">
+                     Last Name is Required
+                     </div>
+                 </div>
                 </div>
   
   
@@ -58,6 +73,14 @@
                     </div>
   
                   </div>
+                  <div *ngIf="frmOnboarding.controls['email'].invalid && (frmOnboarding.controls['email'].dirty || frmOnboarding.controls['email'].touched)" class="mt-2">
+                    <div *ngIf="frmOnboarding.controls['email'].errors?.['required']" class="text-danger">
+                      Email is Required
+                     </div>
+                     <div *ngIf="frmOnboarding.controls['email'].errors?.['email']" class="text-danger">
+                     Invalid email
+                    </div>
+                 </div>
                   <div class="col-md-6 mb-4 pb-2">
   
                     <div data-mdb-input-init class="form-outline">
@@ -67,6 +90,11 @@
                     </div>
   
                   </div>
+                  <div *ngIf="frmOnboarding.controls['Mobilename'].invalid && (frmOnboarding.controls['Mobilename'].dirty || frmOnboarding.controls['Mobilename'].touched)" class="mt-2">
+                    <div *ngIf="frmOnboarding.controls['Mobilename'].errors?.['required']" class="text-danger">
+                       Mobile No is Required
+                     </div>
+                 </div>
                 </div>
   
                 <div class="row">
@@ -98,7 +126,8 @@
                 
   
                 <div class="mt-4 pt-2">
-                  <input data-mdb-ripple-init class="btn btn-primary btn-md" [disabled]="!currentFile" type="submit" value="Submit" />
+                  <input data-mdb-ripple-init class="btn btn-primary btn-md" [disabled]="frmOnboarding.status == 'INVALID'" type="submit" value="Submit" />
+                  
                 </div>
   
               </form>
