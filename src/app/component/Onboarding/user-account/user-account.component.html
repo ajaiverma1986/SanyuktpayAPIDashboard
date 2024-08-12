@@ -1,0 +1,85 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add Bank Accounts Details</h3>
+              <form  [formGroup]="frmAccounDeatil" (ngSubmit)="OnboardingSubmit()" >
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <label class="form-label select-label">Choose Usertype</label>
+                    <select class="select form-control"   name="ddlusertype" formControlName="Usertype" >
+                      <option [value]="0">--Select Bank--</option>
+                      @for (item of BankData; track $index) {
+                        <option  [value]="item.BankID"  selected="item.BankID=selectedValue">{{item.BankName}}</option>
+                      }
+                     
+                    </select>
+                   
+                  </div>
+                  <div *ngIf="frmAccounDeatil.controls['Bankname'].invalid && (frmAccounDeatil.controls['Bankname'].dirty || frmAccounDeatil.controls['Bankname'].touched)" class="mt-2">
+                    <div *ngIf="frmAccounDeatil.controls['Bankname'].errors?.['required']" class="text-danger">
+                     Bank is Required
+                     </div>
+                 </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="AccountName">Account Name</label>
+                      <input type="text" id="AccountName" class="form-control" formControlName="AccountName"  />
+                    
+                    </div>
+  
+                  </div>
+                  <div *ngIf="frmAccounDeatil.controls['AccountName'].invalid && (frmAccounDeatil.controls['AccountName'].dirty || frmAccounDeatil.controls['AccountName'].touched)" class="mt-2">
+                    <div *ngIf="frmAccounDeatil.controls['AccountName'].errors?.['required']" class="text-danger">
+                       Account name is Required
+                     </div>
+                 </div>
+                </div>
+
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="AccountNo">Account No</label>
+                      <input type="text" id="AccountNo" class="form-control"  formControlName="AccountNo" />
+                    </div>
+                  </div>
+                  <div *ngIf="frmAccounDeatil.controls['AccountNo'].invalid && (frmAccounDeatil.controls['Ifsccode'].dirty || frmAccounDeatil.controls['AccountNo'].touched)" class="mt-2">
+                    <div *ngIf="frmAccounDeatil.controls['AccountNo'].errors?.['AccountNo']" class="text-danger">
+                     Account No is Required
+                     </div>
+                 </div>
+                  <div class="col-md-6 mb-4">
+                    <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="Ifsccode">IFSC code</label>
+                      <input type="text" id="Ifsccode" class="form-control" formControlName="Ifsccode"  />
+                    </div>
+  
+                  </div>
+                  <div *ngIf="frmAccounDeatil.controls['Ifsccode'].invalid && (frmAccounDeatil.controls['Ifsccode'].dirty || frmAccounDeatil.controls['Ifsccode'].touched)" class="mt-2">
+                    <div *ngIf="frmAccounDeatil.controls['Ifsccode'].errors?.['Ifsccode']" class="text-danger">
+                     IFSC code is Required
+                     </div>
+                     <div *ngIf="frmAccounDeatil.controls['Ifsccode'].errors?.['Ifsccode']" class="text-danger">
+                        Invalid email
+                       </div>
+                 </div>
+                </div>
+  
+  
+                <div class="mt-4 pt-2">
+                  <input data-mdb-ripple-init class="btn btn-primary btn-md" [disabled]="frmAccounDeatil.status == 'INVALID'" type="submit" value="Submit" />
+                  
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
