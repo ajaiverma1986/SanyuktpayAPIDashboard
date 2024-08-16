@@ -10,7 +10,7 @@ import { MasterDataService } from '../../../services/master-data.service';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule],
   templateUrl: './calculation-type.component.html',
-  styleUrl: './calculation-type.component.css'
+  styleUrl: './calculation-type.component.scss'
 })
 export class CalculationTypeComponent implements OnInit {
   

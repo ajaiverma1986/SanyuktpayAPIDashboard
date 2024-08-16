@@ -16,7 +16,7 @@ import {FormsModule} from '@angular/forms';
   standalone: true,
   imports: [MatTableModule,MatCardModule,MatSelectModule,MatFormFieldModule,FormsModule,MatInputModule],
   templateUrl: './kyctype-master.component.html',
-  styleUrl: './kyctype-master.component.css'
+  styleUrl: './kyctype-master.component.scss'
 })
 export class KYCTypeMasterComponent implements OnInit {
   listdata:any;

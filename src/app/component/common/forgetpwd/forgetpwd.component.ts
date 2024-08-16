@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './forgetpwd.component.html',
-  styleUrl: './forgetpwd.component.css'
+  styleUrl: './forgetpwd.component.scss'
 })
 export class ForgetpwdComponent {
 

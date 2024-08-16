@@ -11,7 +11,7 @@ import {MatCardModule} from '@angular/material/card';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule],
   templateUrl: './marital-status.component.html',
-  styleUrl: './marital-status.component.css'
+  styleUrl: './marital-status.component.scss'
 })
 export class MaritalStatusComponent implements OnInit {
 

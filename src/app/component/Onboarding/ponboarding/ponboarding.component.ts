@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ReactiveFormsModule, FormsModule,CommonModule],
   templateUrl: './ponboarding.component.html',
-  styleUrl: './ponboarding.component.css'
+  styleUrl: './ponboarding.component.scss'
 })
 export class PonboardingComponent  extends BasecomponentComponent implements OnInit {
   listdata: any;

@@ -10,7 +10,7 @@ import {MatCardModule} from '@angular/material/card';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule],
   templateUrl: './payment-chanel.component.html',
-  styleUrl: './payment-chanel.component.css'
+  styleUrl: './payment-chanel.component.scss'
 })
 export class PaymentChanelComponent implements OnInit {
   listdata:any;

@@ -11,7 +11,7 @@ import {MatCardModule} from '@angular/material/card';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule],
   templateUrl: './bank-masterr.component.html',
-  styleUrl: './bank-masterr.component.css'
+  styleUrl: './bank-masterr.component.scss'
 })
 export class BankMasterrComponent implements OnInit {
 

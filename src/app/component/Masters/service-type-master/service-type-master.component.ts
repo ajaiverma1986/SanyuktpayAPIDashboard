@@ -18,7 +18,7 @@ import {MatDivider} from '@angular/material/divider';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule,MatProgressSpinnerModule,MatInputModule,MatSelectModule,MatFormFieldModule,FormsModule,MatButtonModule,MatDivider],
   templateUrl: './service-type-master.component.html',
-  styleUrl: './service-type-master.component.css'
+  styleUrl: './service-type-master.component.scss'
 })
 export class ServiceTypeMasterComponent implements OnInit {
   listdata:any;

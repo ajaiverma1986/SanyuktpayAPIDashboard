@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ReactiveFormsModule, FormsModule,CommonModule],
   templateUrl: './user-account.component.html',
-  styleUrl: './user-account.component.css'
+  styleUrl: './user-account.component.scss'
 })
 export class UserAccountComponent extends BasecomponentComponent implements OnInit {
   listdata: any;

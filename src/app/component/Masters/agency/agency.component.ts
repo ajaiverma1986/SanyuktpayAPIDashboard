@@ -11,7 +11,7 @@ import {MatCardModule} from '@angular/material/card';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule],
   templateUrl: './agency.component.html',
-  styleUrl: './agency.component.css'
+  styleUrl: './agency.component.scss'
 })
 export class AgencyComponent implements OnInit {
   listdata:any;

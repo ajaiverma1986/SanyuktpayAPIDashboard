@@ -6,7 +6,7 @@ import { Router,RouterLink } from '@angular/router';
   standalone: true,
   imports: [],
   templateUrl: './nav-header.component.html',
-  styleUrl: './nav-header.component.css'
+  styleUrl: './nav-header.component.scss'
 })
 export class NavHeaderComponent {
   hamburgerClass: boolean = false;

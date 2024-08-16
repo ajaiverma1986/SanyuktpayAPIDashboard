@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="container-fluid">
     
     <app-nav-header></app-nav-header>
@@ -13,4 +13,50 @@
     </div>
     <app-footer></app-footer>
     
-</div>
+</div> -->
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened="false">
+    
+    <mat-nav-list>
+      <mat-list-item (click)="sidenav.toggle()">Menu</mat-list-item>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Section 1</mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <mat-list-item>Item 1.1</mat-list-item>
+          <mat-list-item>Item 1.2</mat-list-item>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Section 2</mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <mat-list-item>Item 2.1</mat-list-item>
+          <mat-list-item>Item 2.2</mat-list-item>
+        </mat-nav-list>
+      </mat-expansion-panel>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My Application</span>
+    </mat-toolbar>
+    <div class="content">
+      <!-- Main content goes here -->
+      <p>Welcome to the multi-level menu application!</p>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+

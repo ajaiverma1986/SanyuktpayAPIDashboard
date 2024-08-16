@@ -10,7 +10,7 @@ import {MatCardModule} from '@angular/material/card';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule],
   templateUrl: './addresstype.component.html',
-  styleUrl: './addresstype.component.css'
+  styleUrl: './addresstype.component.scss'
 })
 export class AddresstypeComponent implements OnInit {
 

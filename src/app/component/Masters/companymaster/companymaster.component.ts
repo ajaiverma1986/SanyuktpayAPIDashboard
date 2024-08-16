@@ -12,7 +12,7 @@ import {MatCardModule} from '@angular/material/card';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule],
   templateUrl: './companymaster.component.html',
-  styleUrl: './companymaster.component.css'
+  styleUrl: './companymaster.component.scss'
 })
 export class CompanymasterComponent implements OnInit {
 

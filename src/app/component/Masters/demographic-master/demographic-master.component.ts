@@ -18,7 +18,7 @@ import {MatDivider} from '@angular/material/divider';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule,MatProgressSpinnerModule,MatInputModule,MatSelectModule,MatFormFieldModule,FormsModule,MatButtonModule,MatDivider],
   templateUrl: './demographic-master.component.html',
-  styleUrl: './demographic-master.component.css'
+  styleUrl: './demographic-master.component.scss'
 })
 export class DemographicMasterComponent implements OnInit {
   listdata:any;

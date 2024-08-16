@@ -11,7 +11,7 @@ import {MatCardModule} from '@angular/material/card';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule],
   templateUrl: './ledger-type-master.component.html',
-  styleUrl: './ledger-type-master.component.css'
+  styleUrl: './ledger-type-master.component.scss'
 })
 export class LedgerTypeMasterComponent implements OnInit {
 

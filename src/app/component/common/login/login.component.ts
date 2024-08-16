@@ -9,7 +9,7 @@ import { LoginServiceService } from '../../../services/common/login-service.serv
   standalone: true,
   imports: [ReactiveFormsModule, RouterModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.scss'
 
 })
 export class LoginComponent {

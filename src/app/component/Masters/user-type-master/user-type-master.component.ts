@@ -11,7 +11,7 @@ import {MatCardModule} from '@angular/material/card';
   standalone: true,
   imports: [MatCardModule,MatTableModule,MatPaginatorModule],
   templateUrl: './user-type-master.component.html',
-  styleUrl: './user-type-master.component.css'
+  styleUrl: './user-type-master.component.scss'
 })
 export class UserTypeMasterComponent implements OnInit {
   frmcomtype!:FormGroup;

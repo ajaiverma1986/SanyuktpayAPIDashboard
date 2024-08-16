@@ -18,7 +18,7 @@ import {MatDivider} from '@angular/material/divider';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule,MatProgressSpinnerModule,MatInputModule,MatSelectModule,MatFormFieldModule,FormsModule,MatButtonModule,MatDivider],
   templateUrl: './payment-mode-master.component.html',
-  styleUrl: './payment-mode-master.component.css'
+  styleUrl: './payment-mode-master.component.scss'
 })
 export class PaymentModeMasterComponent implements OnInit {
   listdata:any;

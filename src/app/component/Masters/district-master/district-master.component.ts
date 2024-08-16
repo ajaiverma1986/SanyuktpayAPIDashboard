@@ -18,7 +18,7 @@ import {MatDivider} from '@angular/material/divider';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule,MatProgressSpinnerModule,MatInputModule,MatSelectModule,MatFormFieldModule,FormsModule,MatButtonModule,MatDivider],
   templateUrl: './district-master.component.html',
-  styleUrl: './district-master.component.css'
+  styleUrl: './district-master.component.scss'
 })
 export class DistrictMasterComponent implements OnInit {
 

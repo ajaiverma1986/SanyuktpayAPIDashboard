@@ -11,7 +11,7 @@ import {MatCardModule} from '@angular/material/card';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule],
   templateUrl: './gender.component.html',
-  styleUrl: './gender.component.css'
+  styleUrl: './gender.component.scss'
 })
 export class GenderComponent implements OnInit {
   listdata:any;

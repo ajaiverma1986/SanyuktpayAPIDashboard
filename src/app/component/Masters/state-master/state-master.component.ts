@@ -12,7 +12,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   standalone: true,
   imports: [MatPaginatorModule,MatTableModule,MatCardModule,MatProgressSpinnerModule],
   templateUrl: './state-master.component.html',
-  styleUrl: './state-master.component.css'
+  styleUrl: './state-master.component.scss'
 })
 export class StateMasterComponent implements OnInit {
   listdata:any;

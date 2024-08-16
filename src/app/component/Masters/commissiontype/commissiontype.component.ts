@@ -12,7 +12,7 @@ import {MatCardModule} from '@angular/material/card';
   standalone: true,
   imports: [MatTableModule,MatPaginatorModule,MatCardModule],
   templateUrl: './commissiontype.component.html',
-  styleUrl: './commissiontype.component.css'
+  styleUrl: './commissiontype.component.scss'
 })
 export class CommissiontypeComponent implements OnInit {
 

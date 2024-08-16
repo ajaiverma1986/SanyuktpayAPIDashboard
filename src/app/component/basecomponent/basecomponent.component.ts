@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [],
   templateUrl: './basecomponent.component.html',
-  styleUrl: './basecomponent.component.css'
+  styleUrl: './basecomponent.component.scss'
 })
 export class BasecomponentComponent  {
 
