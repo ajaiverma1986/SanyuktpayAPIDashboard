@@ -1,0 +1,45 @@
+<section class="get-in-touch">
+    <h1 class="title">Add Address</h1>
+    <form class="contact-form row" [formGroup]="frmUserAddress" (ngSubmit)="OnsubmitUserAddress()">
+       <div class="form-field col-lg-6">
+        
+          <select class="form-select"   name="ddladdresstype" formControlName="AddressTypeId" >
+            <option [value]="0">--Select Address Type--</option>
+            @for (item of Modeldata; track $index) {
+              <option  [value]="item.AddressTypeId"  selected="item.AddressTypeId=selectedValue">{{item.AddressTypeName}}</option>
+            }
+           
+          </select>
+        
+       </div>
+       <div class="form-field col-lg-6 ">
+          <input id="txtpincode" class="input-text js-input" type="text" formControlName="Pincode" (change)="OnChanges()" >
+          <label class="label" for="txtpincode">Pin code</label>
+       </div>
+       <div class="form-field col-lg-6 ">
+        <select class="form-select"   name="ddlarea" formControlName="PincodeDataId" >
+            <option [value]="0">--Select Area --</option>
+            @for (item of ModelDataPin; track $index) {
+              <option  [value]="item.PincodeDataId"  selected="item.AddressTypeId=selectedValue">{{item.AreaName}}</option>
+            }
+           
+          </select>
+       </div>
+        <div class="form-field col-lg-6 ">
+          <input id="txtaddress1" class="input-text js-input" type="text" formControlName="Address1">
+          <label class="label" for="txtaddress1">Address1</label>
+       </div>
+       <div class="form-field col-lg-6">
+        <input id="txtaddress2" class="input-text js-input" type="text" formControlName="Address2">
+        <label class="label" for="txtaddress2">Address2</label>
+       </div>
+       <div class="form-field col-lg-6">
+        <input id="txtaddress3" class="input-text js-input" type="text" formControlName="Address3">
+        <label class="label" for="txtaddress3">Address3</label>
+       </div>
+       <div class="form-field col-lg-12">
+          <input class="submit-btn" class="btn btn-primary" type="submit" value="Submit">
+       </div>
+    </form>
+ </section>
+ 

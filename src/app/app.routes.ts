@@ -23,6 +23,7 @@ import { PaymentModeMasterComponent } from './component/Masters/payment-mode-mas
 import { PaymentChanelComponent } from './component/Masters/payment-chanel/payment-chanel.component';
 import { PonboardingComponent } from './component/Onboarding/ponboarding/ponboarding.component';
 import { UserAccountComponent } from './component/Onboarding/user-account/user-account.component';
+import { UserAddressComponent } from './component/Onboarding/user-address/user-address.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -49,7 +50,8 @@ export const routes: Routes = [
       {path: 'PaymentChanel', component: PaymentChanelComponent},
       {path: 'PaymentMode', component: PaymentModeMasterComponent},
       {path: 'Onboard', component: PonboardingComponent},
-      {path: 'AddAcc', component: UserAccountComponent},
+      {path: 'AddUserAcc', component: UserAccountComponent},
+      {path: 'AddUsrAddress', component: UserAddressComponent},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 

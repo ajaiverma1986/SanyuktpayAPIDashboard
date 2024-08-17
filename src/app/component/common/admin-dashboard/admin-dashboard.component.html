@@ -1,28 +1,44 @@
 
 <app-header></app-header>
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="side" opened="false">
+  <mat-sidenav #sidenav mode="side" opened="true">
     
     <mat-nav-list>
       <mat-list-item (click)="sidenav.toggle()">
-        Home
+        Sanyukt Pay
       </mat-list-item>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title>Section 1</mat-panel-title>
+          <mat-panel-title>Masters</mat-panel-title>
         </mat-expansion-panel-header>
         <mat-nav-list>
-          <mat-list-item routerLink="/Dashboard/CommissionType">Item 1.1</mat-list-item>
-          <mat-list-item>Item 1.2</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/CommissionType">Plan Masters</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/CalculationType">Calculation Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/CompanyType">Company Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/Gender">Gender Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/MaritalStatus">Marital Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/AddressType">Address Type Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/Agency">Agency Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/BankMaster">Bank Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/StateMaster">State Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/DistrictMaster">District Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/KycTypeMaster">KYC Type Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/UserTypeMaster">User Type Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/DemographicDetail">Demographic Detail</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/LedgerType">Ledegr Type Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/ServiceType">Service Type Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/PaymentChanel">Payment Chanels</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/PaymentMode">Payment Modes</mat-list-item>
         </mat-nav-list>
       </mat-expansion-panel>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title>Section 2</mat-panel-title>
+          <mat-panel-title>Partner Onboarding</mat-panel-title>
         </mat-expansion-panel-header>
         <mat-nav-list>
-          <mat-list-item>Item 2.1</mat-list-item>
-          <mat-list-item>Item 2.2</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/Onboard">Onboarding</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/AddUsrAddress">User Address</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/AddUserAcc">User Accounts</mat-list-item>
         </mat-nav-list>
       </mat-expansion-panel>
     </mat-nav-list>
@@ -31,9 +47,8 @@
   <mat-sidenav-content>
     <mat-toolbar>
       <button mat-icon-button (click)="sidenav.toggle()">
-        
-        <mat-icon>menu</mat-icon>
-        
+        <span id='myIcon' ><i class="fas fa-bars" style="color: white;"></i></span>
+      
       </button>
       <span>Admin Dashboard</span>
     </mat-toolbar>

@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { MasterDataService } from '../../../services/master-data.service';
 import { BankListResponse } from '../../../RequestModel/MasterDatarESPONSE';
 import { CommonModule } from '@angular/common';
+import { CreateOriginatorAccountRequest } from '../../../RequestModel/UserRequest';
+import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 
 
 @Component({
@@ -20,10 +22,11 @@ export class UserAccountComponent extends BasecomponentComponent implements OnIn
   selectedValue!: string;
   frmAccounDeatil!: FormGroup;
   UserId!: number;
+  Model:CreateOriginatorAccountRequest=new CreateOriginatorAccountRequest();
 
 
 
-  constructor(private toasts: ToastrService, private frmBuilder: FormBuilder, private mstservice: MasterDataService) {
+  constructor(private toasts: ToastrService, private frmBuilder: FormBuilder, private mstservice: MasterDataService,private users:UserMasterService) {
     super(toasts)
     this.createForm();
   }
@@ -47,6 +50,27 @@ this.selectedValue="0";
   }
   OnboardingSubmit() {
 
+    this.Model.accountName = this.frmAccounDeatil.get("AccountName")?.value;
+    this.Model.accountNo = this.frmAccounDeatil.get("AccountNo")?.value;
+    this.Model.bankId = Number(this.frmAccounDeatil.get("Bankname")?.value);
+    this.Model.branchAddress = this.frmAccounDeatil.get("BranchAddress")?.value;
+    this.Model.ifsccode = this.frmAccounDeatil.get("Ifsccode")?.value;
+    this.Model.userId = 2;
+
+    this.users.AddUserAccounts(this.Model).subscribe({
+      next: (SimpleResponse) => {
+        this.UserId = Number(SimpleResponse.Result);
+        if (this.UserId > 0) {
+          this.showToaster(1,"Record Saved Successfully","Partner Onboarding");
+        }
+        else
+        {
+          console.log(SimpleResponse);
+          this.showToaster(3,"Record Not Saveed Successfully","Partner Onboarding");
+        }
+
+      }
+    });
   }
 
 }

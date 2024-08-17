@@ -9,7 +9,7 @@
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <label class="form-label select-label">Choose Usertype</label>
-                    <select class="select form-control"   name="ddlusertype" formControlName="Usertype" >
+                    <select class="select form-control"   name="ddlbank" formControlName="Bankname" >
                       <option [value]="0">--Select Bank--</option>
                       @for (item of BankData; track $index) {
                         <option  [value]="item.BankID"  selected="item.BankID=selectedValue">{{item.BankName}}</option>
@@ -64,15 +64,13 @@
                     <div *ngIf="frmAccounDeatil.controls['Ifsccode'].errors?.['Ifsccode']" class="text-danger">
                      IFSC code is Required
                      </div>
-                     <div *ngIf="frmAccounDeatil.controls['Ifsccode'].errors?.['Ifsccode']" class="text-danger">
-                        Invalid email
-                       </div>
+                    
                  </div>
                 </div>
   
   
                 <div class="mt-4 pt-2">
-                  <input data-mdb-ripple-init class="btn btn-primary btn-md" [disabled]="frmAccounDeatil.status == 'INVALID'" type="submit" value="Submit" />
+                  <input data-mdb-ripple-init class="btn btn-primary btn-md"  type="submit" value="Submit" />
                   
                 </div>
   

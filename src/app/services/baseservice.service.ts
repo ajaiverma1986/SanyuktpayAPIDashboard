@@ -19,8 +19,7 @@ export class BaseserviceService {
     headers = headers.set("Access-Control-Allow-Origin", "*");
     headers = headers.set("content-type", "application/json");
     headers = headers.set("APIToken", environment.APIToken);
-    headers = headers.set("usertoken", userToken? '': '');
-    console.log("Token:-",userToken);
+    headers = headers.set("UserToken", userToken || '');
     return headers;
   }
   getDefaultHeaderFiles():HttpHeaders
@@ -30,7 +29,7 @@ export class BaseserviceService {
     headers = headers.set("Access-Control-Allow-Origin", "*");
     headers = headers.set("content-type", "multipart/form-data");
     headers = headers.set("APIToken", environment.APIToken);
-    headers = headers.set("usertoken", userToken? '': '');
+    headers = headers.set("UserToken", userToken || '');
     return headers;
   }
 
