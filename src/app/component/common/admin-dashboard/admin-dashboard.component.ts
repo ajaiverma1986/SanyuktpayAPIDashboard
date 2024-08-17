@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { NavHeaderComponent } from '../nav-header/nav-header.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -11,7 +11,6 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 
@@ -19,7 +18,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, NavHeaderComponent, FooterComponent, NavigationComponent,MatButtonModule,MatIconModule,MatSidenavModule,MatToolbarModule,CommonModule,MatListModule,
+  imports: [RouterOutlet,RouterLink, HeaderComponent, NavHeaderComponent, FooterComponent, NavigationComponent,MatButtonModule,MatIconModule,MatSidenavModule,MatToolbarModule,CommonModule,MatListModule,
     MatExpansionModule
     
   ],
@@ -32,7 +31,7 @@ export class AdminDashboardComponent {
   isMobile= true;
   isCollapsed = false;
  
-  constructor(private observer: BreakpointObserver) {}
+  constructor() {}
 
   toggleMenu() {
     if(this.isMobile){
@@ -45,13 +44,7 @@ export class AdminDashboardComponent {
   }
 
   ngOnInit() {
-    this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
-      if(screenSize.matches){
-        this.isMobile = true;
-      } else {
-        this.isMobile = false;
-      }
-    });
+    
   }
 
   

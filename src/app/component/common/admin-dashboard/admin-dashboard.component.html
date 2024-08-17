@@ -1,31 +1,18 @@
-<!-- 
-<div class="container-fluid">
-    
-    <app-nav-header></app-nav-header>
-   
-    <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
-            <app-navigation></app-navigation>
-        </div>
-        <div class="col py-3">
-            <router-outlet></router-outlet>
-        </div>
-    </div>
-    <app-footer></app-footer>
-    
-</div> -->
 
+<app-header></app-header>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" opened="false">
     
     <mat-nav-list>
-      <mat-list-item (click)="sidenav.toggle()">Menu</mat-list-item>
+      <mat-list-item (click)="sidenav.toggle()">
+        Home
+      </mat-list-item>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>Section 1</mat-panel-title>
         </mat-expansion-panel-header>
         <mat-nav-list>
-          <mat-list-item>Item 1.1</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/CommissionType">Item 1.1</mat-list-item>
           <mat-list-item>Item 1.2</mat-list-item>
         </mat-nav-list>
       </mat-expansion-panel>
@@ -44,17 +31,18 @@
   <mat-sidenav-content>
     <mat-toolbar>
       <button mat-icon-button (click)="sidenav.toggle()">
+        
         <mat-icon>menu</mat-icon>
+        
       </button>
-      <span>My Application</span>
+      <span>Admin Dashboard</span>
     </mat-toolbar>
     <div class="content">
-      <!-- Main content goes here -->
-      <p>Welcome to the multi-level menu application!</p>
+     <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
+<app-footer></app-footer>
 
 
 
