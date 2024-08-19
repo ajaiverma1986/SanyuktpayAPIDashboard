@@ -6,13 +6,14 @@ import { UserMasterService } from '../../../services/ApplicationServices/user-ma
 import { ToastrService } from 'ngx-toastr';
 import { AddressTypeListResponse, PincodeDataResponse } from '../../../RequestModel/MasterDatarESPONSE';
 import { CreateUserDetailAddressRequest } from '../../../RequestModel/UserRequest';
+import { CommonModule } from '@angular/common';
 
 
 
 @Component({
   selector: 'app-user-address',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './user-address.component.html',
   styleUrl: './user-address.component.scss'
 })

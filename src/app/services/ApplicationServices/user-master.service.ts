@@ -3,6 +3,8 @@ import { BaseserviceService } from '../baseservice.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
 import { CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, UploadOrgLogo1 } from '../../RequestModel/UserRequest';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { environment } from '../../../environments/environment.development';
 
 
 
@@ -11,7 +13,7 @@ import { CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateU
 })
 export class UserMasterService {
 
-  constructor(private apiconnector: BaseserviceService) {
+  constructor(private apiconnector: BaseserviceService,private http: HttpClient) {
   }
 
   UserOnboarding(PostData: CreateUserWithLogoRequest): Observable<SimpleResponse> {
@@ -27,6 +29,19 @@ export class UserMasterService {
     return this.apiconnector.PostFileAPI("/User/UploadUserLogo", formData);
   
   }
+  upload(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${environment.baseurl}/User/UploadUserLogo`, formData, {
+      responseType: 'json',
+    });
+
+    return this.http.request(req);
+  }
+
+
   AddUserAccounts(PostData: CreateOriginatorAccountRequest): Observable<SimpleResponse> {
 
     return this.apiconnector.PostAPI("/User/AddOriginatorAccounts", PostData);

@@ -24,11 +24,14 @@ import { PaymentChanelComponent } from './component/Masters/payment-chanel/payme
 import { PonboardingComponent } from './component/Onboarding/ponboarding/ponboarding.component';
 import { UserAccountComponent } from './component/Onboarding/user-account/user-account.component';
 import { UserAddressComponent } from './component/Onboarding/user-address/user-address.component';
+import { UploadLogoComponent } from './component/Onboarding/upload-logo/upload-logo.component';
+import { RegistrationComponent } from './component/common/registration/registration.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', redirectTo: 'login', pathMatch: 'full'},
   {path: 'forget',component:ForgetpwdComponent},
+  {path: 'PRegister',component:RegistrationComponent},
   {path: 'login', canActivate:[AuthGaurdLoginService], component:LoginComponent},
   {
     path: 'Dashboard', canActivate:[AuthGaurdService], component: AdminDashboardComponent, children: [
@@ -52,6 +55,7 @@ export const routes: Routes = [
       {path: 'Onboard', component: PonboardingComponent},
       {path: 'AddUserAcc', component: UserAccountComponent},
       {path: 'AddUsrAddress', component: UserAddressComponent},
+      {path: 'UploadUserLogo', component: UploadLogoComponent},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 

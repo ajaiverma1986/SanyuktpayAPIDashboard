@@ -1,0 +1,110 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+
+            <div class="container">
+                <div class="common-margin">
+                    <div class="justify-content-center row">
+                        <div class="col-lg-7 col-md-12 col">
+                            <div class="form-wrap-card card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h1 class="justify-content-start common-section-heading">Register</h1>
+                                        </div>
+                                    </div>
+                                    <form [formGroup]="frmRegistration" (ngSubmit)="onRegistreSubmit()">
+
+                                        <div class="mb-3 row">
+                                            <div class="col">
+                                                <label class="form-label" for="Email">Email</label>
+                                                 <input type="text" class="form-control" id="Email" name="Email" placeholder="Email" formControlName="Email" >
+                                                   
+                                                 <div *ngIf="frmRegistration.controls['Email'].invalid && (frmRegistration.controls['Email'].dirty || frmRegistration.controls['Email'].touched)" class="mt-2">
+                                                    <div *ngIf="frmRegistration.controls['Email'].errors?.['required']" class="text-danger">
+                                                       Email is Required
+                                                     </div>
+                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <div class="col">
+                                                <label class="form-label" for="OrgName">Organisation</label>
+                                                 <input type="text" class="form-control" id="OrgName" name="OrgName" placeholder="Organisation Name" formControlName="OrgName" >
+                                                   
+                                                 <div *ngIf="frmRegistration.controls['OrgName'].invalid && (frmRegistration.controls['OrgName'].dirty || frmRegistration.controls['OrgName'].touched)" class="mt-2">
+                                                    <div *ngIf="frmRegistration.controls['OrgName'].errors?.['required']" class="text-danger">
+                                                       Organisation is Required
+                                                     </div>
+                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <div class="col">
+                                                <label class="form-label" for="FirstName">First Name</label>
+                                                 <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="First Name" formControlName="FirstName" >
+                                                   
+                                                 <div *ngIf="frmRegistration.controls['FirstName'].invalid && (frmRegistration.controls['FirstName'].dirty || frmRegistration.controls['FirstName'].touched)" class="mt-2">
+                                                    <div *ngIf="frmRegistration.controls['FirstName'].errors?.['required']" class="text-danger">
+                                                       First is Required
+                                                     </div>
+                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <div class="col">
+                                                <label class="form-label" for="LastName">Last Name</label>
+                                                 <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Last Name" formControlName="FirstName" >
+                                                   
+                                                 
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <div class="col">
+                                                <label class="form-label" for="Passwor">Password</label>
+                                                 <input type="text" class="form-control" id="Passwor" name="Passwor" placeholder="Password" formControlName="Passwor" >
+                                                   
+                                                 <div *ngIf="frmRegistration.controls['Passwor'].invalid && (frmRegistration.controls['Passwor'].dirty || frmRegistration.controls['Passwor'].touched)" class="mt-2">
+                                                    <div *ngIf="frmRegistration.controls['Passwor'].errors?.['required']" class="text-danger">
+                                                       Password is Required
+                                                     </div>
+                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <div class="col">
+                                                <label class="form-label" for="ConfirmPass">Confirm Password</label>
+                                                 <input type="text" class="form-control" id="ConfirmPass" name="ConfirmPass" placeholder="Confirm Password" formControlName="ConfirmPass" >
+                                                   
+                                                 <div *ngIf="frmRegistration.controls['ConfirmPass'].invalid && (frmRegistration.controls['ConfirmPass'].dirty || frmRegistration.controls['ConfirmPass'].touched)" class="mt-2">
+                                                    <div *ngIf="frmRegistration.controls['ConfirmPass'].errors?.['required']" class="text-danger">
+                                                     Confirm  Password is Required
+                                                     </div>
+                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-check"><input required="" type="checkbox"
+                                                    class="form-check-input"><label title=""
+                                                    class="form-check-label"><span>Agree
+                                                        to&nbsp;<a
+                                                            href="#"
+                                                            target="_blank" rel="noopener noreferrer"
+                                                            class="no-underline">terms and
+                                                            conditions</a></span></label>
+                                                
+                                            </div>
+                                          
+                                        </div>
+                                        <button  id="loginBtn" name="loginBtn" [disabled]="frmRegistration.status == 'INVALID'" class="btn btn-primary w-100 mt-3" >Register</button>
+                                        <br/> <br/><a href="#" class="text-default" routerLink="/login"> Back To Login</a> 
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

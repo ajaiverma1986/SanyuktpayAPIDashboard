@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MasterDataService } from '../../../services/master-data.service';
 import { UserTypeListResponse } from '../../../RequestModel/MasterDatarESPONSE';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CreateUserWithLogoRequest, UploadOrgLogo1 } from '../../../RequestModel/UserRequest';
+import { CreateUserWithLogoRequest } from '../../../RequestModel/UserRequest';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 
@@ -23,12 +22,8 @@ export class PonboardingComponent  extends BasecomponentComponent implements OnI
   selectedValue!: string;
   frmOnboarding!: FormGroup;
   UserId!: number;
-  files!: File;
   Model: CreateUserWithLogoRequest = new CreateUserWithLogoRequest();
-  Model1:UploadOrgLogo1=new UploadOrgLogo1();
-  currentFile?: File;
-  message = '';
-  fileInfos?: Observable<any>;
+  
 
 
 
@@ -79,37 +74,7 @@ export class PonboardingComponent  extends BasecomponentComponent implements OnI
         if (this.UserId > 0) {
         
           this.showToaster(1,"Record Saved Successfully","Partner Onboarding");
-          // this.Model1.iform=this.files;
-          // this.Model1.UserId=this.UserId;
-          // this.users.UploadUserLogo(this.Model1).subscribe({
-          //   next: (SimpleResponse) => {
-          //     console.log(SimpleResponse);
-          //   }
-          // })
-
-          if (this.currentFile) {
-            this.users.UploadUserLogo(this.UserId, this.currentFile).subscribe({
-              next: (SimpleResponse) => {
-               console.log(SimpleResponse);
-              },
-              error: (err: any) => {
-                console.log(err);
-      
-                if (err.error && err.error.message) {
-                  this.message = err.error.message;
-                } else {
-                  this.message = 'Could not upload the file!';
-                }
-              },
-              complete: () => {
-                this.currentFile = undefined;
-              },
-            });
-          }
-
-
-
-
+         
         }
         else
         {
@@ -121,11 +86,5 @@ export class PonboardingComponent  extends BasecomponentComponent implements OnI
     });
   }
 
-  onFileChange(event: any) {
-    this.message = '';
-    this.currentFile = event.target.files.item(0);
-  }
-
-
-
+  
 }
