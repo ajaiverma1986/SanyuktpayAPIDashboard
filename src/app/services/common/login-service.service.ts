@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ApiutilityService } from './apiutility.service';
-import { LoginRequest } from '../../RequestModel/LoginRequest';
-import { ModelRequest } from '../../RequestModel/ModelRequest';
+import { LoginRequest, RegisterUserRequest } from '../../RequestModel/LoginRequest';
 import { Authorization } from '../../RequestModel/Authorization';
 import { Observable } from 'rxjs';
+import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +28,10 @@ apiUrl=environment.baseurl;
     loginreq.Password = Password;
     let headers: HttpHeaders = this.getDefaultHeader();
     return this.http.post<Authorization>(this.apiUrl + "/AA/login", loginreq,  {headers: headers});
+  }
+  RegisterUser(regdata:RegisterUserRequest): Observable<SimpleResponse> {
+   
+    let headers: HttpHeaders = this.getDefaultHeader();
+    return this.http.post<SimpleResponse>(this.apiUrl + "/User/CreateOrgAPIPartner", regdata,  {headers: headers});
   }
 }
