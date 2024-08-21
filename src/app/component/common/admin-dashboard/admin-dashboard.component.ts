@@ -30,6 +30,7 @@ export class AdminDashboardComponent {
   sidenav!: MatSidenav;
   isMobile= true;
   isCollapsed = false;
+  apptitle!:string
  
   constructor() {}
 
@@ -44,7 +45,7 @@ export class AdminDashboardComponent {
   }
 
   ngOnInit() {
-    
+    this.apptitle="Sanyukt Pay API Dashboard"
   }
 
   

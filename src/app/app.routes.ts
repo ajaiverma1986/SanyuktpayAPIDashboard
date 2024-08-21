@@ -26,6 +26,7 @@ import { UserAccountComponent } from './component/Onboarding/user-account/user-a
 import { UserAddressComponent } from './component/Onboarding/user-address/user-address.component';
 import { UploadLogoComponent } from './component/Onboarding/upload-logo/upload-logo.component';
 import { RegistrationComponent } from './component/common/registration/registration.component';
+import { CreateAppComponent } from './component/APIM/create-app/create-app.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -56,6 +57,7 @@ export const routes: Routes = [
       {path: 'AddUserAcc', component: UserAccountComponent},
       {path: 'AddUsrAddress', component: UserAddressComponent},
       {path: 'UploadUserLogo', component: UploadLogoComponent},
+      {path: 'AppMgr', component: CreateAppComponent},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 

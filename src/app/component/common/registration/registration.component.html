@@ -66,7 +66,7 @@
                                         <div class="mb-3 row">
                                             <div class="col">
                                                 <label class="form-label" for="LastName">Last Name</label>
-                                                 <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Last Name" formControlName="FirstName" >
+                                                 <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Last Name" formControlName="LastName" >
                                                    
                                                  
                                             </div>
@@ -74,7 +74,7 @@
                                         <div class="mb-3 row">
                                             <div class="col">
                                                 <label class="form-label" for="Passwor">Password</label>
-                                                 <input type="text" class="form-control" id="Passwor" name="Passwor" placeholder="Password" formControlName="Passwor" >
+                                                 <input type="password" class="form-control" id="Passwor" name="Passwor" placeholder="Password" formControlName="Passwor" >
                                                    
                                                  <div *ngIf="frmRegistration.controls['Passwor'].invalid && (frmRegistration.controls['Passwor'].dirty || frmRegistration.controls['Passwor'].touched)" class="mt-2">
                                                     <div *ngIf="frmRegistration.controls['Passwor'].errors?.['required']" class="text-danger">
@@ -86,7 +86,7 @@
                                         <div class="mb-3 row">
                                             <div class="col">
                                                 <label class="form-label" for="ConfirmPass">Confirm Password</label>
-                                                 <input type="text" class="form-control" id="ConfirmPass" name="ConfirmPass" placeholder="Confirm Password" formControlName="ConfirmPass" >
+                                                 <input type="password" class="form-control" id="ConfirmPass" name="ConfirmPass" placeholder="Confirm Password" formControlName="ConfirmPass" >
                                                    
                                                  <div *ngIf="frmRegistration.controls['ConfirmPass'].invalid && (frmRegistration.controls['ConfirmPass'].dirty || frmRegistration.controls['ConfirmPass'].touched)" class="mt-2">
                                                     <div *ngIf="frmRegistration.controls['ConfirmPass'].errors?.['required']" class="text-danger">
@@ -108,7 +108,7 @@
                                             </div>
                                           
                                         </div>
-                                        <button  id="loginBtn" name="loginBtn" [disabled]="frmRegistration.status == 'INVALID'" class="btn btn-primary w-100 mt-3" >Register</button>
+                                        <button  id="loginBtn" name="loginBtn"  class="btn btn-primary w-100 mt-3" >Register</button>
                                         <br/> <br/><a href="#" class="text-default" routerLink="/login"> Back To Login</a> 
                                     </form>
                                 </div>

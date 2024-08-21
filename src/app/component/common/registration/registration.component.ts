@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, LowerCasePipe } from '@angular/common';
 import { Component, OnInit, SimpleChange } from '@angular/core';
-import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,ReactiveFormsModule, FormControl, AbstractControl } from '@angular/forms';
 import { LoginServiceService } from '../../../services/common/login-service.service';
 import { RegisterUserRequest } from '../../../RequestModel/LoginRequest';
 import { SimpleResponse } from '../../../RequestModel/MasterDatarESPONSE';
@@ -20,11 +20,13 @@ export class RegistrationComponent extends BasecomponentComponent implements OnI
   ModelReq:RegisterUserRequest=new RegisterUserRequest();
   UserMasterId!:string;
   errors:any;
+ 
 
   constructor(private fb: FormBuilder,private logservice:LoginServiceService,toast:ToastrService) {
     super(toast);
     this.createForm();
   }
+  
   ngOnInit(): void {
 
   }
@@ -42,6 +44,18 @@ export class RegistrationComponent extends BasecomponentComponent implements OnI
   }
 
   onRegistreSubmit(){
+
+    this.ModelReq.EmailId=this.frmRegistration.get("Email")?.value;
+    this.ModelReq.FirstName=this.frmRegistration.get("FirstName")?.value;
+    this.ModelReq.MobileNo=this.frmRegistration.get("Mobile")?.value;
+    this.ModelReq.LastName=this.frmRegistration.get("LastName")?.value;
+    this.ModelReq.FirstName=this.frmRegistration.get("FirstName")?.value;
+    this.ModelReq.Password=this.frmRegistration.get("Passwor")?.value;
+    this.ModelReq.OrganisationName=this.frmRegistration.get("OrgName")?.value;
+if( this.frmRegistration.get("Passwor")?.value!=this.frmRegistration.get("PassConfirmPasswor")?.value)
+{
+  this.showToaster(3,"Password did not matched","Partner Registration")
+}
 
     this.logservice.RegisterUser(this.ModelReq).subscribe({
       next:(data)=>{

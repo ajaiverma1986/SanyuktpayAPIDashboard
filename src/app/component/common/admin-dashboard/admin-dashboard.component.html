@@ -9,29 +9,16 @@
       </mat-list-item>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title>Masters</mat-panel-title>
+          <mat-panel-title>Manage API</mat-panel-title>
         </mat-expansion-panel-header>
         <mat-nav-list>
-          <mat-list-item routerLink="/Dashboard/CommissionType">Plan Masters</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/CalculationType">Calculation Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/CompanyType">Company Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/Gender">Gender Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/MaritalStatus">Marital Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/AddressType">Address Type Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/Agency">Agency Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/BankMaster">Bank Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/StateMaster">State Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/DistrictMaster">District Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/KycTypeMaster">KYC Type Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/UserTypeMaster">User Type Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/DemographicDetail">Demographic Detail</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/LedgerType">Ledegr Type Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/ServiceType">Service Type Master</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/PaymentChanel">Payment Chanels</mat-list-item>
-          <mat-list-item routerLink="/Dashboard/PaymentMode">Payment Modes</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/AppMgr">Application List</mat-list-item>
+          <!-- <mat-list-item routerLink="/Dashboard/CalculationType">Calculation Master</mat-list-item>
+          <mat-list-item routerLink="/Dashboard/CompanyType">Company Master</mat-list-item> -->
+          
         </mat-nav-list>
       </mat-expansion-panel>
-      <mat-expansion-panel>
+      <!-- <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>Partner Onboarding</mat-panel-title>
         </mat-expansion-panel-header>
@@ -41,7 +28,7 @@
           <mat-list-item routerLink="/Dashboard/AddUserAcc">User Accounts</mat-list-item>
           <mat-list-item routerLink="/Dashboard/UploadUserLogo">Upload Logo</mat-list-item>
         </mat-nav-list>
-      </mat-expansion-panel>
+      </mat-expansion-panel> -->
     </mat-nav-list>
   </mat-sidenav>
 
@@ -51,7 +38,7 @@
         <span id='myIcon' ><i class="fas fa-bars" style="color: white;"></i></span>
       
       </button>
-      <span>Admin Dashboard</span>
+      <span>{{apptitle}}</span>
     </mat-toolbar>
     <div class="content">
      <router-outlet></router-outlet>

@@ -20,6 +20,18 @@ export class CompanyTypeMasterResponse {
     Status!: number;
     StatusName!: string;
 }
+export interface ApplicationListResponse {
+    applicationID: number;
+    organizationID: number;
+    applicationName: string;
+    applicationDescription: string;
+    applicationToken: string;
+    createdBy: string;
+    organisationName: string;
+    emailId: string;
+    mobileNo: string;
+    createdOn: string;
+}
 export class SimpleResponse extends BaseResponse {
     public Result: any;
 }

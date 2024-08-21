@@ -13,9 +13,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
-  ngOnInit(): void {
-    
+  username!:string;
+
+  constructor(private router: Router){
+
   }
-  
+
+  ngOnInit(): void {
+    this.username=sessionStorage.getItem("Display Name") || 'Sanyukt pay';
+  }
+  Logout()
+  {
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+  }
   
 }
