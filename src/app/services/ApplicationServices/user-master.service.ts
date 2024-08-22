@@ -1,7 +1,7 @@
 import { Injectable, SimpleChange } from '@angular/core';
 import { BaseserviceService } from '../baseservice.service';
 import { Observable } from 'rxjs/internal/Observable';
-import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
+import { CreateApplicationRequest, SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
 import { CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, UploadOrgLogo1 } from '../../RequestModel/UserRequest';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
@@ -69,5 +69,13 @@ export class UserMasterService {
   ListApplication(): Observable<SimpleResponse> {
 
     return this.apiconnector.GetAPI("/User/GetAllapplication");
+  }
+  CreateNewApplication(PostData: CreateApplicationRequest): Observable<SimpleResponse> {
+
+    return this.apiconnector.PostAPI("/Config/CreateNewApplication", PostData);
+  }
+  ListUsers(): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/User/GetallUserByOrg");
   }
 }

@@ -124,3 +124,27 @@ export class ListPaymentModeResponse {
     Status!: number;
     
 }
+export class CreateApplicationRequest {
+    ApplicationName!: string;
+    ApplicationDescription!: string;
+}
+export class UserrListResponse {
+    UserMasterID?: number;
+    UserId?: number;
+    UserName?: string;
+    DisplayName?: string;
+    OrganisationName?: string;
+    UserType?: string;
+    EmailId?: string;
+    MobileNo?: string;
+}
+export class CreateNewUserRequest {
+    emailId!: string;
+    mobileNo!: string;
+    applicationID!: number;
+    organisationID!: number;
+    userTypeId!: number;
+    firstName!: string;
+    lastName!: string;
+    password!: string;
+}

@@ -45,7 +45,8 @@ export class AdminDashboardComponent {
   }
 
   ngOnInit() {
-    this.apptitle="Sanyukt Pay API Dashboard"
+    //this.apptitle="Sanyukt Pay API Dashboard"
+    this.apptitle="API Dashboard"
   }
 
   

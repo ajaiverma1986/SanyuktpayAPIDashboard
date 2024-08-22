@@ -1,0 +1,176 @@
+
+@if (this.addnew==false) {
+
+    <button type="button" class="btn btn-primary" (click)="AddNewApplication()">Add New User</button><br>
+  <mat-card appearance="outlined" >
+      <mat-card-title style=" background-color: #3f51b5;color: white;">User List</mat-card-title>
+      <br>
+      <mat-card-content>
+          
+    @if (Modeldata!=null) {
+    
+    <table mat-table [dataSource]="Modeldata" class="mat-elevation-z8">
+    
+       
+        <ng-container matColumnDef="UserMasterID">
+          <th mat-header-cell *matHeaderCellDef> User ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.UserMasterID}} </td>
+        </ng-container>
+        <ng-container matColumnDef="UserType">
+            <th mat-header-cell *matHeaderCellDef> User Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.UserType}} </td>
+          </ng-container>
+      
+        <ng-container matColumnDef="UserName">
+          <th mat-header-cell *matHeaderCellDef> User Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.UserName}} </td>
+        </ng-container>
+      
+       
+        <ng-container matColumnDef="EmailId">
+          <th mat-header-cell *matHeaderCellDef> Email Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.EmailId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="MobileNo">
+          <th mat-header-cell *matHeaderCellDef> Mobile No </th>
+          <td mat-cell *matCellDef="let element"> {{element.MobileNo}} </td>
+        </ng-container>
+        <ng-container matColumnDef="OrganisationName">
+          <th mat-header-cell *matHeaderCellDef> Org Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.OrganisationName}} </td>
+        </ng-container>
+       
+        <ng-container matColumnDef="DisplayName">
+          <th mat-header-cell *matHeaderCellDef>Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.DisplayName}} </td>
+        </ng-container>
+     
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+    }
+    </mat-card-content>
+   
+    </mat-card>
+  }
+  @else {
+    <div class="container">
+      <div class="common-margin">
+        <div class="justify-content-center row">
+          <div class="col-lg-7 col-md-12 col">
+            <div class="form-wrap-card card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                      <h1 class="justify-content-start common-section-heading">Add User</h1>
+                  </div>
+                  <form [formGroup]="frmAddUser" (ngSubmit)="OnSubmit()">
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label class="form-label" for="Email">Application</label>
+                             <input type="text" class="form-control" id="Email" name="Email" placeholder="Email" formControlName="Email" >
+                               
+                             <div *ngIf="frmAddUser.controls['Email'].invalid && (frmAddUser.controls['Email'].dirty || frmAddUser.controls['Email'].touched)" class="mt-2">
+                                <div *ngIf="frmAddUser.controls['Email'].errors?.['required']" class="text-danger">
+                                   Email is Required
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label class="form-label" for="Email">Email</label>
+                             <input type="text" class="form-control" id="Email" name="Email" placeholder="Email" formControlName="Email" >
+                               
+                             <div *ngIf="frmAddUser.controls['Email'].invalid && (frmAddUser.controls['Email'].dirty || frmAddUser.controls['Email'].touched)" class="mt-2">
+                                <div *ngIf="frmAddUser.controls['Email'].errors?.['required']" class="text-danger">
+                                   Email is Required
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label class="form-label" for="Mobile">Mobile</label>
+                             <input type="text" class="form-control" id="Mobile" name="Mobile" placeholder="Mobile" formControlName="Mobile" >
+                               
+                             <div *ngIf="frmAddUser.controls['Mobile'].invalid && (frmAddUser.controls['Mobile'].dirty || frmAddUser.controls['Mobile'].touched)" class="mt-2">
+                                <div *ngIf="frmAddUser.controls['Mobile'].errors?.['required']" class="text-danger">
+                                   Mobile is Required
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label class="form-label" for="OrgName">Organisation</label>
+                             <input type="text" class="form-control" id="OrgName" name="OrgName" placeholder="Organisation Name" formControlName="OrgName" >
+                               
+                             <div *ngIf="frmAddUser.controls['OrgName'].invalid && (frmAddUser.controls['OrgName'].dirty || frmAddUser.controls['OrgName'].touched)" class="mt-2">
+                                <div *ngIf="frmAddUser.controls['OrgName'].errors?.['required']" class="text-danger">
+                                   Organisation is Required
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label class="form-label" for="FirstName">First Name</label>
+                             <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="First Name" formControlName="FirstName" >
+                               
+                             <div *ngIf="frmAddUser.controls['FirstName'].invalid && (frmAddUser.controls['FirstName'].dirty || frmAddUser.controls['FirstName'].touched)" class="mt-2">
+                                <div *ngIf="frmAddUser.controls['FirstName'].errors?.['required']" class="text-danger">
+                                   First is Required
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label class="form-label" for="LastName">Last Name</label>
+                             <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Last Name" formControlName="LastName" >
+                               
+                             
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label class="form-label" for="Passwor">Password</label>
+                             <input type="password" class="form-control" id="Passwor" name="Passwor" placeholder="Password" formControlName="Passwor" >
+                               
+                             <div *ngIf="frmAddUser.controls['Passwor'].invalid && (frmAddUser.controls['Passwor'].dirty || frmAddUser.controls['Passwor'].touched)" class="mt-2">
+                                <div *ngIf="frmAddUser.controls['Passwor'].errors?.['required']" class="text-danger">
+                                   Password is Required
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <label class="form-label" for="ConfirmPass">Confirm Password</label>
+                             <input type="password" class="form-control" id="ConfirmPass" name="ConfirmPass" placeholder="Confirm Password" formControlName="ConfirmPass" >
+                               
+                             <div *ngIf="frmAddUser.controls['ConfirmPass'].invalid && (frmAddUser.controls['ConfirmPass'].dirty || frmAddUser.controls['ConfirmPass'].touched)" class="mt-2">
+                                <div *ngIf="frmAddUser.controls['ConfirmPass'].errors?.['required']" class="text-danger">
+                                 Confirm  Password is Required
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                   
+                    <button  id="btncreate" name="btncreate"  class="btn btn-primary w-100 mt-3" >Create</button>
+                    
+                </form>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+      
+    
