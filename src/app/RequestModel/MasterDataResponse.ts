@@ -21,16 +21,16 @@ export class CompanyTypeMasterResponse {
     StatusName!: string;
 }
 export interface ApplicationListResponse {
-    applicationID: number;
+    ApplicationID: number;
     organizationID: number;
-    applicationName: string;
-    applicationDescription: string;
-    applicationToken: string;
-    createdBy: string;
-    organisationName: string;
-    emailId: string;
-    mobileNo: string;
-    createdOn: string;
+    ApplicationName: string;
+    ApplicationDescription: string;
+    ApplicationToken: string;
+    CreatedBy: string;
+    OrganisationName: string;
+    EmailId: string;
+    MobileNo: string;
+    CreatedOn: string;
 }
 export class SimpleResponse extends BaseResponse {
     public Result: any;
@@ -139,12 +139,12 @@ export class UserrListResponse {
     MobileNo?: string;
 }
 export class CreateNewUserRequest {
-    emailId!: string;
-    mobileNo!: string;
+    EmailId!: string;
+    MobileNo!: string;
     applicationID!: number;
-    organisationID!: number;
-    userTypeId!: number;
-    firstName!: string;
-    lastName!: string;
-    password!: string;
+    UserTypeId!: number;
+    FirstName!: string;
+    LastName!: string;
+    Password!: string;
+    AccessID!:string;
 }

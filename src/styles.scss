@@ -1209,4 +1209,17 @@ $secondary: #AC4CBC;
   width:200px;
   cursor: pointer;
 }
+.btn--base {
+  position: relative;
+  background: #42a8df;
+  color: #fff;
+  border-radius: 10px;
+  padding: 15px 25px;
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
 
