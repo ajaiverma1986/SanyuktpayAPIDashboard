@@ -25,20 +25,20 @@ export class CreateAPIUserComponent extends BasecomponentComponent implements On
   frmAddUser!: FormGroup;
   Model: CreateNewUserRequest = new CreateNewUserRequest();
   UserID!: string;
-  isbutton:boolean=false;
+  isbutton: boolean = false;
 
   constructor(private userser: UserMasterService, private fb: FormBuilder, toast: ToastrService) {
     super(toast);
     this.createForm();
   }
   ngOnInit(): void {
+
     this.getAllAppData();
     this.userser.ListApplication().subscribe({
       next: (data) => {
         this.appData = data.Result;
-        if(this.appData.length==0)
-        {
-          this.isbutton=false;
+        if (this.appData.length == 0) {
+          this.isbutton = false;
         }
 
       }
@@ -53,12 +53,15 @@ export class CreateAPIUserComponent extends BasecomponentComponent implements On
       }
     });
   }
+  clearData() {
+    this.frmAddUser.reset(this.frmAddUser.value);
+  }
   AddNew() {
     this.addnew = true;
   }
 
   OnDataSubmit() {
-    this.Model.applicationID =Number(this.frmAddUser.get("ApplicationID")?.value);
+    this.Model.applicationID = Number(this.frmAddUser.get("ApplicationID")?.value);
     this.Model.Password = this.frmAddUser.get("Passwor")?.value;
     this.Model.UserTypeId = 2;
     this.Model.AccessID = this.frmAddUser.get("AccessID")?.value;
@@ -70,11 +73,13 @@ export class CreateAPIUserComponent extends BasecomponentComponent implements On
           this.showToaster(1, "User Successfully Created", "API Manager");
           this.getAllAppData();
           this.addnew = false;
+          this.clearData();
         }
         else {
           this.showToaster(3, "User not created", "API Manager");
           this.getAllAppData();
           this.addnew = false;
+          this.clearData();
         }
       }
     });

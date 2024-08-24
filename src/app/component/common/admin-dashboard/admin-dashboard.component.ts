@@ -7,10 +7,10 @@ import { NavigationComponent } from "../navigation/navigation.component";
 import { CommonModule } from '@angular/common';
 
 import { MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 
@@ -18,9 +18,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [RouterOutlet,RouterLink, HeaderComponent, NavHeaderComponent, FooterComponent, NavigationComponent,MatButtonModule,MatIconModule,MatSidenavModule,MatToolbarModule,CommonModule,MatListModule,
+  imports: [RouterOutlet, RouterLink, HeaderComponent, NavHeaderComponent, FooterComponent, NavigationComponent, MatButtonModule, MatIconModule, MatSidenavModule, MatToolbarModule, CommonModule, MatListModule,
     MatExpansionModule
-    
+
   ],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.scss'
@@ -28,14 +28,14 @@ import { MatExpansionModule } from '@angular/material/expansion';
 export class AdminDashboardComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-  isMobile= true;
+  isMobile = true;
   isCollapsed = false;
-  apptitle!:string
- 
-  constructor() {}
+  apptitle!: string
+
+  constructor() { }
 
   toggleMenu() {
-    if(this.isMobile){
+    if (this.isMobile) {
       this.sidenav.toggle();
       this.isCollapsed = false; // On mobile, the menu can never be collapsed
     } else {
@@ -46,8 +46,8 @@ export class AdminDashboardComponent {
 
   ngOnInit() {
     //this.apptitle="Sanyukt Pay API Dashboard"
-    this.apptitle="API Dashboard"
+    this.apptitle = "API Dashboard"
   }
 
-  
+
 }

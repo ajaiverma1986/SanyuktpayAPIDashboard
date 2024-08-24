@@ -30,11 +30,11 @@ import { CreateAppComponent } from './component/APIM/create-app/create-app.compo
 import { CreateAPIUserComponent } from './component/APIM/create-apiuser/create-apiuser.component';
 
 export const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'forget',component:ForgetpwdComponent},
-  {path: 'PRegister',component:RegistrationComponent},
-  {path: 'login', canActivate:[AuthGaurdLoginService], component:LoginComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full',title:"Login"},
+  {path: 'login', redirectTo: 'login', pathMatch: 'full',title:"Login"},
+  {path: 'forget',component:ForgetpwdComponent,title:"Forget Password"},
+  {path: 'PRegister',component:RegistrationComponent,title:"Register"},
+  {path: 'login', canActivate:[AuthGaurdLoginService], component:LoginComponent,title:"Login"},
   {
     path: 'Dashboard', canActivate:[AuthGaurdService], component: AdminDashboardComponent, children: [
       {path: 'CommissionType', component: CommissiontypeComponent},
@@ -58,8 +58,8 @@ export const routes: Routes = [
       {path: 'AddUserAcc', component: UserAccountComponent},
       {path: 'AddUsrAddress', component: UserAddressComponent},
       {path: 'UploadUserLogo', component: UploadLogoComponent},
-      {path: 'AppMgr', component: CreateAppComponent},
-      {path: 'APIuser', component: CreateAPIUserComponent},
+      {path: 'AppMgr', component: CreateAppComponent,title:"Application"},
+      {path: 'APIuser', component: CreateAPIUserComponent,title:"Users"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
