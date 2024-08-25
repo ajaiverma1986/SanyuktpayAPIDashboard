@@ -21,12 +21,9 @@ export class UserMasterService {
     return this.apiconnector.PostAPI("/User/CreateNewUser", PostData);
   }
  
-  UploadUserLogo(userid:number, file: File): Observable<SimpleResponse> {
-    const formData: FormData = new FormData();
-
-    formData.append('formFile', file,file.name);
-    
-    return this.apiconnector.PostFileAPI("/User/UploadUserLogo", formData);
+  UploadUserLogo(fomd:FormData): Observable<SimpleResponse> {
+   
+    return this.apiconnector.PostFileAPI("/User/UploadUserLogo", FormData);
   
   }
   upload(file: File): Observable<HttpEvent<any>> {

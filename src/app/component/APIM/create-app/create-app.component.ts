@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplicationListResponse, CreateApplicationRequest } from '../../../RequestModel/MasterDatarESPONSE';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
@@ -7,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ApplicationListResponse, CreateApplicationRequest } from '../../../RequestModel/MasterDatarESPONSE';
 
 @Component({
   selector: 'app-create-app',

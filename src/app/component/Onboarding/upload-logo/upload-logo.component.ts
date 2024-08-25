@@ -1,62 +1,84 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { MasterDataService } from '../../../services/master-data.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
-import { HttpResponse } from '@angular/common/http';
 import {CommonModule} from '@angular/common'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../../environments/environment.development';
+
 
 @Component({
   selector: 'app-upload-logo',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './upload-logo.component.html',
   styleUrl: './upload-logo.component.scss'
 })
 export class UploadLogoComponent extends BasecomponentComponent implements OnInit {
-  currentFile?: File;
-  message = '';
-  fileInfos?: Observable<any>;
+  uploadForm!: FormGroup;
+  selectedFile: File | null = null;
 
-  constructor(private mstdataservice: MasterDataService, private frmBuilder: FormBuilder, private users: UserMasterService,toster:ToastrService) {
+
+  constructor(private fb: FormBuilder,private hhtp:HttpClient, private mstdataservice: MasterDataService, private frmBuilder: FormBuilder, private users: UserMasterService,toster:ToastrService) {
     super(toster)
-    //this.createForm();
+    this.uploadForm = this.fb.group({
+      file: [null, Validators.required]
+    });
   }
-  
-  ngOnInit(): void {
-    //this.fileInfos = this.uploadService.getFiles();
-  }
-
-  selectFile(event: any): void {
-    this.message = '';
-    this.currentFile = event.target.files.item(0);
-  }
-
-  upload(): void {
-    if (this.currentFile) {
-      this.users.upload(this.currentFile).subscribe({
-        next: (event: any) => {
-          if (event instanceof HttpResponse) {
-            this.message = event.body.message;
-            //this.fileInfos = this.uploadService.getFiles();
-          }
-        },
-        error: (err: any) => {
-          console.log(err);
-
-          if (err.error && err.error.message) {
-            this.message = err.error.message;
-          } else {
-            this.message = 'Could not upload the file!';
-          }
-        },
-        complete: () => {
-          this.currentFile = undefined;
-        },
+  onFileChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length) {
+      this.selectedFile = input.files[0];
+      this.uploadForm.patchValue({
+        file: this.selectedFile
       });
     }
   }
+  ngOnInit(): void {
+   
+  }
+  getDefaultHeaderFiles():HttpHeaders
+  {
+    let userToken=sessionStorage.getItem("UserToken");
+    let headers=new HttpHeaders();
+    headers = headers.set("Access-Control-Allow-Origin", "*");
+    headers = headers.set("APIToken", environment.APIToken);
+    headers = headers.set("UserToken", userToken || '');
+    return headers;
+  }
+  onSubmit(): void {
+    if (this.uploadForm.invalid || !this.selectedFile) {
+      this.showToaster(2,"No file Selected","API Manager");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', this.selectedFile);
+
+    // this.users.UploadUserLogo(formData).subscribe({
+    //   next: (response) => {
+    //     this.showToaster(1,"Logo has been Succesfully Uploaded","API Manager")
+    //   },
+    //   error: (error) => {
+    //     this.showToaster(3,"Uplod error" +error,"API Manager")
+        
+    //   }
+    // });
+let headers:HttpHeaders=this.getDefaultHeaderFiles();
+    this.hhtp.post(environment.baseurl+"/User/UploadUserLogo", formData,{headers:headers}).subscribe({
+      next: (response) => {
+        this.showToaster(1,"Logo has been Succesfully Uploaded","API Manager")
+      },
+      error: (error) => {
+        this.showToaster(3,"Uplod error" +error,"API Manager")
+        
+      }
+    });
+  }
+
+
+ 
 
 }
