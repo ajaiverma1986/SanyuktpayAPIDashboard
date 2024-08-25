@@ -28,6 +28,7 @@ import { UploadLogoComponent } from './component/Onboarding/upload-logo/upload-l
 import { RegistrationComponent } from './component/common/registration/registration.component';
 import { CreateAppComponent } from './component/APIM/create-app/create-app.component';
 import { CreateAPIUserComponent } from './component/APIM/create-apiuser/create-apiuser.component';
+import { UserKYCComponent } from './component/Onboarding/user-kyc/user-kyc.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full',title:"Login"},
@@ -36,7 +37,7 @@ export const routes: Routes = [
   {path: 'PRegister',component:RegistrationComponent,title:"Register"},
   {path: 'login', canActivate:[AuthGaurdLoginService], component:LoginComponent,title:"Login"},
   {
-    path: 'Dashboard', canActivate:[AuthGaurdService], component: AdminDashboardComponent, children: [
+    path: 'Dashboard', canActivate:[AuthGaurdService], component: AdminDashboardComponent,title:"Dashboard", children: [
       {path: 'CommissionType', component: CommissiontypeComponent},
       {path: 'CalculationType', component: CalculationTypeComponent},
       {path: 'CompanyType', component: CompanymasterComponent},
@@ -60,6 +61,7 @@ export const routes: Routes = [
       {path: 'UploadUserLogo', component: UploadLogoComponent},
       {path: 'AppMgr', component: CreateAppComponent,title:"Application"},
       {path: 'APIuser', component: CreateAPIUserComponent,title:"Users"},
+      {path: 'UserKYC', component: UserKYCComponent,title:"User KYC "},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 

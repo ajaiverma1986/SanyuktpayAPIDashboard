@@ -57,15 +57,7 @@ export class UploadLogoComponent extends BasecomponentComponent implements OnIni
     const formData = new FormData();
     formData.append('file', this.selectedFile);
 
-    // this.users.UploadUserLogo(formData).subscribe({
-    //   next: (response) => {
-    //     this.showToaster(1,"Logo has been Succesfully Uploaded","API Manager")
-    //   },
-    //   error: (error) => {
-    //     this.showToaster(3,"Uplod error" +error,"API Manager")
-        
-    //   }
-    // });
+   
 let headers:HttpHeaders=this.getDefaultHeaderFiles();
     this.hhtp.post(environment.baseurl+"/User/UploadUserLogo", formData,{headers:headers}).subscribe({
       next: (response) => {
@@ -77,8 +69,5 @@ let headers:HttpHeaders=this.getDefaultHeaderFiles();
       }
     });
   }
-
-
- 
 
 }

@@ -33,4 +33,28 @@ export class CreateUserDetailKyc {
     fileUrl!: string;
     kycID!: number;
 }
+export class UploadUserKYCFileRequest {
+    kycID!: number;
+    documentNo!: string;
+}
+export class UserKYYCResponse {
+    UserKYCID!: number;
+    UserId!: number;
+    KycID!: number;
+    DocumentNo!: string;
+    KycTypeName!: string;
+    FullName!: string;
+    FileUrl!: string;
+    StatusName!: string;
+    CreatedBy!: string;
+    UpdatedBy!: string;
+    CreatedOn?: Date;
+    UpdatedOn?: Date;
+    Status!: number;
+
+}
+interface NgxSpinnerConfig {
+    type?: string;
+  }
+
 
