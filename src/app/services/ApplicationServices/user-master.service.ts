@@ -80,4 +80,8 @@ export class UserMasterService {
     console.log(PostData);
     return this.apiconnector.PostAPI("/User/CreateNewAPIUser", PostData);
   }
+  ListUserKYCByID(kycid:number): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/User/ListUserKYCById?KycId="+kycid);
+  }
 }
