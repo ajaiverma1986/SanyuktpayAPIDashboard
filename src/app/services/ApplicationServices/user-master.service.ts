@@ -84,4 +84,8 @@ export class UserMasterService {
 
     return this.apiconnector.GetAPI("/User/ListUserKYCById?KycId="+kycid);
   }
+  DocumentView_Search(kycid:number): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/User/DocumentView_Search?KYCID="+kycid);
+  }
 }

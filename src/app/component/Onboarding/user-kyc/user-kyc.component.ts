@@ -133,8 +133,8 @@ export class UserKYCComponent extends BasecomponentComponent implements OnInit {
   OpenModel=(UserKYCID:any)=>{
     
     const dialogRef = this.dialog.open(ViewDocumentComponent, {
-      width: '600px',
-      height:'600px',
+      width: '700px',
+      height:'700px',
       backdropClass:'popupBackdropClass',
       data:UserKYCID
     });
