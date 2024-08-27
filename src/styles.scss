@@ -6,6 +6,9 @@
 /* Importing Datepicker SCSS file. */
 // @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 //@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+@import '../node_modules/open-iconic/font/css/open-iconic-bootstrap.css';
+
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 
@@ -1255,3 +1258,6 @@ mat-header-cell {
   overflow: hidden;
   vertical-align: middle;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
