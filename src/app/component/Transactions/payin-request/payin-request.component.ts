@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { MasterDataService } from '../../../services/master-data.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -7,8 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonModule, formatDate } from '@angular/common'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.development';
-import { ListPaymentChanelResponse, ListPaymentModeResponse } from '../../../RequestModel/MasterDatarESPONSE';
-import { OriginatorListAccountResponse, UserKYYCResponse } from '../../../RequestModel/UserRequest';
+import {  ListPaymentModeResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { OriginatorListAccountResponse } from '../../../RequestModel/UserRequest';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -18,6 +18,7 @@ import { PaymentAccountsListResponse } from '../../../RequestModel/ConfigRequest
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddPaymentRequestRequest } from '../../../RequestModel/TransactionRequest';
 import { TransactionsService } from '../../../services/ApplicationServices/transactions.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -42,7 +43,7 @@ export class PayinRequestComponent extends BasecomponentComponent implements OnI
 
 
   constructor(private mds: MasterDataService, private fb: FormBuilder, private uses: UserMasterService,
-    private confg: ConfigService, private txnser: TransactionsService, private hhtp: HttpClient,
+    private confg: ConfigService, private txnser: TransactionsService, private hhtp: HttpClient, private router: Router,
     toast: ToastrService) {
     super(toast);
     this.createForm();
@@ -113,7 +114,7 @@ export class PayinRequestComponent extends BasecomponentComponent implements OnI
     this.Model.RefNo1 = this.frmpayin.get("RefNo1")?.value;
     this.Model.RefNo2 = this.frmpayin.get("RefNo2")?.value;
     this.Model.Remarks = this.frmpayin.get("Remarks")?.value;
-    console.log(this.Model);
+  
 
     this.txnser.AddPayinRequest(this.Model).subscribe({
       next: (data) => {
@@ -133,6 +134,7 @@ export class PayinRequestComponent extends BasecomponentComponent implements OnI
             next: (response) => {
 
               this.showToaster(1, "Request successfully Saved", "Transactions")
+              this.router.navigate(['Dashboard/PayinList']);
             },
             error: (error) => {
               this.showToaster(3, "Uplod error" + error, "API Manager")

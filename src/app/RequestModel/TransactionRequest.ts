@@ -1,3 +1,5 @@
+import {ListRequest} from '../RequestModel/BaseRequest';
+
 export class AddPaymentRequestRequest {
     PaymentChanelID!: number;
     PaymentModeId!: number;
@@ -12,4 +14,13 @@ export class AddPaymentRequestRequest {
 
    
 }
+
+export class ListPayinRequestRequest extends ListRequest {
+    PaymentChanelID!: number;
+    PaymentModeId!: number;
+    Status!: number;
+    FromDate?: string| null;
+    ToDate?: string | null;
+}
+
 
