@@ -55,7 +55,6 @@ this.selectedValue="0";
     this.Model.bankId = Number(this.frmAccounDeatil.get("Bankname")?.value);
     this.Model.branchAddress = this.frmAccounDeatil.get("BranchAddress")?.value;
     this.Model.ifsccode = this.frmAccounDeatil.get("Ifsccode")?.value;
-    this.Model.userId = 2;
 
     this.users.AddUserAccounts(this.Model).subscribe({
       next: (SimpleResponse) => {

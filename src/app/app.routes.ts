@@ -30,6 +30,9 @@ import { CreateAppComponent } from './component/APIM/create-app/create-app.compo
 import { CreateAPIUserComponent } from './component/APIM/create-apiuser/create-apiuser.component';
 import { UserKYCComponent } from './component/Onboarding/user-kyc/user-kyc.component';
 import { PayinRequestComponent } from './component/Transactions/payin-request/payin-request.component';
+import { PayinRequestListComponent } from './component/Transactions/payin-request-list/payin-request-list.component';
+import { PayinAccountComponent } from './component/Transactions/payin-account/payin-account.component';
+
 
 export const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full',title:"Login"},
@@ -64,6 +67,8 @@ export const routes: Routes = [
       {path: 'APIuser', component: CreateAPIUserComponent,title:"Users"},
       {path: 'UserKYC', component: UserKYCComponent,title:"User KYC"},
       {path: 'Payin', component: PayinRequestComponent,title:"PayIn"},
+      {path: 'PayinList', component: PayinRequestListComponent,title:"PayIn List"},
+      {path: 'AddPayinAcc', component: PayinAccountComponent,title:"Payin Accounts"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 

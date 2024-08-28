@@ -11,7 +11,6 @@ export class UploadOrgLogo1 {
     UserId!: number;
 }
 export class CreateOriginatorAccountRequest {
-    userId!: number;
     bankId!: number;
     accountName!: string;
     accountNo!: string;
