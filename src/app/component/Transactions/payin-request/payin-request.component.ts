@@ -134,7 +134,8 @@ export class PayinRequestComponent extends BasecomponentComponent implements OnI
             next: (response) => {
 
               this.showToaster(1, "Request successfully Saved", "Transactions")
-              this.router.navigate(['Dashboard/PayinList']);
+              // this.router.navigate(['Dashboard/PayinList']);
+              
             },
             error: (error) => {
               this.showToaster(3, "Uplod error" + error, "API Manager")

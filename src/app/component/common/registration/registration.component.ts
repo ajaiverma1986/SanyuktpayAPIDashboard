@@ -58,9 +58,7 @@ export class RegistrationComponent extends BasecomponentComponent implements OnI
     this.ModelReq.FirstName = this.frmRegistration.get("FirstName")?.value;
     this.ModelReq.Password = this.frmRegistration.get("Passwor")?.value;
     this.ModelReq.OrganisationName = this.frmRegistration.get("OrgName")?.value;
-    if (this.frmRegistration.get("Passwor")?.value != this.frmRegistration.get("PassConfirmPasswor")?.value) {
-      this.showToaster(3, "Password did not matched", "Partner Registration")
-    }
+   
 
     this.logservice.RegisterUser(this.ModelReq).subscribe({
       next: (data) => {

@@ -5,6 +5,7 @@ import { CreateApplicationRequest, CreateNewUserRequest, SimpleResponse } from '
 import { CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, UploadOrgLogo1 } from '../../RequestModel/UserRequest';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
+import { ListResponse } from '../../RequestModel/BaseResponse';
 
 
 
@@ -43,7 +44,7 @@ export class UserMasterService {
 
     return this.apiconnector.PostAPI("/User/AddOriginatorAccounts", PostData);
   }
-  ListUserAccounts(): Observable<SimpleResponse> {
+  ListUserAccounts(): Observable<ListResponse> {
 
     return this.apiconnector.GetAPI("/User/ListOriginatorAccounts");
   }
