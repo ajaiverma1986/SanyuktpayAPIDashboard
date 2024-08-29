@@ -72,6 +72,7 @@ interface NgxSpinnerConfig {
     CreatedOn?: Date;
     UpdatedOn?: Date;
     Status!: number;
+    Filename!:string
 
    
 }
