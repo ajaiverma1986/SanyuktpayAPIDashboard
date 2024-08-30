@@ -21,4 +21,8 @@ export class TransactionsService {
 
     return this.apiconnector.PostAPI("/Transaction/ListPayinRequest", PostData);
   }
+  GetPayinRecieptFiles(RequestID:any): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/Transaction/DocumentViewPauinrequest_Search?RequestID="+RequestID);
+  }
 }

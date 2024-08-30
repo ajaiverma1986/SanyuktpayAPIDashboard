@@ -15,6 +15,8 @@ import { ListPayinRequestRequest } from '../../../RequestModel/TransactionReques
 import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
 import { ListPaymentChanelResponse, ListPaymentModeResponse } from '../../../RequestModel/MasterDatarESPONSE';
 import { PayinRequestComponent } from "../payin-request/payin-request.component";
+import { ViewTransactiondocComponent } from '../view-transactiondoc/view-transactiondoc.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-payin-request-list',
@@ -26,7 +28,7 @@ import { PayinRequestComponent } from "../payin-request/payin-request.component"
 export class PayinRequestListComponent extends BasecomponentComponent implements OnInit {
 
   Modeldata!:PayinRequestListResponse[];
-  displayedColumns: string[] = ['RequestID','CreatedOn','DepositDate','PaymentChanelName','PaymentModeName','AccountName','AccountNo','RefNo1','RefNo2','RejectedReason','Remarks','StatusName','CreatedBy','UpdatedOn','UpdatedBy',];
+  displayedColumns: string[] = ['RequestID','CreatedOn','DepositDate','PaymentChanelName','PaymentModeName','AccountName','AccountNo','RefNo1','RefNo2','RejectedReason','Remarks','StatusName','CreatedBy','UpdatedOn','UpdatedBy','actions',];
   Model:ListPayinRequestRequest=new ListPayinRequestRequest();
   frmgsearchpayin!:FormGroup;
   selectedvaluechanel!:string
@@ -50,7 +52,7 @@ export class PayinRequestListComponent extends BasecomponentComponent implements
 
   pageEvent!: PageEvent;
 
-  constructor(private mds: MasterDataService, private fb: FormBuilder,private txnser: TransactionsService,toast: ToastrService) {
+  constructor(private mds: MasterDataService, private fb: FormBuilder,private txnser: TransactionsService,toast: ToastrService, private dialog: MatDialog) {
     super(toast);
     this.createForm();
   }
@@ -136,5 +138,18 @@ this.length=data.TotalRecords;
     });
 
   }
+
+  
+  OpenModel=(UserKYCID:any)=>{
+    
+    const dialogRef = this.dialog.open(ViewTransactiondocComponent, {
+      width: '700px',
+      height:'700px',
+      backdropClass:'popupBackdropClass',
+      data:UserKYCID
+    });
+   
+  }
+
 
 }

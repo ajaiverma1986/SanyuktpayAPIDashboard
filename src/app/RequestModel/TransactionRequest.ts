@@ -23,4 +23,13 @@ export class ListPayinRequestRequest extends ListRequest {
     ToDate?: string | null;
 }
 
+export class PayinRequestReciptDownloadResponse {
+    RequestID!: number;
+    RecieptFile!: string;
+    FileBytes!: Uint8Array;
+    Base64String!: string;
+    MediaExtension!: string;
+
+   
+}
 
