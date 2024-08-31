@@ -32,6 +32,7 @@ import { UserKYCComponent } from './component/Onboarding/user-kyc/user-kyc.compo
 import { PayinRequestComponent } from './component/Transactions/payin-request/payin-request.component';
 import { PayinRequestListComponent } from './component/Transactions/payin-request-list/payin-request-list.component';
 import { PayinAccountComponent } from './component/Transactions/payin-account/payin-account.component';
+import { PayinAccountListComponent } from './component/Transactions/payin-account-list/payin-account-list.component';
 
 
 export const routes: Routes = [
@@ -69,6 +70,7 @@ export const routes: Routes = [
       {path: 'Payin', component: PayinRequestComponent,title:"PayIn"},
       {path: 'PayinList', component: PayinRequestListComponent,title:"PayIn List"},
       {path: 'AddPayinAcc', component: PayinAccountComponent,title:"Payin Accounts"},
+      {path: 'PayinAccList', component: PayinAccountListComponent,title:"Payin Accounts"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 

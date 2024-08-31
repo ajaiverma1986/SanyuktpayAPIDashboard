@@ -1,0 +1,146 @@
+
+<div class="container">
+    <div class="common-margin">
+      <div class="justify-content-center row">
+        <div class="col-lg-12 col-md-12 col">
+          <div class="form-wrap-card card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                    <h1 class="justify-content-start common-section-heading">Pay in Account List</h1>
+                </div>
+                <form (ngSubmit)="onSubmit()" [formGroup]="frmgsearchpayin">
+                  <div class="mb-3 row">
+                        <div class="col-lg-4">
+                            <label class="form-label select-label">Status</label>
+                            <select class="select form-control"   name="Status" [(ngModel)]="Statusval" formControlName="Status" >
+                              <option [value]="0" selected>--Status--</option>
+                              <option [value]="1">Pending</option>
+                              <option [value]="2">Approved</option>
+                              <option [value]="3">Rejected</option>
+                            </select>
+                           
+                            </div>
+                            <div class="col-lg-4">
+                               
+                                <button type="submit" class="btn--base" >Search</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button type="button" class="btn--base" (click)="AddNewRequest()" >Add New</button>
+                              </div>
+
+                  </div>
+                  
+                </form>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <div class="container">
+    <div class="common-margin">
+      <div class="justify-content-center row">
+        <div class="col-lg-12 col-md-12 col">
+          <div class="form-wrap-card card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                    <h1 class="justify-content-start common-section-heading">Payin Request List</h1>
+                </div>
+            <mat-card-content>
+            @if ((Modeldata!=null)) {
+              <div class="table-responsive">
+                <table mat-table [dataSource]="Modeldata" class="mat-elevation-z8">
+    
+       
+                    <ng-container matColumnDef="OriginatorAccountID">
+                      <th mat-header-cell *matHeaderCellDef>Request ID </th>
+                      <td mat-cell *matCellDef="let element"> {{element.OriginatorAccountID}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="CreatedOn">
+                        <th mat-header-cell *matHeaderCellDef> Request Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CreatedOn | date:'dd/MM/yyyy'}} </td>
+                      </ng-container>
+                  
+                      <ng-container matColumnDef="BankName">
+                        <th mat-header-cell *matHeaderCellDef>Bank Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.BankName}} </td>
+                      </ng-container>
+                   
+                    <ng-container matColumnDef="AccountName">
+                      <th mat-header-cell *matHeaderCellDef> Account Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.AccountName}} </td>
+                    </ng-container>
+                   
+                    <ng-container matColumnDef="AccountNo">
+                      <th mat-header-cell *matHeaderCellDef>Account No </th>
+                      <td mat-cell *matCellDef="let element"> {{element.AccountNo}} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="Ifsccode">
+                      <th mat-header-cell *matHeaderCellDef>IFSC Code </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Ifsccode}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Usercode">
+                        <th mat-header-cell *matHeaderCellDef>Usercode </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Usercode}} </td>
+                      </ng-container>
+                      <ng-container matColumnDef="Fullname">
+                        <th mat-header-cell *matHeaderCellDef>Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Fullname}} </td>
+                      </ng-container>
+                    
+                      <ng-container matColumnDef="CreatedBy">
+                        <th mat-header-cell *matHeaderCellDef>Created By </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CreatedBy}} </td>
+                      </ng-container>
+                      <ng-container matColumnDef="UpdatedOn">
+                        <th mat-header-cell *matHeaderCellDef>Updated On </th>
+                        <td mat-cell *matCellDef="let element"> {{element.UpdatedOn | date:'dd/MM/yyyy'}} </td>
+                      </ng-container>
+                      <ng-container matColumnDef="UpdatedBy">
+                        <th mat-header-cell *matHeaderCellDef>Updated By </th>
+                        <td mat-cell *matCellDef="let element"> {{element.UpdatedBy}} </td>
+                      </ng-container>
+                    <ng-container matColumnDef="StatusName">
+                      <th mat-header-cell *matHeaderCellDef>Status </th>
+                      <td mat-cell *matCellDef="let element"> {{element.StatusName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="actions">
+                      
+                      <th mat-header-cell *matHeaderCellDef>Actions </th>
+                      <mat-cell *matCellDef="let element">
+                        <button mat-icon-button matTooltip="Click to view" class="iconbutton" color="warn" (click)="OpenModel(element.OriginatorAccountID)">
+                          <mat-icon>folder</mat-icon>
+                        </button>
+                        
+                      </mat-cell>
+                    </ng-container>
+                   
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+                </div>
+                }
+                </mat-card-content>
+                <mat-card-footer>
+                    <mat-paginator #paginator
+                    (page)="handlePageEvent($event)"
+                    [length]="length"
+                    [pageSize]="pageSize"
+                    [disabled]="disabled"
+                    [showFirstLastButtons]="showFirstLastButtons"
+                    [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+                    [hidePageSize]="hidePageSize"
+                    [pageIndex]="pageIndex"
+                    aria-label="Select page">
+     </mat-paginator>
+                </mat-card-footer>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

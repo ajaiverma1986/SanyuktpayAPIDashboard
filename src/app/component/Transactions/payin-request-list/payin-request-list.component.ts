@@ -146,7 +146,7 @@ this.length=data.TotalRecords;
       width: '700px',
       height:'700px',
       backdropClass:'popupBackdropClass',
-      data:UserKYCID
+      data:{"UserKYCID":UserKYCID,"CallType":"1"}
     });
    
   }

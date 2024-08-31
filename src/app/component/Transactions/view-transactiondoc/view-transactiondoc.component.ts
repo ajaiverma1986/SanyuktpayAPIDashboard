@@ -16,6 +16,7 @@ import { PayinRequestReciptDownloadResponse } from '../../../RequestModel/Transa
 export class ViewTransactiondocComponent {
   action!: string;
   local_data: any;
+  calltype:any;
   imageData: any;
   sanitizedImageData: any;
   Docdata!: PayinRequestReciptDownloadResponse[];
@@ -23,15 +24,35 @@ export class ViewTransactiondocComponent {
     public dialogRef: MatDialogRef<ViewTransactiondocComponent>, private txnser: TransactionsService, private sanitizer: DomSanitizer,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
 
-    this.local_data = data;
+    this.local_data = data.UserKYCID;
+    this.calltype=data.CallType;
+
   }
 
 
   ngOnInit(): void {
-    this.getFiles();
+    if(this.calltype==1)
+    {
+      this.getFiles();
+    }
+    else if(this.calltype==2)
+    {
+this.getOriginatorChequeFiles();
+    }
+   
   }
   getFiles() {
     this.txnser.GetPayinRecieptFiles(this.local_data).subscribe({
+      next: (data) => {
+
+        this.imageData = 'data:image/png;base64,' + data.Result.FileBytes;
+        this.sanitizedImageData = this.sanitizer.bypassSecurityTrustUrl(this.imageData);
+
+      }
+    });
+  }
+  getOriginatorChequeFiles() {
+    this.txnser.GetPayinAccChequeFiles(this.local_data).subscribe({
       next: (data) => {
 
         this.imageData = 'data:image/png;base64,' + data.Result.FileBytes;

@@ -17,7 +17,7 @@ constructor(private toast:ToastrService){
 showToaster(msgtype:number, messageData:string,messagetitle:string) {
   if(msgtype==1)
   {
-    this.toast.success(messageData, messagetitle,{positionClass:'toast-top-right'});
+    this.toast.success(messageData, messagetitle,{positionClass:'toast-top-center'});
   }
   else if(msgtype==2)
   {

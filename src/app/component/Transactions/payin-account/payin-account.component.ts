@@ -17,6 +17,7 @@ import { ConfigService } from '../../../services/ApplicationServices/config.serv
 import { PaymentAccountsListResponse } from '../../../RequestModel/ConfigRequest';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TransactionsService } from '../../../services/ApplicationServices/transactions.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payin-account',
@@ -39,7 +40,7 @@ export class PayinAccountComponent extends BasecomponentComponent implements OnI
   RequestID!: number;
 
   constructor(private mds: MasterDataService, private fb: FormBuilder, private uses: UserMasterService,
-    private confg: ConfigService, private txnser: TransactionsService, private hhtp: HttpClient,
+    private confg: ConfigService, private txnser: TransactionsService, private hhtp: HttpClient,private router:Router,
     toast: ToastrService) {
     super(toast);
     this.createForm();
@@ -97,10 +98,11 @@ export class PayinAccountComponent extends BasecomponentComponent implements OnI
           let headers: HttpHeaders = this.getDefaultHeaderFiles();
           this.hhtp.post(environment.baseurl + "/User/UpdateOriginatorChequeFile?AccountID=" + this.RequestID, formData, { headers: headers }).subscribe({
             next: (response) => {
-              this.showToaster(1, "Account Saved", "Transactions")
+              this.showToaster(1, "Account Saved", "Transactions");
+              this.router.navigate(['/Dashboard/PayinAccList']);
             },
             error: (error) => {
-              this.showToaster(3, "Uplod error" + error, "API Manager")
+              this.showToaster(3, "Uplod error" + error, "API Manager");
             }
           });
         }
@@ -109,6 +111,9 @@ export class PayinAccountComponent extends BasecomponentComponent implements OnI
         }
       }
     });
+  }
+  GoBackToPre(){
+    this.router.navigate(['/Dashboard/PayinAccList']);
   }
   onFileChange(event: Event): void {
     const input = event.target as HTMLInputElement;

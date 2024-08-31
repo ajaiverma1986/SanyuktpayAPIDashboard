@@ -32,4 +32,7 @@ export class PayinRequestReciptDownloadResponse {
 
    
 }
+export class OriginatorListAccountRequest extends ListRequest {
+    Status!:number;
+}
 

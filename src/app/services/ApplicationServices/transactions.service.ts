@@ -3,7 +3,7 @@ import { BaseserviceService } from '../baseservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
-import { AddPaymentRequestRequest, ListPayinRequestRequest } from '../../RequestModel/TransactionRequest';
+import { AddPaymentRequestRequest, ListPayinRequestRequest, OriginatorListAccountRequest } from '../../RequestModel/TransactionRequest';
 import { ListResponse } from '../../RequestModel/BaseResponse';
 
 @Injectable({
@@ -24,5 +24,13 @@ export class TransactionsService {
   GetPayinRecieptFiles(RequestID:any): Observable<SimpleResponse> {
 
     return this.apiconnector.GetAPI("/Transaction/DocumentViewPauinrequest_Search?RequestID="+RequestID);
+  }
+  ListPayinAccListResponse(PostData: OriginatorListAccountRequest): Observable<ListResponse> {
+
+    return this.apiconnector.PostAPI("/User/ListallOriginatorsAccounts", PostData);
+  }
+  GetPayinAccChequeFiles(RequestID:any): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/User/GetOriginatorChequePhoto?AccountID="+RequestID);
   }
 }

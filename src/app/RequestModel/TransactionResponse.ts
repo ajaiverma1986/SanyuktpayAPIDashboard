@@ -33,4 +33,24 @@ export class PayinRequestListResponse {
     UpdatedOn?: Date;
     DepositDate?: Date;
 }
+export class OriginatorListAccountResponse {
+    OriginatorAccountID!: number;
+    UserId!: number;
+    BankId!: number;
+    AccountName!: string;
+    AccountNo!: string;
+    Ifsccode!: string;
+    BranchAddress!: string;
+    StatusName!: string;
+    BankName!: string;
+    Usercode!: string;
+    Fullname!: string;
+    Filename!: string;
+    CreatedBy!: string;
+    UpdatedBy!: string;
+    CreatedOn?: Date;
+    UpdatedOn?: Date;
+    Status!: number;
+}
+
 
