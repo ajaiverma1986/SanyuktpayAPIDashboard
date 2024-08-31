@@ -89,4 +89,12 @@ export class UserMasterService {
 
     return this.apiconnector.GetAPI("/User/DocumentView_Search?KYCID="+kycid);
   }
+  ListAllAppMenu(): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/User/ListAllMenu");
+  }
+  ListAllAppSubMenu(Menuid:number): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/User/ListAllsubMenu?Menuid="+Menuid);
+  }
 }

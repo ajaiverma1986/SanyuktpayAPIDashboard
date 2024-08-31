@@ -25,4 +25,28 @@ export class ListResponse extends BaseResponse {
     public Result!: any;
     public Headers!: string[];
 }
+export class ApplicationParentMenuResponse {
+    MenuID!: number;
+    Title!: string;
+    Tooltip!: string;
+    Description!: string;
+    RoutePath!: string;
+    DisplayOrder!: number;
+    Target!: string;
+    submenu!: ApplicationMenuResponse[];
+
+}
+export class ApplicationMenuResponse {
+    MenuID!: number;
+    ParentID?: number | null;
+    Title!: string;
+    Tooltip!: string;
+    Description!: string;
+    RoutePath!: string;
+    DisplayOrder!: number;
+    Target!: string;
+
+}
+
+
 

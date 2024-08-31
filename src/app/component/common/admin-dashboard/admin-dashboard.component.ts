@@ -12,6 +12,8 @@ import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
+import { ApplicationMenuResponse, ApplicationParentMenuResponse } from '../../../RequestModel/BaseResponse';
 
 
 
@@ -31,8 +33,12 @@ export class AdminDashboardComponent {
   isMobile = true;
   isCollapsed = false;
   apptitle!: string
+  ParMenu!:ApplicationParentMenuResponse[];
+  subMenu!:ApplicationMenuResponse[];
 
-  constructor() { }
+  constructor(private userser:UserMasterService) {
+
+   }
 
   toggleMenu() {
     if (this.isMobile) {
@@ -47,7 +53,19 @@ export class AdminDashboardComponent {
   ngOnInit() {
     //this.apptitle="Sanyukt Pay API Dashboard"
     this.apptitle = "API Dashboard"
+    this.userser.ListAllAppMenu().subscribe({
+      next:(data)=>{
+        this.ParMenu=data.Result;
+      }
+    });
   }
 
+  GetallSubmenu(Menuid:number){
+this.userser.ListAllAppSubMenu(Menuid).subscribe({
+  next:(data)=>{
+    this.subMenu=data.Result;
+  }
+});
+  }
 
 }

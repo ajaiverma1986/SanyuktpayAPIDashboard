@@ -47,7 +47,7 @@ errors:any;
           sessionStorage.setItem("Display Name", authorization.DisplayName);
           sessionStorage.setItem("UserToken", authorization.UserToken);
           sessionStorage.setItem("Has error", authorization.HasError);
-          this.router.navigate(['/Dashboard']);
+          this.router.navigate(['/Dashboard/ParProfile']);
         }
       },
       error: (error) => {
