@@ -97,4 +97,8 @@ export class UserMasterService {
 
     return this.apiconnector.GetAPI("/User/ListAllsubMenu?Menuid="+Menuid);
   }
+  GetOrganisationDetails(): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/User/GetAllUserDetails");
+  }
 }

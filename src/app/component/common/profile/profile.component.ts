@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
+import { PartnerDetailsResponse } from '../../../ResponseModel/UserResponse';
+import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -7,6 +11,23 @@ import { Component } from '@angular/core';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
-export class ProfileComponent {
+export class ProfileComponent extends BasecomponentComponent implements OnInit {
+
+RespModel:PartnerDetailsResponse =new PartnerDetailsResponse();
+Username!:string;
+
+constructor(private userser:UserMasterService,toast:ToastrService){
+super(toast);
+}
+
+  ngOnInit(): void {
+this.Username=sessionStorage.getItem("Display Name") || '';
+
+    this.userser.GetOrganisationDetails().subscribe({
+next:(data)=>{
+  this.RespModel=data.Result;
+}
+    });
+  }
 
 }
