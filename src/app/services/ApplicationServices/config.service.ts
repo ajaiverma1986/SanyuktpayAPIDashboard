@@ -3,6 +3,7 @@ import { BaseserviceService } from '../baseservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
+import { CommissionDistributionRequest, TopupChargeRequest } from '../../RequestModel/ConfigRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,21 @@ export class ConfigService {
   ListChargeDeductionType(): Observable<SimpleResponse> {
 
     return this.apiconnector.GetAPI("/Config/ListChargeDedcutionType");
+  }
+  ListPlan(PlanId?:number): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/Config/ListPlanMaster");
+  }
+  ListSlabType(): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/Config/GetallSlabType");
+  }
+  ListCommissionDistribution(postData:CommissionDistributionRequest): Observable<SimpleResponse> {
+
+    return this.apiconnector.PostAPI("/Config/ListCommissionDistribution",postData);
+  }
+  ListTopupCharge(postData:TopupChargeRequest): Observable<SimpleResponse> {
+
+    return this.apiconnector.PostAPI("/Config/ListTopupCharge",postData);
   }
 }

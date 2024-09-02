@@ -109,6 +109,19 @@ export class serviceTypeListResponse {
     Status!: number;
     StatusName!: string;
 }
+export class ServiceListResponse {
+    ServiceTypeId!: number;
+    ServiceId!: number;
+    ServiceCode!: string;
+    ServiceName!: string;
+    ServiceAccountNo!: string;
+    ServcieIfsccode!: string;
+    ServiceAccName!: string;
+    ServiceMobileNo!: string;
+    ServiceTypeName!: string;
+
+   
+}
 export class ListPaymentChanelResponse {
     PaymentChanelID!: number;
     PaymentChanelName!: string;

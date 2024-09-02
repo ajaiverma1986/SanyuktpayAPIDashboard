@@ -38,6 +38,11 @@ import { TransactionReportComponent } from './component/Reports/transaction-repo
 import { UsrStatementComponent } from './component/Reports/usr-statement/usr-statement.component';
 import { PayinRequestReportComponent } from './component/Reports/payin-request-report/payin-request-report.component';
 import { ChargeDeductiontypeComponent } from './component/Configuration/charge-deductiontype/charge-deductiontype.component';
+import { PlanmasterComponent } from './component/Configuration/planmaster/planmaster.component';
+import { SlabTypeComponent } from './component/Configuration/slab-type/slab-type.component';
+import { DistributionCommissionComponent } from './component/Configuration/distribution-commission/distribution-commission.component';
+import { ServiceListComponent } from './component/Configuration/service-list/service-list.component';
+import { TopupChargeListComponent } from './component/Configuration/topup-charge-list/topup-charge-list.component';
 
 
 export const routes: Routes = [
@@ -81,6 +86,11 @@ export const routes: Routes = [
       {path: 'stmtrpt', component: UsrStatementComponent,title:"Reports"},
       {path: 'payinReport', component: PayinRequestReportComponent,title:"Reports"},
       {path: 'chrgdedutype', component: ChargeDeductiontypeComponent,title:"Configuration"},
+      {path: 'planmst', component: PlanmasterComponent,title:"Configuration"},
+      {path: 'slabtype', component: SlabTypeComponent,title:"Configuration"},
+      {path: 'Commdistr', component: DistributionCommissionComponent,title:"Configuration"},
+      {path: 'servicemst', component: ServiceListComponent,title:"Configuration"},
+      {path: 'topupcrglist', component: TopupChargeListComponent,title:"Configuration"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 

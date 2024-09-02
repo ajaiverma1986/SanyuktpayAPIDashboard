@@ -90,4 +90,8 @@ apiurl=environment.baseurl;
     let headers: HttpHeaders = this.getDefaultHeader2();
     return this.http.get<SimpleResponse>(this.apiurl + "/MasterData/ListPaymentModes?PaymentChanelId="+PaymentChanelId,  {headers: headers});
   }
+  ListAllService(ServiceTypeId:string): Observable<SimpleResponse> {
+    let headers: HttpHeaders = this.getDefaultHeader2();
+    return this.http.get<SimpleResponse>(this.apiurl + "/MasterData/ListAllService?ServiceTypeId="+ServiceTypeId,  {headers: headers});
+  }
 }

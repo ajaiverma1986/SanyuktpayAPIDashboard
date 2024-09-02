@@ -17,4 +17,20 @@ export class PaymentAccountsListResponse {
     UpdatedOn?: Date;
 
 }
+export class CommissionDistributionRequest {
+    AgencyId?: number | null;
+    ServiceId?: number | null;
+    CalculationTypeId?: number | null;
+    amount?: number | null;
+    PlanId?: number | null;
+}
+export class TopupChargeRequest
+{
+    TopupChargeId?: number | null;
+    SlabTypeId?: number | null;
+    CalculationTypeId?: number | null;
+    Amount?: number | null;
+    
+}
+
 
