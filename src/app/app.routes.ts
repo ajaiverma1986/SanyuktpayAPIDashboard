@@ -34,6 +34,9 @@ import { PayinRequestListComponent } from './component/Transactions/payin-reques
 import { PayinAccountComponent } from './component/Transactions/payin-account/payin-account.component';
 import { PayinAccountListComponent } from './component/Transactions/payin-account-list/payin-account-list.component';
 import { ProfileComponent } from './component/common/profile/profile.component';
+import { TransactionReportComponent } from './component/Reports/transaction-report/transaction-report.component';
+import { UsrStatementComponent } from './component/Reports/usr-statement/usr-statement.component';
+import { PayinRequestReportComponent } from './component/Reports/payin-request-report/payin-request-report.component';
 
 
 export const routes: Routes = [
@@ -73,6 +76,9 @@ export const routes: Routes = [
       {path: 'AddPayinAcc', component: PayinAccountComponent,title:"Payin Accounts"},
       {path: 'PayinAccList', component: PayinAccountListComponent,title:"Payin Accounts"},
       {path: 'ParProfile', component: ProfileComponent,title:"Profile"},
+      {path: 'PayoutTxnrpt', component: TransactionReportComponent,title:"Reports"},
+      {path: 'stmtrpt', component: UsrStatementComponent,title:"Reports"},
+      {path: 'payinReport', component: PayinRequestReportComponent,title:"Reports"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
