@@ -6,7 +6,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h1 class="justify-content-start common-section-heading">Calculation Type List</h1>
+                                <h1 class="justify-content-start common-section-heading">Charge Deduction Type List</h1>
                             </div>
                             <mat-card-content>
                                 @if ((Modeldata!=null)) {
@@ -14,13 +14,13 @@
                                     <table mat-table [dataSource]="Modeldata" class="mat-elevation-z8">
 
 
-                                        <ng-container matColumnDef="CalculationTypeId">
-                                            <th mat-header-cell *matHeaderCellDef>Calculation Type Id </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.CalculationTypeId}} </td>
+                                        <ng-container matColumnDef="ChargeDeductionId">
+                                            <th mat-header-cell *matHeaderCellDef>Charge Deduction Type Id </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.ChargeDeductionId}} </td>
                                         </ng-container>
-                                        <ng-container matColumnDef="CalculationTypeName">
-                                            <th mat-header-cell *matHeaderCellDef> Calculation Type Name </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.CalculationTypeName}} </td>
+                                        <ng-container matColumnDef="ChargeDeductionType">
+                                            <th mat-header-cell *matHeaderCellDef> Charge Deduction Type Name </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.ChargeDeductionType}} </td>
                                         </ng-container>
                                         <ng-container matColumnDef="StatusName">
                                             <th mat-header-cell *matHeaderCellDef> Status </th>

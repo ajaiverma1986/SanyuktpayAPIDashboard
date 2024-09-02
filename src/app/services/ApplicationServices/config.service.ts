@@ -15,4 +15,12 @@ export class ConfigService {
 
     return this.apiconnector.GetAPI("/Config/ListPaymentAccounts");
   }
+  ListCalculationType(): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/Config/ListCalCulationType");
+  }
+  ListChargeDeductionType(): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/Config/ListChargeDedcutionType");
+  }
 }

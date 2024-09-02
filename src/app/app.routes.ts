@@ -37,6 +37,7 @@ import { ProfileComponent } from './component/common/profile/profile.component';
 import { TransactionReportComponent } from './component/Reports/transaction-report/transaction-report.component';
 import { UsrStatementComponent } from './component/Reports/usr-statement/usr-statement.component';
 import { PayinRequestReportComponent } from './component/Reports/payin-request-report/payin-request-report.component';
+import { ChargeDeductiontypeComponent } from './component/Configuration/charge-deductiontype/charge-deductiontype.component';
 
 
 export const routes: Routes = [
@@ -79,6 +80,7 @@ export const routes: Routes = [
       {path: 'PayoutTxnrpt', component: TransactionReportComponent,title:"Reports"},
       {path: 'stmtrpt', component: UsrStatementComponent,title:"Reports"},
       {path: 'payinReport', component: PayinRequestReportComponent,title:"Reports"},
+      {path: 'chrgdedutype', component: ChargeDeductiontypeComponent,title:"Configuration"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
