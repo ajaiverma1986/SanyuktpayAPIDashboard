@@ -43,6 +43,7 @@ import { SlabTypeComponent } from './component/Configuration/slab-type/slab-type
 import { DistributionCommissionComponent } from './component/Configuration/distribution-commission/distribution-commission.component';
 import { ServiceListComponent } from './component/Configuration/service-list/service-list.component';
 import { TopupChargeListComponent } from './component/Configuration/topup-charge-list/topup-charge-list.component';
+import { TransactionSlablistComponent } from './component/Configuration/transaction-slablist/transaction-slablist.component';
 
 
 export const routes: Routes = [
@@ -91,6 +92,7 @@ export const routes: Routes = [
       {path: 'Commdistr', component: DistributionCommissionComponent,title:"Configuration"},
       {path: 'servicemst', component: ServiceListComponent,title:"Configuration"},
       {path: 'topupcrglist', component: TopupChargeListComponent,title:"Configuration"},
+      {path: 'txtslablist', component: TransactionSlablistComponent,title:"Configuration"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
