@@ -44,6 +44,8 @@ import { DistributionCommissionComponent } from './component/Configuration/distr
 import { ServiceListComponent } from './component/Configuration/service-list/service-list.component';
 import { TopupChargeListComponent } from './component/Configuration/topup-charge-list/topup-charge-list.component';
 import { TransactionSlablistComponent } from './component/Configuration/transaction-slablist/transaction-slablist.component';
+import { PaymentAccountListComponent } from './component/Configuration/payment-account-list/payment-account-list.component';
+import { AddPaymentAccountsComponent } from './component/Configuration/add-payment-accounts/add-payment-accounts.component';
 
 
 export const routes: Routes = [
@@ -93,6 +95,8 @@ export const routes: Routes = [
       {path: 'servicemst', component: ServiceListComponent,title:"Configuration"},
       {path: 'topupcrglist', component: TopupChargeListComponent,title:"Configuration"},
       {path: 'txtslablist', component: TransactionSlablistComponent,title:"Configuration"},
+      {path: 'payacclist', component: PaymentAccountListComponent,title:"Configuration"},
+      {path: 'addpaymentacc', component: AddPaymentAccountsComponent,title:"Configuration"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 

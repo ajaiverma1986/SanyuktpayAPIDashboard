@@ -40,6 +40,20 @@ export class TransactionslabRequest {
     ServiceID?: number | null;
     Amount?: number | null;
 }
-
-
+export class AddPaymentAccountMasterRequest {
+    BankID?: number;
+    AccountName!: string;
+    AccountNo!: string;
+    Ifsccode!: string;
+    BranchName!: string;
+    Branchcode!: string;
+    Micrcode!: string;
+    BranchAddress!: string;
+}
+export class ChangePaymentAccStatusRequest {
+    PaymentAccountID?: number;
+    Status?: number;
+    Remarks!: string;
+   
+}
 
