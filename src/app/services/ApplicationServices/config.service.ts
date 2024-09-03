@@ -3,7 +3,7 @@ import { BaseserviceService } from '../baseservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
-import { CommissionDistributionRequest, TopupChargeRequest } from '../../RequestModel/ConfigRequest';
+import { CommissionDistributionRequest, TopupChargeRequest, TransactionslabRequest } from '../../RequestModel/ConfigRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +39,9 @@ export class ConfigService {
   ListTopupCharge(postData:TopupChargeRequest): Observable<SimpleResponse> {
 
     return this.apiconnector.PostAPI("/Config/ListTopupCharge",postData);
+  }
+  ListTransactionslab(postData:TransactionslabRequest): Observable<SimpleResponse> {
+
+    return this.apiconnector.PostAPI("/Config/ListTransactionSlab",postData);
   }
 }

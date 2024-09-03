@@ -1,0 +1,172 @@
+
+<div class="container">
+    <div class="common-margin">
+      <div class="justify-content-center row">
+        <div class="col-lg-12 col-md-12 col">
+          <div class="form-wrap-card card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                    <h1 class="justify-content-start common-section-heading">Transaction Slab Setup</h1>
+                </div>
+                <form (ngSubmit)="onSubmit()" [formGroup]="frmtxnslabsetuplist">
+                  <div class="mb-3 row">
+                    <div class="col-lg-4">
+                      <label class="form-label select-label">Agency</label>
+                      <select class="select form-control"   name="AgencyID" [(ngModel)]="selectedvaluechanel" formControlName="AgencyID" (ngModelChange)="OnChangeAgency()">
+                        <option [value]="0">--Agency--</option>
+                        @for (item of AgencyData; track $index) {
+                          <option  [value]="item.AgencyId"  selected="item.AgencyId=selectedvaluekyc">{{item.AgencyName}}</option>
+                        }
+                       
+                      </select>
+                     
+                      </div>
+                      <div class="col-lg-4">
+                        <label class="form-label select-label">Service Type</label>
+                        <select class="select form-control"   name="ServiceTypeId" [(ngModel)]="selectedvalueMode"  formControlName="ServiceTypeId" (ngModelChange)="OnChangeServiceType()"  >
+                          <option [value]="0">--Service Type--</option>
+                          @for (item of serviceTypeData; track $index) {
+                            <option  [value]="item.ServiceTypeId"  selected="item.ServiceTypeId=selectedvalueMode">{{item.ServiceTypeName}}</option>
+                          }
+                         
+                        </select>
+                       
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="form-label select-label">Service </label>
+                        <select class="select form-control"   name="ServiceID" [(ngModel)]="selectedvalueService"  formControlName="ServiceID"  >
+                          <option [value]="0">--Service--</option>
+                          @for (item of serviceData; track $index) {
+                            <option  [value]="item.ServiceId"  selected="item.ServiceId=selectedvalueService">{{item.ServiceName}}</option>
+                          }
+                         
+                        </select>
+                            </div>
+  
+                  </div>
+                  <div class="mb-3 row">
+                    <div class="col-lg-4">
+                        <label class="form-label select-label">Calculation Type </label>
+                        <select class="select form-control"   name="CalculationType" [(ngModel)]="CalculationModelTypeId"  formControlName="CalculationType"  >
+                          <option [value]="0">--Calculation Type--</option>
+                          @for (item of CalData; track $index) {
+                            <option  [value]="item.CalculationTypeId"  selected="item.CalculationTypeId=CalculationModelTypeId">{{item.CalculationTypeName}}</option>
+                          }
+                         
+                        </select> 
+                      
+                  </div>
+                  <div class="col-lg-4">
+                    <label class="form-label select-label">Slab Type </label>
+                    <select class="select form-control"   name="PlanId" [(ngModel)]="planmodel"  formControlName="PlanId"  >
+                      <option [value]="0">--Slab Type--</option>
+                      @for (item of planData; track $index) {
+                        <option  [value]="item.SlabTypId"  selected="item.SlabTypId=planmodel">{{item.SlabTypeName}}</option>
+                      }
+                     
+                    </select> 
+              </div>
+              <div class="col-lg-4">
+                <label class="form-label select-label">Amount </label>
+                
+                <input type="text" id="Amount" class="form-control" formControlName="Amount"  />
+                <!-- <button type="button" class="btn--base" (click)="AddNewRequest()" >Add New</button> -->
+                
+              </div>
+                  </div>
+               
+                  
+                  <div class="mb-3 row">
+                    <div class="col">
+                      
+                      <button type="submit" class="btn--base" >Search</button>
+                    </div>
+  
+                  </div>
+                
+                 
+                </form>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <div class="container">
+    <div class="common-margin">
+      <div class="justify-content-center row">
+        <div class="col-lg-12 col-md-12 col">
+          <div class="form-wrap-card card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                    <h1 class="justify-content-start common-section-heading">Transaction Slab Setup List</h1>
+                </div>
+            <mat-card-content>
+            @if ((Modeldata!=null)) {
+              <div class="table-responsive">
+                <table mat-table [dataSource]="Modeldata" class="mat-elevation-z8">
+    
+       
+                    <ng-container matColumnDef="SlabId">
+                      <th mat-header-cell *matHeaderCellDef>Slab Id </th>
+                      <td mat-cell *matCellDef="let element"> {{element.SlabId}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="AgencyName">
+                        <th mat-header-cell *matHeaderCellDef> Agency Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.AgencyName}} </td>
+                      </ng-container>
+                  
+                    <ng-container matColumnDef="ServiceName">
+                      <th mat-header-cell *matHeaderCellDef> Service Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.ServiceName}} </td>
+                    </ng-container>
+                  
+                   
+                    <ng-container matColumnDef="SlabTypeName">
+                      <th mat-header-cell *matHeaderCellDef> Slab Type  </th>
+                      <td mat-cell *matCellDef="let element"> {{element.SlabTypeName}} </td>
+                    </ng-container>
+                   
+                    <ng-container matColumnDef="CalculationTypeName">
+                      <th mat-header-cell *matHeaderCellDef>Calculation Type Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.CalculationTypeName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="FromAmount">
+                        <th mat-header-cell *matHeaderCellDef>From Amount </th>
+                        <td mat-cell *matCellDef="let element"> {{element.FromAmount}} </td>
+                      </ng-container>
+                    <ng-container matColumnDef="Toamount">
+                      <th mat-header-cell *matHeaderCellDef>To Amount </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Toamount}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="CalculationValue">
+                        <th mat-header-cell *matHeaderCellDef>Calculation Value </th>
+                        <td mat-cell *matCellDef="let element"> {{element.CalculationValue}} </td>
+                      </ng-container>
+                      <ng-container matColumnDef="StatusName">
+                        <th mat-header-cell *matHeaderCellDef>Status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.StatusName}} </td>
+                      </ng-container>
+                     
+                    
+                   
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+                </div>
+                }
+                </mat-card-content>
+               
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 

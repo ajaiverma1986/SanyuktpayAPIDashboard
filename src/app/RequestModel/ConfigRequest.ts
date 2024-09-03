@@ -32,5 +32,14 @@ export class TopupChargeRequest
     Amount?: number | null;
     
 }
+export class TransactionslabRequest {
+    SlabId?: number | null;
+    SlabType?: number | null;
+    CalculationType?: number | null;
+    AgencyID?: number | null;
+    ServiceID?: number | null;
+    Amount?: number | null;
+}
+
 
 

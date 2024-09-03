@@ -55,3 +55,19 @@ export class TopupChargeResponse {
     CalculationTypeName!: string;
 
 }
+export class TransactionslabResponse {
+    SlabId!: number;
+    AgencyID!: number;
+    ServiceID!: number;
+    SlabType!: number;
+    CalculationType!: number;
+    FromAmount!: number;
+    Toamount!: number;
+    CalculationValue!: number;
+    Status!: number;
+    StatusName!: string;
+    SlabTypeName!: string;
+    CalculationTypeName!: string;
+    AgencyName!: string;
+    ServiceName!: string;
+}
