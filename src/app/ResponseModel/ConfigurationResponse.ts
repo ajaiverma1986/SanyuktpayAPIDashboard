@@ -57,6 +57,7 @@ export class TopupChargeResponse {
 }
 export class TransactionslabResponse {
     SlabId!: number;
+    PlanId!:number;
     AgencyID!: number;
     ServiceID!: number;
     SlabType!: number;
@@ -70,4 +71,5 @@ export class TransactionslabResponse {
     CalculationTypeName!: string;
     AgencyName!: string;
     ServiceName!: string;
+    PlanName!:string
 }

@@ -33,6 +33,7 @@ export class TopupChargeRequest
     
 }
 export class TransactionslabRequest {
+    PlanId!:number;
     SlabId?: number | null;
     SlabType?: number | null;
     CalculationType?: number | null;

@@ -59,14 +59,24 @@
                   </div>
                   <div class="col-lg-4">
                     <label class="form-label select-label">Slab Type </label>
-                    <select class="select form-control"   name="PlanId" [(ngModel)]="planmodel"  formControlName="PlanId"  >
+                    <select class="select form-control"   name="PlanId" [(ngModel)]="slabModel"  formControlName="SlabType"  >
                       <option [value]="0">--Slab Type--</option>
-                      @for (item of planData; track $index) {
+                      @for (item of SalbTypeData; track $index) {
                         <option  [value]="item.SlabTypId"  selected="item.SlabTypId=planmodel">{{item.SlabTypeName}}</option>
                       }
                      
                     </select> 
               </div>
+              <div class="col-lg-4">
+                <label class="form-label select-label">Plan  </label>
+                <select class="select form-control"   name="PlanId" [(ngModel)]="planmodel"  formControlName="PlanId"  >
+                  <option [value]="0">--Plan Type--</option>
+                  @for (item of PlanData; track $index) {
+                    <option  [value]="item.planID"  selected="item.SlabTypId=planmodel">{{item.planName}}</option>
+                  }
+                 
+                </select> 
+          </div>
               <div class="col-lg-4">
                 <label class="form-label select-label">Amount </label>
                 
@@ -112,10 +122,13 @@
               <div class="table-responsive">
                 <table mat-table [dataSource]="Modeldata" class="mat-elevation-z8">
     
-       
                     <ng-container matColumnDef="SlabId">
                       <th mat-header-cell *matHeaderCellDef>Slab Id </th>
                       <td mat-cell *matCellDef="let element"> {{element.SlabId}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="PlanName">
+                      <th mat-header-cell *matHeaderCellDef> Plan Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.PlanName}} </td>
                     </ng-container>
                     <ng-container matColumnDef="AgencyName">
                         <th mat-header-cell *matHeaderCellDef> Agency Name </th>

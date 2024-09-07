@@ -10,7 +10,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { MatIcon, MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { agencyMasterResponse, ServiceListResponse, serviceTypeListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { agencyMasterResponse, PlanMasterListResponse, ServiceListResponse, serviceTypeListResponse } from '../../../RequestModel/MasterDatarESPONSE';
 import { TransactionslabRequest } from '../../../RequestModel/ConfigRequest';
 import { ConfigService } from '../../../services/ApplicationServices/config.service';
 import { CalculationMasterResponse, SlabTypeListResponse, TransactionslabResponse } from '../../../ResponseModel/ConfigurationResponse';
@@ -26,7 +26,7 @@ import { CalculationMasterResponse, SlabTypeListResponse, TransactionslabRespons
 export class TransactionSlablistComponent extends BasecomponentComponent implements OnInit {
 
   Modeldata!: TransactionslabResponse[];
-  displayedColumns: string[] = ['SlabId', 'AgencyName', 'ServiceName', 'CalculationTypeName', 'SlabTypeName', 'FromAmount', 'Toamount', 'CalculationValue', 'StatusName',];
+  displayedColumns: string[] = ['SlabId','PlanName', 'AgencyName', 'ServiceName', 'CalculationTypeName', 'SlabTypeName', 'FromAmount', 'Toamount', 'CalculationValue', 'StatusName',];
   Model: TransactionslabRequest = new TransactionslabRequest();
   frmtxnslabsetuplist!: FormGroup;
   selectedvaluechanel!: string
@@ -36,13 +36,16 @@ export class TransactionSlablistComponent extends BasecomponentComponent impleme
   serviceTypeData!: serviceTypeListResponse[];
   serviceData!: ServiceListResponse[];
   CalData!: CalculationMasterResponse[];
-  planData!: SlabTypeListResponse[];
+  SalbTypeData!: SlabTypeListResponse[];
+  PlanData!:PlanMasterListResponse[];
   Statusval!: number;
   selectedFromDate: any;
   selectedToDate: any;
   Addnew: boolean = false;
   CalculationModelTypeId!: string;
   planmodel!: string;
+  slabModel!:string ;
+ 
 
 
   constructor(private mds: MasterDataService, private fb: FormBuilder, private txnser: ConfigService, toast: ToastrService) {
@@ -56,7 +59,9 @@ export class TransactionSlablistComponent extends BasecomponentComponent impleme
       ServiceID: [''],
       CalculationType: [''],
       Amount: [''],
-      SlabType: ['']
+      SlabType: [''],
+      PlanId:['']
+
     });
   }
   AddNewRequest() {
@@ -67,6 +72,7 @@ export class TransactionSlablistComponent extends BasecomponentComponent impleme
     this.selectedvalueMode = "0";
     this.selectedvalueService = "0";
     this.CalculationModelTypeId = "0";
+    this.slabModel="0";
     this.planmodel = "0";
 
     this.mds.AgencyList().subscribe({
@@ -83,7 +89,13 @@ export class TransactionSlablistComponent extends BasecomponentComponent impleme
 
     this.txnser.ListSlabType().subscribe({
       next: (data) => {
-        this.planData = data.Result;
+        this.SalbTypeData = data.Result;
+      }
+    });
+
+    this.txnser.ListPlan().subscribe({
+      next: (data) => {
+        this.PlanData = data.Result;
       }
     });
   }
@@ -119,6 +131,7 @@ export class TransactionSlablistComponent extends BasecomponentComponent impleme
     this.Model.CalculationType = Number(this.frmtxnslabsetuplist.get("CalculationType")?.value);
     this.Model.Amount = Number(this.frmtxnslabsetuplist.get("Amount")?.value);
     this.Model.SlabType = Number(this.frmtxnslabsetuplist.get("SlabType")?.value);
+    this.Model.PlanId = Number(this.frmtxnslabsetuplist.get("PlanId")?.value);
 
     this.txnser.ListTransactionslab(this.Model).subscribe({
       next: (data) => {
