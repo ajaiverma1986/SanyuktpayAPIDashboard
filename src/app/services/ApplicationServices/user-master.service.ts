@@ -101,4 +101,5 @@ export class UserMasterService {
 
     return this.apiconnector.GetAPI("/User/GetAllUserDetails");
   }
+ 
 }

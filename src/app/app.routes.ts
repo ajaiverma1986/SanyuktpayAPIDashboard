@@ -46,6 +46,7 @@ import { TopupChargeListComponent } from './component/Configuration/topup-charge
 import { TransactionSlablistComponent } from './component/Configuration/transaction-slablist/transaction-slablist.component';
 import { PaymentAccountListComponent } from './component/Configuration/payment-account-list/payment-account-list.component';
 import { AddPaymentAccountsComponent } from './component/Configuration/add-payment-accounts/add-payment-accounts.component';
+import { PayinRequestListAdminComponent } from './component/Transactions/payin-request-list-admin/payin-request-list-admin.component';
 
 
 export const routes: Routes = [
@@ -97,6 +98,7 @@ export const routes: Routes = [
       {path: 'txtslablist', component: TransactionSlablistComponent,title:"Configuration"},
       {path: 'payacclist', component: PaymentAccountListComponent,title:"Configuration"},
       {path: 'addpaymentacc', component: AddPaymentAccountsComponent,title:"Configuration"},
+      {path: 'PayinReListAdm', component: PayinRequestListAdminComponent,title:"Pay in Request"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
