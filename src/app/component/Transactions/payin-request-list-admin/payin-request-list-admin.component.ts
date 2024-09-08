@@ -121,6 +121,7 @@ export class PayinRequestListAdminComponent extends BasecomponentComponent imple
     this.txnser.ChangePayinRequestStatus(this.appModel).subscribe({
       next: (data) => {
         if (data.Result > 0) {
+          this.RemarkReason="";
           this.onSubmit();
           this.showToaster(1, "Approved Successfully", "Payin Master");
         }
@@ -142,6 +143,7 @@ export class PayinRequestListAdminComponent extends BasecomponentComponent imple
       next: (data) => {
         if (data.Result > 0) {
           this.onSubmit();
+          this.RemarkReason="";
           this.showToaster(1, "Rejected Successfully", "Payin Master");
         }
       }

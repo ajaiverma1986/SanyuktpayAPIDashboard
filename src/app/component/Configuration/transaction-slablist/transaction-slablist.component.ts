@@ -14,6 +14,7 @@ import { agencyMasterResponse, PlanMasterListResponse, ServiceListResponse, serv
 import { TransactionslabRequest } from '../../../RequestModel/ConfigRequest';
 import { ConfigService } from '../../../services/ApplicationServices/config.service';
 import { CalculationMasterResponse, SlabTypeListResponse, TransactionslabResponse } from '../../../ResponseModel/ConfigurationResponse';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -48,7 +49,7 @@ export class TransactionSlablistComponent extends BasecomponentComponent impleme
  
 
 
-  constructor(private mds: MasterDataService, private fb: FormBuilder, private txnser: ConfigService, toast: ToastrService) {
+  constructor(private mds: MasterDataService, private fb: FormBuilder, private txnser: ConfigService,private router:Router, toast: ToastrService) {
     super(toast);
     this.createForm();
   }
@@ -65,7 +66,7 @@ export class TransactionSlablistComponent extends BasecomponentComponent impleme
     });
   }
   AddNewRequest() {
-    this.Addnew = true;
+    this.router.navigate(['/Dashboard/addtxnslab']);
   }
   ngOnInit(): void {
     this.selectedvaluechanel = "0";

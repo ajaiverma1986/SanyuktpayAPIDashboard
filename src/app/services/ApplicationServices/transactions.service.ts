@@ -3,7 +3,7 @@ import { BaseserviceService } from '../baseservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
-import { AddPaymentRequestRequest, ApproveRejectPayinRequest, ListPayinRequestRequest, OriginatorListAccountRequest } from '../../RequestModel/TransactionRequest';
+import { AddPaymentRequestRequest, ApproveRejectOriAccountRequest, ApproveRejectPayinRequest, ListPayinRequestRequest, OriginatorListAccountforadminRequest, OriginatorListAccountRequest } from '../../RequestModel/TransactionRequest';
 import { ListResponse } from '../../RequestModel/BaseResponse';
 
 @Injectable({
@@ -36,5 +36,13 @@ export class TransactionsService {
   ChangePayinRequestStatus(PostData: ApproveRejectPayinRequest): Observable<SimpleResponse> {
 
     return this.apiconnector.PostAPI("/Transaction/ChangePayinRequestStatus", PostData);
+  }
+  ListPayinAccListforAdminResponse(PostData: OriginatorListAccountforadminRequest): Observable<ListResponse> {
+
+    return this.apiconnector.PostAPI("/User/ListAllOriginatorsAccountsforAdmin", PostData);
+  }
+  ApproveRejectPayinAccounts(PostData: ApproveRejectOriAccountRequest): Observable<SimpleResponse> {
+
+    return this.apiconnector.PostAPI("/User/ApproveRejectOrigiAccounts", PostData);
   }
 }

@@ -40,4 +40,13 @@ export class ApproveRejectPayinRequest {
     RejectedReason!: string;
     Status!: number;
 }
-
+export class OriginatorListAccountforadminRequest extends ListRequest {
+    Status!:number;
+    FromDate?: string| null;
+    ToDate?: string | null;
+}
+export class ApproveRejectOriAccountRequest {
+    RequestId!: number;
+    RemarksReason!: string;
+    Status!: number;
+}

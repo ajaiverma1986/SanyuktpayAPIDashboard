@@ -47,6 +47,8 @@ import { TransactionSlablistComponent } from './component/Configuration/transact
 import { PaymentAccountListComponent } from './component/Configuration/payment-account-list/payment-account-list.component';
 import { AddPaymentAccountsComponent } from './component/Configuration/add-payment-accounts/add-payment-accounts.component';
 import { PayinRequestListAdminComponent } from './component/Transactions/payin-request-list-admin/payin-request-list-admin.component';
+import { PayinAccountListAdminComponent } from './component/Transactions/payin-account-list-admin/payin-account-list-admin.component';
+import { AddTransactionslabComponent } from './component/Configuration/add-transactionslab/add-transactionslab.component';
 
 
 export const routes: Routes = [
@@ -99,6 +101,8 @@ export const routes: Routes = [
       {path: 'payacclist', component: PaymentAccountListComponent,title:"Configuration"},
       {path: 'addpaymentacc', component: AddPaymentAccountsComponent,title:"Configuration"},
       {path: 'PayinReListAdm', component: PayinRequestListAdminComponent,title:"Pay in Request"},
+      {path: 'PayinaccListAdm', component: PayinAccountListAdminComponent,title:"Pay in Request"},
+      {path: 'addtxnslab', component: AddTransactionslabComponent,title:"Configuration"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
