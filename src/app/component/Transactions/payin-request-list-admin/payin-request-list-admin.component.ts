@@ -1,7 +1,7 @@
-import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { MasterDataService } from '../../../services/master-data.service';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CommonModule, formatDate } from '@angular/common'
 import { MatTableModule } from '@angular/material/table';
@@ -11,9 +11,8 @@ import { MatIcon, MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TransactionsService } from '../../../services/ApplicationServices/transactions.service';
 import { PayinRequestListResponse } from '../../../RequestModel/TransactionResponse';
-import { ListPayinRequestRequest } from '../../../RequestModel/TransactionRequest';
+import { ApproveRejectPayinRequest, ListPayinRequestRequest } from '../../../RequestModel/TransactionRequest';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { ListPaymentChanelResponse, ListPaymentModeResponse } from '../../../RequestModel/MasterDatarESPONSE';
 import { PayinRequestComponent } from "../payin-request/payin-request.component";
 import { ViewTransactiondocComponent } from '../view-transactiondoc/view-transactiondoc.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,26 +21,19 @@ import { MatCheckbox } from "@angular/material/checkbox"
 @Component({
   selector: 'app-payin-request-list-admin',
   standalone: true,
-  imports: [CommonModule,MatCheckbox, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, MatPaginatorModule, NgbModule, PayinRequestComponent],
+  imports: [CommonModule, MatCheckbox, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, MatPaginatorModule, NgbModule, PayinRequestComponent],
   templateUrl: './payin-request-list-admin.component.html',
   styleUrl: './payin-request-list-admin.component.scss'
 })
 export class PayinRequestListAdminComponent extends BasecomponentComponent implements OnInit {
   Modeldata!: PayinRequestListResponse[];
-  displayedColumns: string[] = ['Slktrequet','RequestID', 'CreatedOn', 'DepositDate', 'PaymentChanelName', 'PaymentModeName', 'AccountName', 'AccountNo', 'RefNo1', 'RefNo2', 'RejectedReason', 'Remarks', 'StatusName', 'CreatedBy', 'UpdatedOn', 'UpdatedBy', 'actions',];
+  displayedColumns: string[] = ['RequestID', 'CreatedOn', 'DepositDate', 'PaymentChanelName', 'PaymentModeName', 'AccountName', 'AccountNo', 'RefNo1', 'RefNo2', 'RejectedReason', 'Remarks', 'StatusName', 'CreatedBy', 'UpdatedOn', 'UpdatedBy', 'actions',];
   Model: ListPayinRequestRequest = new ListPayinRequestRequest();
   frmgsearchpayin!: FormGroup;
-  selectedvaluechanel!: string
-  selectedvalueMode!: string
-  payChnelData!: ListPaymentChanelResponse[];
-  payModeData!: ListPaymentModeResponse[];
-  Statusval!: number;
   selectedFromDate: any;
   selectedToDate: any;
   Addnew: boolean = false;
-  checked: any = [];
-  @ViewChildren ('checkBox') checkBox: QueryList<any> | undefined;
-
+  appModel: ApproveRejectPayinRequest = new ApproveRejectPayinRequest();
 
   length!: number;
   pageSize = 5;
@@ -51,6 +43,7 @@ export class PayinRequestListAdminComponent extends BasecomponentComponent imple
   showPageSizeOptions = true;
   showFirstLastButtons = true;
   disabled = false;
+  RemarkReason!: string;
 
   pageEvent!: PageEvent;
 
@@ -60,46 +53,30 @@ export class PayinRequestListAdminComponent extends BasecomponentComponent imple
   }
   createForm() {
     this.frmgsearchpayin = this.fb.group({
-      PaymentChanelID: [''],
-      PaymentModeID: [''],
-      Status: [''],
       FromDate: [''],
-      ToDate: ['']
+      ToDate: [''],
+      Remarks: ['']
     });
   }
 
   ngOnInit(): void {
-    this.selectedvaluechanel = "0";
-    this.selectedvalueMode = "0";
     const now = new Date();
 
     this.selectedFromDate = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
     this.selectedToDate = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
 
-    this.mds.ListPaymentChanel().subscribe({
-      next: (data) => {
-        this.payChnelData = data.Result;
-      }
-    });
-
-
 
     this.getPageData(1);
   }
   getPageData(pagenum: number) {
+
     this.Model.PageNo = pagenum;
     this.Model.PageSize = this.pageSize;
+    this.Model.Status = 1;
     this.txnser.ListPaymentResponse(this.Model).subscribe({
       next: (data) => {
         this.Modeldata = data.Result;
         this.length = data.TotalRecords;
-      }
-    });
-  }
-  onchanelChange() {
-    this.mds.ListPaymentModes(this.selectedvaluechanel).subscribe({
-      next: (data1) => {
-        this.payModeData = data1.Result;
       }
     });
   }
@@ -123,9 +100,9 @@ export class PayinRequestListAdminComponent extends BasecomponentComponent imple
     let val2 = (this.frmgsearchpayin.get("ToDate")?.value).year + "-" + (this.frmgsearchpayin.get("ToDate")?.value).month + "-" + (this.frmgsearchpayin.get("ToDate")?.value).day;
     this.Model.FromDate = formatDate(val1, 'yyyy-MM-dd', 'en');
     this.Model.ToDate = formatDate(val2, 'yyyy-MM-dd', 'en');
-    this.Model.PaymentChanelID = Number(this.frmgsearchpayin.get("PaymentChanelID")?.value);
-    this.Model.PaymentModeId = Number(this.frmgsearchpayin.get("PaymentModeID")?.value);
-    this.Model.Status = Number(this.frmgsearchpayin.get("Status")?.value);
+    this.Model.PaymentChanelID = 0;
+    this.Model.PaymentModeId = 0;
+    this.Model.Status = 1
     this.Model.PageNo = 1;
     this.Model.PageSize = 10;
 
@@ -137,7 +114,39 @@ export class PayinRequestListAdminComponent extends BasecomponentComponent imple
     });
 
   }
+  ApproveRequest(RequestId: number) {
+    this.appModel.RejectedReason = "";
+    this.appModel.RequestID = RequestId;
+    this.appModel.Status = 2;
+    this.txnser.ChangePayinRequestStatus(this.appModel).subscribe({
+      next: (data) => {
+        if (data.Result > 0) {
+          this.onSubmit();
+          this.showToaster(1, "Approved Successfully", "Payin Master");
+        }
+      }
+    });
+  }
+  RejectRequest(RequestId: number) {
 
+    if (this.RemarkReason == null) {
+      alert("Rejected Reason is Required");
+      this.showToaster(3, "Rejected Reason is Required", "Payin Master");
+      return;
+    }
+
+    this.appModel.RejectedReason = this.RemarkReason;
+    this.appModel.RequestID = RequestId;
+    this.appModel.Status = 3;
+    this.txnser.ChangePayinRequestStatus(this.appModel).subscribe({
+      next: (data) => {
+        if (data.Result > 0) {
+          this.onSubmit();
+          this.showToaster(1, "Rejected Successfully", "Payin Master");
+        }
+      }
+    });
+  }
 
   OpenModel = (UserKYCID: any) => {
 
@@ -149,17 +158,7 @@ export class PayinRequestListAdminComponent extends BasecomponentComponent imple
     });
 
   }
- 
-  getCheckbox(checkbox: any){
-    this.checked = []; 
-    const checked = this.checkBox?.filter(checkbox => checkbox.checked);
-    checked?.forEach(data => {
-      this.checked.push ({ 
-        'checked' : data.checked,
-        'value':  data.value
-      });
-    });
-  }
-  
+
+
 
 }

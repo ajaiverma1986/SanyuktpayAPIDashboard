@@ -35,4 +35,9 @@ export class PayinRequestReciptDownloadResponse {
 export class OriginatorListAccountRequest extends ListRequest {
     Status!:number;
 }
+export class ApproveRejectPayinRequest {
+    RequestID!: number;
+    RejectedReason!: string;
+    Status!: number;
+}
 

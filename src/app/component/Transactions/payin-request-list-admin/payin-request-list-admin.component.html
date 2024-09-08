@@ -13,45 +13,6 @@
               <form (ngSubmit)="onSubmit()" [formGroup]="frmgsearchpayin">
                 <div class="mb-3 row">
                   <div class="col-lg-4">
-                    <label class="form-label select-label">Pay Chanel</label>
-                    <select class="select form-control" name="PaymentChanelID" [(ngModel)]="selectedvaluechanel"
-                      formControlName="PaymentChanelID" (ngModelChange)="onchanelChange()">
-                      <option [value]="0">--Payment Chanel--</option>
-                      @for (item of payChnelData; track $index) {
-                      <option [value]="item.PaymentChanelID" selected="item.PaymentChanelID=selectedvaluekyc">
-                        {{item.PaymentChanelName}}</option>
-                      }
-
-                    </select>
-
-                  </div>
-                  <div class="col-lg-4">
-                    <label class="form-label select-label">Pay Mode</label>
-                    <select class="select form-control" name="PaymentModeID" [(ngModel)]="selectedvalueMode"
-                      formControlName="PaymentModeID">
-                      <option [value]="0">--Payment Mode--</option>
-                      @for (item of payModeData; track $index) {
-                      <option [value]="item.PaymentModeID" selected="item.PaymentModeID=selectedvalueMode">
-                        {{item.PaymentModeName}}</option>
-                      }
-
-                    </select>
-
-                  </div>
-                  <div class="col-lg-4">
-                    <label class="form-label select-label">Status</label>
-                    <select class="select form-control" name="Status" [(ngModel)]="Statusval" formControlName="Status">
-                      <option [value]="0">--Status--</option>
-                      <option [value]="1" selected>Pending</option>
-                      <option [value]="2">Approved</option>
-                      <option [value]="3">Rejected</option>
-                    </select>
-
-                  </div>
-
-                </div>
-                <div class="mb-3 row">
-                  <div class="col-lg-4">
 
                     <div data-mdb-input-init class="form-outline">
                       <label class="form-label" for="FromDate">From Date</label>
@@ -79,15 +40,17 @@
                   </div>
                   <div class="col-lg-4">
 
-
+                    <button type="submit" class="btn--base">Search</button>
                   </div>
+                  
                 </div>
-
+               
 
                 <div class="mb-3 row">
                   <div class="col">
-
-                    <button type="submit" class="btn--base">Search</button>
+                    <label class="form-label" for="Remarks">Rejected Reason</label>
+                    <input type="text" id="rejectreason" class="form-control" formControlName="Remarks" [(ngModel)]="RemarkReason" />
+                    
                   </div>
 
                 </div>
@@ -117,17 +80,7 @@
                 <div class="table-responsive">
                   <table mat-table [dataSource]="Modeldata" class="mat-elevation-z8">
 
-                    <ng-container matColumnDef="Slktrequet">
-                      <th mat-header-cell *matHeaderCellDef>
-                        <mat-checkbox >
-
-                        </mat-checkbox>
-                       
-                      </th>
-                      <td mat-cell *matCellDef="let element">
-                        <mat-checkbox #checkBox [value]="element.RequestID"(change)="getCheckbox(checkBox)"></mat-checkbox>
-                      </td>
-                    </ng-container>
+                  
                     <ng-container matColumnDef="RequestID">
                       <th mat-header-cell *matHeaderCellDef>Request ID </th>
                       <td mat-cell *matCellDef="let element"> {{element.RequestID}} </td>
@@ -200,11 +153,15 @@
 
                       <th mat-header-cell *matHeaderCellDef>Actions </th>
                       <mat-cell *matCellDef="let element">
-                        <button mat-icon-button matTooltip="Click to view" class="iconbutton" color="warn"
+                        <!-- <button mat-icon-button matTooltip="Click to view" class="iconbutton" color="warn"
                           (click)="OpenModel(element.RequestID)">
                           <mat-icon>folder</mat-icon>
-                        </button>
-
+                        </button> -->
+                        <button type="button" class="btn btn-info" (click)="OpenModel(element.RequestID)">View Reciept</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-primary" (click)="ApproveRequest(element.RequestID)">Approve</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-danger" (click)="RejectRequest(element.RequestID)">Reject</button>
                       </mat-cell>
                     </ng-container>
 
