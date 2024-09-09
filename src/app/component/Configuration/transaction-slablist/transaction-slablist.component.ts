@@ -99,6 +99,8 @@ export class TransactionSlablistComponent extends BasecomponentComponent impleme
         this.PlanData = data.Result;
       }
     });
+
+    this.getPageData();
   }
 
   getPageData() {

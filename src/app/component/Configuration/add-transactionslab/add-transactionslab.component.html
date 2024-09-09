@@ -6,81 +6,106 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                    <h1 class="justify-content-start common-section-heading">Add Company Accounts</h1>
+                    <h1 class="justify-content-start common-section-heading">Add Transaction slab</h1>
                 </div>
-                <form (ngSubmit)="onSubmit()" [formGroup]="frmAddPayinAcc">
+                <form (ngSubmit)="onSubmit()" [formGroup]="frmtxnslabsetuu">
                   <div class="mb-3 row">
-                    <div class="col-lg-6">
-                      <label class="form-label select-label">Bank</label>
-                      <select class="select form-control"   name="Bankname" [(ngModel)]="selectedvaluekyc" formControlName="Bankname" >
-                        <option [value]="0">--Select Bank--</option>
-                        @for (item of payModeData; track $index) {
-                          <option  [value]="item.BankID"  selected="item.BankID=selectedvaluekyc">{{item.BankName}}</option>
+                    <div class="col-lg-4">
+                      <label class="form-label select-label">Agency</label>
+                      <select class="select form-control"   name="AgencyID" [(ngModel)]="selectedvaluechanel" formControlName="AgencyID" (ngModelChange)="OnChangeAgency()">
+                        <option [value]="0">--Agency--</option>
+                        @for (item of AgencyData; track $index) {
+                          <option  [value]="item.AgencyId"  selected="item.AgencyId=selectedvaluekyc">{{item.AgencyName}}</option>
                         }
                        
                       </select>
-                      <div *ngIf="frmAddPayinAcc.controls['Bankname'].invalid && (frmAddPayinAcc.controls['Bankname'].dirty || frmAddPayinAcc.controls['Bankname'].touched)" class="mt-2">
-                          <div *ngIf="frmAddPayinAcc.controls['Bankname'].errors?.['required']" class="text-danger">
-                             Bank  is Required
-                           </div>
-                       </div>
+                     
                       </div>
-                    <div class="col-lg-6">
-                        <div data-mdb-input-init class="form-outline">
-                        <label class="form-label" for="AccountNo">Account No</label>
-                        <input type="text" id="AccountNo" class="form-control" formControlName="AccountNo"  />
-                    </div>
-                      <div *ngIf="frmAddPayinAcc.controls['AccountNo'].invalid && (frmAddPayinAcc.controls['AccountNo'].dirty || frmAddPayinAcc.controls['AccountNo'].touched)" class="mt-2">
-                          <div *ngIf="frmAddPayinAcc.controls['AccountNo'].errors?.['required']" class="text-danger">
-                              Account No is Required
-                           </div>
-                       </div>
-                    </div>
+                      <div class="col-lg-4">
+                        <label class="form-label select-label">Service Type</label>
+                        <select class="select form-control"   name="ServiceTypeId" [(ngModel)]="selectedvalueMode"  formControlName="ServiceTypeId" (ngModelChange)="OnChangeServiceType()"  >
+                          <option [value]="0">--Service Type--</option>
+                          @for (item of serviceTypeData; track $index) {
+                            <option  [value]="item.ServiceTypeId"  selected="item.ServiceTypeId=selectedvalueMode">{{item.ServiceTypeName}}</option>
+                          }
+                         
+                        </select>
+                       
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="form-label select-label">Service </label>
+                        <select class="select form-control"   name="ServiceID" [(ngModel)]="selectedvalueService"  formControlName="ServiceID"  >
+                          <option [value]="0">--Service--</option>
+                          @for (item of serviceData; track $index) {
+                            <option  [value]="item.ServiceId"  selected="item.ServiceId=selectedvalueService">{{item.ServiceName}}</option>
+                          }
+                         
+                        </select>
+                            </div>
   
                   </div>
                   <div class="mb-3 row">
-                    <div class="col-lg-6">
-                       
-                        <div data-mdb-input-init class="form-outline">
-                            <label class="form-label" for="AccountName">Account Name</label>
-                            <input type="text" id="AccountName" class="form-control" formControlName="AccountName"  />
-                        </div>
-                          <div *ngIf="frmAddPayinAcc.controls['AccountName'].invalid && (frmAddPayinAcc.controls['AccountName'].dirty || frmAddPayinAcc.controls['AccountName'].touched)" class="mt-2">
-                              <div *ngIf="frmAddPayinAcc.controls['AccountName'].errors?.['required']" class="text-danger">
-                                  Account Name is Required
-                               </div>
-                           </div>
-
-                    </div>
-                    <div class="col-lg-6">
-                      <div data-mdb-input-init class="form-outline">
-                                                 <label class="form-label" for="Ifsccode">IFSC Code</label>
-                                                 <input type="text" id="Ifsccode" class="form-control" formControlName="Ifsccode"  />
-                                               
-                                               </div>
-                                               <div *ngIf="frmAddPayinAcc.controls['Ifsccode'].invalid && (frmAddPayinAcc.controls['Ifsccode'].dirty || frmAddPayinAcc.controls['Ifsccode'].touched)" class="mt-2">
-                                                <div *ngIf="frmAddPayinAcc.controls['Ifsccode'].errors?.['required']" class="text-danger">
-                                                    IFSC Code is Required
-                                                 </div>
-                                             </div>
-                                         </div>
-
-                    
+                    <div class="col-lg-4">
+                        <label class="form-label select-label">Calculation Type </label>
+                        <select class="select form-control"   name="CalculationType" [(ngModel)]="CalculationModelTypeId"  formControlName="CalculationType"  >
+                          <option [value]="0">--Calculation Type--</option>
+                          @for (item of CalData; track $index) {
+                            <option  [value]="item.CalculationTypeId"  selected="item.CalculationTypeId=CalculationModelTypeId">{{item.CalculationTypeName}}</option>
+                          }
+                         
+                        </select> 
+                      
                   </div>
-                  <div class="mb-3 row">
-                    
-                    <div class="col">
-                      <label class="form-label" for="BranchAddress">Branch Address</label>
-                        <input type="text" id="BranchAddress" class="form-control" formControlName="BranchAddress"  />
-                  </div>
-                  </div>
+                  <div class="col-lg-4">
+                    <label class="form-label select-label">Slab Type </label>
+                    <select class="select form-control"   name="PlanId" [(ngModel)]="slabModel"  formControlName="SlabType"  >
+                      <option [value]="0">--Slab Type--</option>
+                      @for (item of SalbTypeData; track $index) {
+                        <option  [value]="item.SlabTypId"  selected="item.SlabTypId=slabModel">{{item.SlabTypeName}}</option>
+                      }
+                     
+                    </select> 
+              </div>
+              <div class="col-lg-4">
+                <label class="form-label select-label">Plan </label>
+                <select class="select form-control"   name="PlanId" [(ngModel)]="selectedplan"  formControlName="PlanId"  >
+                  <option [value]="0">--Plan Type--</option>
+                  @for (item of PlanData; track $index) {
+                    <option  [value]="item.PlanId"  selected="item.PlanId=selectedplan">{{item.PlanName}}</option>
+                  }
                  
+                </select> 
+          </div>
+              <div class="col-lg-4">
+                <label class="form-label select-label"> From Amount </label>
                 
+                <input type="text" id="FromAmount" class="form-control" formControlName="FromAmount"  />
+                
+                
+              </div>
+              <div class="col-lg-4">
+                <label class="form-label select-label"> To Amount </label>
+                
+                <input type="text" id="ToAmount" class="form-control" formControlName="ToAmount"  />
+                
+                
+              </div>
+              <div class="col-lg-4">
+                <label class="form-label select-label">Calculation Value </label>
+                
+                <input type="text" id="CalculationValue" class="form-control" formControlName="CalculationValue"  />
+                
+                
+              </div>
+                  </div>
+               
+                  
                   <div class="mb-3 row">
                     <div class="col">
-                      <!-- <button type="submit" class="btn--base" [disabled]="!selectedFile">Submit</button> -->
-                      <button type="submit" class="btn--base" >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button type="button" class="btn--base" (click)="GoBackToPre()" >Cancel</button>
+                      
+                      <button type="submit" class="btn--base" >Submit</button>
+                      &nbsp; &nbsp; &nbsp; &nbsp;
+                      <button type="button" class="btn--base" (click)="GoBackToPre()" >Back</button>
                     </div>
   
                   </div>

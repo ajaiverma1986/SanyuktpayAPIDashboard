@@ -9,10 +9,10 @@ export class ErrorResponse {
     public HasError!: boolean;
 }
 export class PlanMasterListResponse {
-    planID!: number;
-    planName!: string;
-    status!: number;
-    statusName!: string;
+    PlanId!: number;
+    PlanName!: string;
+    Status!: number;
+    StatusName!: string;
 }
 export class CompanyTypeMasterResponse {
     CompnayTypeId!: number;

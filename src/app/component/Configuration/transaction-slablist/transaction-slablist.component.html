@@ -72,7 +72,7 @@
                 <select class="select form-control"   name="PlanId" [(ngModel)]="planmodel"  formControlName="PlanId"  >
                   <option [value]="0">--Plan Type--</option>
                   @for (item of PlanData; track $index) {
-                    <option  [value]="item.planID"  selected="item.SlabTypId=planmodel">{{item.planName}}</option>
+                    <option  [value]="item.PlanId"  selected="item.PlanId=planmodel">{{item.PlanName}}</option>
                   }
                  
                 </select> 

@@ -57,4 +57,15 @@ export class ChangePaymentAccStatusRequest {
     Remarks!: string;
    
 }
+export class AddTxnslabRequest {
+    PlanId!: number;
+    AgencyID!: number;
+    ServiceID!: number;
+    FromAmount!: number;
+    ToAmount!: number;
+    SlabType!: number;
+    CalculationType!: number;
+    CalculationValue!: number;
+
+}
 

@@ -3,7 +3,7 @@ import { BaseserviceService } from '../baseservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
-import { AddPaymentAccountMasterRequest, ChangePaymentAccStatusRequest, CommissionDistributionRequest, TopupChargeRequest, TransactionslabRequest } from '../../RequestModel/ConfigRequest';
+import { AddPaymentAccountMasterRequest, AddTxnslabRequest, ChangePaymentAccStatusRequest, CommissionDistributionRequest, TopupChargeRequest, TransactionslabRequest } from '../../RequestModel/ConfigRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +51,9 @@ export class ConfigService {
   ChangeAccPaymentStatus(postData:ChangePaymentAccStatusRequest): Observable<SimpleResponse> {
 
     return this.apiconnector.PostAPI("/Config/changesPaymentAccountsStatus",postData);
+  }
+  AddNewTransactionSlab(postData:AddTxnslabRequest): Observable<SimpleResponse> {
+
+    return this.apiconnector.PostAPI("/Config/AddTransacttionSlab",postData);
   }
 }
