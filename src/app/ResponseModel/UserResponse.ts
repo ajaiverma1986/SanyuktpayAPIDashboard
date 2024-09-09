@@ -9,3 +9,15 @@ export class PartnerDetailsResponse {
 
    
 }
+export class ListOrganisationResponse
+{
+     UserId!:number;
+     Usercode!:string;
+     OrganisationName!:string;
+     ContactPerson!:string;
+     MobileNo!:string;
+     EmailId!:string
+     UpdatedOn!:Date;
+     UpdatedBy!:string;
+   
+}

@@ -1,3 +1,5 @@
+import { ListRequest } from "./BaseRequest";
+
 export class CreateUserWithLogoRequest {
     UserTypeId!: number;
     MobileNo!: string;
@@ -75,6 +77,13 @@ interface NgxSpinnerConfig {
     Filename!:string
 
    
+}
+export class ListOrganisationDetailRequest extends ListRequest
+{
+     MobileNo!:string
+     EmailId!:string;
+    UserId!:number;
+
 }
 
 

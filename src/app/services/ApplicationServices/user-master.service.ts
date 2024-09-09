@@ -2,7 +2,7 @@ import { Injectable, SimpleChange } from '@angular/core';
 import { BaseserviceService } from '../baseservice.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { CreateApplicationRequest, CreateNewUserRequest, SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
-import { CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, UploadOrgLogo1 } from '../../RequestModel/UserRequest';
+import { CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, ListOrganisationDetailRequest, UploadOrgLogo1 } from '../../RequestModel/UserRequest';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
 import { ListResponse } from '../../RequestModel/BaseResponse';
@@ -100,6 +100,10 @@ export class UserMasterService {
   GetOrganisationDetails(): Observable<SimpleResponse> {
 
     return this.apiconnector.GetAPI("/User/GetAllUserDetails");
+  }
+  ListOrganisationDetails(postdata:ListOrganisationDetailRequest): Observable<ListResponse> {
+
+    return this.apiconnector.PostAPI("/User/GetAllOrganisationDetails",postdata);
   }
  
 }

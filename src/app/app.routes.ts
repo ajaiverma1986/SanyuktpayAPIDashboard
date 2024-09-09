@@ -49,6 +49,7 @@ import { AddPaymentAccountsComponent } from './component/Configuration/add-payme
 import { PayinRequestListAdminComponent } from './component/Transactions/payin-request-list-admin/payin-request-list-admin.component';
 import { PayinAccountListAdminComponent } from './component/Transactions/payin-account-list-admin/payin-account-list-admin.component';
 import { AddTransactionslabComponent } from './component/Configuration/add-transactionslab/add-transactionslab.component';
+import { OrglistComponent } from './component/UserManager/orglist/orglist.component';
 
 
 export const routes: Routes = [
@@ -103,6 +104,7 @@ export const routes: Routes = [
       {path: 'PayinReListAdm', component: PayinRequestListAdminComponent,title:"Pay in Request"},
       {path: 'PayinaccListAdm', component: PayinAccountListAdminComponent,title:"Pay in Request"},
       {path: 'addtxnslab', component: AddTransactionslabComponent,title:"Configuration"},
+      {path: 'Orglistcmp', component: OrglistComponent,title:"Configuration"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
