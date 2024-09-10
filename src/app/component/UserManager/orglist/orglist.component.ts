@@ -15,6 +15,7 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { ListOrganisationDetailRequest } from '../../../RequestModel/UserRequest';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -42,7 +43,7 @@ export class OrglistComponent extends BasecomponentComponent implements OnInit {
 
   pageEvent!: PageEvent;
 
-  constructor( private fb: FormBuilder, private usrser: UserMasterService, toast: ToastrService, private dialog: MatDialog) {
+  constructor(private router:Router, private fb: FormBuilder, private usrser: UserMasterService, toast: ToastrService, private dialog: MatDialog) {
     super(toast);
     this.createForm();
   }
@@ -101,18 +102,9 @@ export class OrglistComponent extends BasecomponentComponent implements OnInit {
 
   }
  
-  
-
-  // OpenModel = (UserKYCID: any) => {
-
-  //   const dialogRef = this.dialog.open(ViewTransactiondocComponent, {
-  //     width: '700px',
-  //     height: '700px',
-  //     backdropClass: 'popupBackdropClass',
-  //     data: { "UserKYCID": UserKYCID, "CallType": "1" }
-  //   });
-
-  // }
+  OnViewdocuments(UserId:any){
+    this.router.navigateByUrl('/Dashboard/Orgkycchk?UserId='+UserId+'&ado=1');
+  }
 
 
 

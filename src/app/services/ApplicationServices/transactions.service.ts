@@ -9,7 +9,7 @@ import { ListResponse } from '../../RequestModel/BaseResponse';
 @Injectable({
   providedIn: 'root'
 })
-export class TransactionsService {
+export class TransactionsService  {
 
   constructor(private apiconnector: BaseserviceService,private http: HttpClient) {
   }
@@ -45,4 +45,5 @@ export class TransactionsService {
 
     return this.apiconnector.PostAPI("/User/ApproveRejectOrigiAccounts", PostData);
   }
+  
 }

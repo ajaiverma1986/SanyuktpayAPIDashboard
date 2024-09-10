@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SimpleResponse } from '../RequestModel/MasterDatarESPONSE';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -46,4 +47,5 @@ export class BaseserviceService {
     let headers: HttpHeaders = this.getDefaultHeaderFiles();
     return this.http.post<SimpleResponse>(this.apiurl+Url,PostData,{headers: headers})
   }
+ 
 }

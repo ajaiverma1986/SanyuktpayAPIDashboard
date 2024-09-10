@@ -50,6 +50,7 @@ import { PayinRequestListAdminComponent } from './component/Transactions/payin-r
 import { PayinAccountListAdminComponent } from './component/Transactions/payin-account-list-admin/payin-account-list-admin.component';
 import { AddTransactionslabComponent } from './component/Configuration/add-transactionslab/add-transactionslab.component';
 import { OrglistComponent } from './component/UserManager/orglist/orglist.component';
+import { OrgKycCheckerComponent } from './component/UserManager/org-kyc-checker/org-kyc-checker.component';
 
 
 export const routes: Routes = [
@@ -105,6 +106,7 @@ export const routes: Routes = [
       {path: 'PayinaccListAdm', component: PayinAccountListAdminComponent,title:"Pay in Request"},
       {path: 'addtxnslab', component: AddTransactionslabComponent,title:"Configuration"},
       {path: 'Orglistcmp', component: OrglistComponent,title:"Configuration"},
+      {path: 'Orgkycchk', component: OrgKycCheckerComponent,title:"Onbaording"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 

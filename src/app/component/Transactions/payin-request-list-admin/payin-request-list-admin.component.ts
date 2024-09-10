@@ -18,6 +18,7 @@ import { ViewTransactiondocComponent } from '../view-transactiondoc/view-transac
 import { MatDialog } from '@angular/material/dialog';
 import { MatCheckbox } from "@angular/material/checkbox"
 
+
 @Component({
   selector: 'app-payin-request-list-admin',
   standalone: true,
@@ -47,7 +48,7 @@ export class PayinRequestListAdminComponent extends BasecomponentComponent imple
 
   pageEvent!: PageEvent;
 
-  constructor(private mds: MasterDataService, private fb: FormBuilder, private txnser: TransactionsService, toast: ToastrService, private dialog: MatDialog) {
+  constructor( private mds: MasterDataService, private fb: FormBuilder, private txnser: TransactionsService, toast: ToastrService, private dialog: MatDialog) {
     super(toast);
     this.createForm();
   }
@@ -161,6 +162,10 @@ export class PayinRequestListAdminComponent extends BasecomponentComponent imple
 
   }
 
+  ExportToExcelData()
+  {
+    this.exportAsExcelFile(this.Modeldata,"PayinRequest");
+  }
 
 
 }

@@ -64,6 +64,10 @@ export class UserMasterService {
 
     return this.apiconnector.GetAPI("/User/ListUserKYC");
   }
+  ListUserKYCByUserId(UserId:number): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/User/ListUserKYCByUserId?UserId="+UserId);
+  }
   ListApplication(): Observable<SimpleResponse> {
 
     return this.apiconnector.GetAPI("/User/GetAllapplication");

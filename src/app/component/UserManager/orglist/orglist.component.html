@@ -95,7 +95,7 @@
                         <th mat-header-cell *matHeaderCellDef>Actions </th>
                         <mat-cell *matCellDef="let element">
                          
-                          <button type="button" class="btn btn--base">Documents</button>
+                          <button type="button" class="btn--base" (click)="OnViewdocuments(element.UserId)">Documents</button>
                          
                         </mat-cell>
                       </ng-container>

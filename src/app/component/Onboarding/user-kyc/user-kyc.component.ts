@@ -18,6 +18,7 @@ import { PopupserviceService } from '../../../services/common/popupservice.servi
 import { MatDialog, MatDialogConfig,MatDialogModule } from "@angular/material/dialog";
 import { ViewDocumentComponent } from '../view-document/view-document.component'
 import { MatTable } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -37,13 +38,14 @@ export class UserKYCComponent extends BasecomponentComponent implements OnInit {
   Modeldata!: UserKYYCResponse[];
   displayedColumns: string[] = ['UserKYCID', 'KycTypeName', 'DocumentNo', 'CreatedOn', 'CreatedBy', 'StatusName', 'actions',];
   dataSource = this.Modeldata;
-  addnew: boolean = false;
+  addnewdoc: boolean = false;
+
   @ViewChild(MatTable,{static:true}) table!: MatTable<any>;
 
 
   constructor(private ngxs: NgxSpinnerService, private fb: FormBuilder, private hhtp: HttpClient,
     private mstdataservice: MasterDataService, private frmBuilder: FormBuilder, private pops: PopupserviceService,
-    private users: UserMasterService, private dialog: MatDialog,
+    private users: UserMasterService, private dialog: MatDialog,private routt:ActivatedRoute,
     toster: ToastrService) {
     super(toster)
     this.createForm();
@@ -72,9 +74,11 @@ export class UserKYCComponent extends BasecomponentComponent implements OnInit {
     })
   }
   AddNew() {
-    this.addnew = true;
+    this.addnewdoc = true;
   }
   ngOnInit(): void {
+
+   
     this.selectedValueCom = "0";
     this.selectedvaluekyc = "0";
     this.mstdataservice.GetAllCompanyTypeMaster().subscribe({
