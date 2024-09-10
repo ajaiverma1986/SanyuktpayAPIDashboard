@@ -19,5 +19,7 @@ export class ListOrganisationResponse
      EmailId!:string
      UpdatedOn!:Date;
      UpdatedBy!:string;
+     StatusName!:string;
+     Status!:number;
    
 }

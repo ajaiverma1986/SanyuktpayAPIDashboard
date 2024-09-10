@@ -26,7 +26,7 @@ import { UserMasterService } from '../../../services/ApplicationServices/user-ma
 })
 export class OrglistComponent extends BasecomponentComponent implements OnInit {
   Modeldata!: PayinRequestListResponse[];
-  displayedColumns: string[] = ['Usercode', 'OrganisationName', 'ContactPerson', 'MobileNo', 'EmailId', 'UpdatedOn', 'UpdatedBy','actions',];
+  displayedColumns: string[] = ['Usercode', 'OrganisationName', 'ContactPerson', 'MobileNo', 'EmailId','StatusName', 'UpdatedOn', 'UpdatedBy','actions',];
   Model: ListOrganisationDetailRequest = new ListOrganisationDetailRequest();
   FrmUserMgr!: FormGroup;
 

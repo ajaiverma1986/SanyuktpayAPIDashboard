@@ -76,6 +76,10 @@
                         <th mat-header-cell *matHeaderCellDef>Email Id </th>
                         <td mat-cell *matCellDef="let element"> {{element.EmailId}} </td>
                       </ng-container>
+                      <ng-container matColumnDef="StatusName">
+                        <th mat-header-cell *matHeaderCellDef>Status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.StatusName}} </td>
+                      </ng-container>
                       <ng-container matColumnDef="UpdatedOn">
                         <th mat-header-cell *matHeaderCellDef>Updated On </th>
                         <td mat-cell *matCellDef="let element"> {{element.UpdatedOn | date:'dd/MM/yyyy'}} </td>
@@ -91,7 +95,7 @@
                         <th mat-header-cell *matHeaderCellDef>Actions </th>
                         <mat-cell *matCellDef="let element">
                          
-                          <button type="button" class="btn btn-info">View Reciept</button>
+                          <button type="button" class="btn btn--base">Documents</button>
                          
                         </mat-cell>
                       </ng-container>
