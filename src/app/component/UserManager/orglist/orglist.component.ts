@@ -105,7 +105,9 @@ export class OrglistComponent extends BasecomponentComponent implements OnInit {
   OnViewdocuments(UserId:any){
     this.router.navigateByUrl('/Dashboard/Orgkycchk?UserId='+UserId+'&ado=1');
   }
-
+  Onviewconfiguration(UserId:any){
+    this.router.navigateByUrl('/Dashboard/Orgconfg?UserId='+UserId+'&ado=1');
+  }
 
 
 }

@@ -12,12 +12,12 @@
                   <div class="mb-3 row">
                     <div class="col-lg-4">
   
-                        <label class="form-label" for="Remarks">Mobile No</label>
+                        <label class="form-label" for="Mobileno">Mobile No</label>
                         <input type="text" id="Mobileno" class="form-control" formControlName="Mobileno"  />
                     </div>
                     <div class="col-lg-4">
   
-                        <label class="form-label" for="Remarks">Email Id</label>
+                        <label class="form-label" for="EmailId">Email Id</label>
                         <input type="text" id="EmailId" class="form-control" formControlName="EmailId"  />
                     </div>
                     <div class="col-lg-4">
@@ -96,7 +96,7 @@
                         <mat-cell *matCellDef="let element">
                          
                           <button type="button" class="btn--base" (click)="OnViewdocuments(element.UserId)">Documents</button>
-                         
+                          <button type="button" class="btn--base" (click)="Onviewconfiguration(element.UserId)">Configuration</button>
                         </mat-cell>
                       </ng-container>
   

@@ -2,7 +2,7 @@ import { Injectable, SimpleChange } from '@angular/core';
 import { BaseserviceService } from '../baseservice.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { CreateApplicationRequest, CreateNewUserRequest, SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
-import { CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, ListOrganisationDetailRequest, UploadOrgLogo1 } from '../../RequestModel/UserRequest';
+import { ApproveRejectUserDocumentRequest, CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, ListOrganisationDetailRequest, UploadOrgLogo1 } from '../../RequestModel/UserRequest';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
 import { ListResponse } from '../../RequestModel/BaseResponse';
@@ -81,8 +81,6 @@ export class UserMasterService {
     return this.apiconnector.GetAPI("/User/GetallUserByOrg");
   }
   CreateNewUserData(PostData: CreateNewUserRequest): Observable<SimpleResponse> {
-
-    console.log(PostData);
     return this.apiconnector.PostAPI("/User/CreateNewAPIUser", PostData);
   }
   ListUserKYCByID(kycid:number): Observable<SimpleResponse> {
@@ -108,6 +106,14 @@ export class UserMasterService {
   ListOrganisationDetails(postdata:ListOrganisationDetailRequest): Observable<ListResponse> {
 
     return this.apiconnector.PostAPI("/User/GetAllOrganisationDetails",postdata);
+  }
+  ApproveRejectUserdoc(PostData: ApproveRejectUserDocumentRequest): Observable<SimpleResponse> {
+
+    return this.apiconnector.PostAPI("/User/ApproveRejectUserDocument", PostData);
+  }
+  GetAllUserConfigration(UserId:number): Observable<ListResponse> {
+
+    return this.apiconnector.GetAPI("/User/GetAllUserConfigration?UserId="+UserId);
   }
  
 }

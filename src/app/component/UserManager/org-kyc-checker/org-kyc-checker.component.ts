@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
-import {   ReactiveFormsModule } from '@angular/forms';
+import {   FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common'
 import { CompanyTypeMasterResponse, KycTypeMasterListResponse } from '../../../RequestModel/MasterDatarESPONSE';
-import { UserKYYCResponse } from '../../../RequestModel/UserRequest';
+import { ApproveRejectUserDocumentRequest, UserKYYCResponse } from '../../../RequestModel/UserRequest';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon, MatIconModule } from "@angular/material/icon";
@@ -17,6 +17,7 @@ import { MatDialog, MatDialogConfig,MatDialogModule } from "@angular/material/di
 @Component({
   selector: 'app-org-kyc-checker',
   standalone: true,
+  preserveWhitespaces:true,
   imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, MatIcon, MatIconModule,MatDialogModule],
   templateUrl: './org-kyc-checker.component.html',
   styleUrl: './org-kyc-checker.component.scss'
@@ -31,11 +32,16 @@ export class OrgKycCheckerComponent extends BasecomponentComponent implements On
   displayedColumns: string[] = ['UserKYCID', 'KycTypeName', 'DocumentNo', 'CreatedOn', 'CreatedBy', 'StatusName', 'actions',];
   dataSource = this.Modeldata;
   UserId!:number;
+  KycId!:number;
+  AppRejModel:ApproveRejectUserDocumentRequest=new ApproveRejectUserDocumentRequest();
+  Frmorgdocchecker!:FormGroup;
+  RejectReason!:string
 
   @ViewChild(MatTable,{static:true}) table!: MatTable<any>;
 
-  constructor(private users: UserMasterService,toster: ToastrService,private acrout:ActivatedRoute, private dialog: MatDialog) {
+  constructor(private users: UserMasterService,toster: ToastrService,private acrout:ActivatedRoute, private dialog: MatDialog,private fb:FormBuilder) {
     super(toster)
+    this.createForm();
    
   }
   ngOnInit(): void {
@@ -60,6 +66,52 @@ this.getdallKycData();
       height:'700px',
       backdropClass:'popupBackdropClass',
       data:UserKYCID
+    });
+  }
+  ApproveReject(UserKYCID:number,apptype:number){
+
+    
+    if(apptype==2)
+    {
+      this.RejectReason=this.Frmorgdocchecker.get("RejectedReason")?.value;
+      
+      this.AppRejModel.Status=3;
+      if(this.RejectReason=="")
+        {
+          this.showToaster(3,"Rejected Reason is Required","Onboarding");
+          
+          return;
+        }
+    }
+    else
+    {
+      this.AppRejModel.RejectedReason=this.Frmorgdocchecker.get("RejectedReason")?.value;
+      this.AppRejModel.Status=2;
+     
+    }
+    this.AppRejModel.UserKYCID=UserKYCID;
+    this.users.ApproveRejectUserdoc(this.AppRejModel).subscribe({
+      next:(data)=>{
+        this.KycId=data.Result;
+        console.log(data.Result);
+        if(this.KycId>0){
+          if(apptype==1)
+          {
+            this.showToaster(1,"Dcoument Approved successfully","Onboarding");
+            this.getdallKycData();
+          }
+          else
+          {
+            this.showToaster(1,"Dcoument Rejected successfully","Onboarding");
+            this.getdallKycData();
+          }
+        }
+      }
+    });
+  }
+  createForm() {
+    this.Frmorgdocchecker = this.fb.group({
+      RejectedReason: ['']
     });
   }
 }

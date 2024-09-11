@@ -23,3 +23,17 @@ export class ListOrganisationResponse
      Status!:number;
    
 }
+export class UserConfigurationResponse {
+    ConfigurationId!: number;
+    UserId!: number;
+    MinTxn!: number;
+    MaxTxn!: number;
+    ChargeTypeOn!: number;
+    ChargeDeductionType!: string;
+    MaxPayinAmount!: number;
+    MaxNoOfCountPayin!: number;
+    SameAmountPayinAllowed!: number;
+    PlanId!: number;
+    PlanName!: string;
+
+}

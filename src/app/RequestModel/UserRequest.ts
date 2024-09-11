@@ -85,6 +85,13 @@ export class ListOrganisationDetailRequest extends ListRequest
     UserId!:number;
 
 }
+export class ApproveRejectUserDocumentRequest {
+    UserKYCID!: number;
+    Status!: number;
+    RejectedReason!: string;
+
+}
+
 
 
 
