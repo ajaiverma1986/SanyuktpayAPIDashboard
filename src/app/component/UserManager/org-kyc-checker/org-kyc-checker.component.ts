@@ -10,9 +10,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon, MatIconModule } from "@angular/material/icon";
 import { MatTable } from '@angular/material/table';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { ViewDocumentComponent } from '../../Onboarding/view-document/view-document.component';
-import { MatDialog, MatDialogConfig,MatDialogModule } from "@angular/material/dialog";
+import { MatDialog,MatDialogModule } from "@angular/material/dialog";
+
 
 @Component({
   selector: 'app-org-kyc-checker',
@@ -39,7 +40,7 @@ export class OrgKycCheckerComponent extends BasecomponentComponent implements On
 
   @ViewChild(MatTable,{static:true}) table!: MatTable<any>;
 
-  constructor(private users: UserMasterService,toster: ToastrService,private acrout:ActivatedRoute, private dialog: MatDialog,private fb:FormBuilder) {
+  constructor(private users: UserMasterService,toster: ToastrService,private acrout:ActivatedRoute,private rout:Router, private dialog: MatDialog,private fb:FormBuilder) {
     super(toster)
     this.createForm();
    
@@ -113,5 +114,8 @@ this.getdallKycData();
     this.Frmorgdocchecker = this.fb.group({
       RejectedReason: ['']
     });
+  }
+  BacktoPre(){
+    this.rout.navigate(["/Dashboard/"])
   }
 }

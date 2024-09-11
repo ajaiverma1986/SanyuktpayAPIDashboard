@@ -91,7 +91,16 @@ export class ApproveRejectUserDocumentRequest {
     RejectedReason!: string;
 
 }
-
+export class UserConfigurationRequest {
+    UserId!: number;
+    MinTxn!: number;
+    MaxTxn!: number;
+    ChargeTypeOn!: number;
+    MaxPayinAmount!: number;
+    MaxNoOfCountPayin!: number;
+    SameAmountPayinAllowed!: number;
+    PlanId!: number;
+}
 
 
 

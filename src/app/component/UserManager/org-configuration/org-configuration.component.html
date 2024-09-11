@@ -6,9 +6,9 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h1 class="justify-content-start common-section-heading">Organisation List</h1>
+                  <h1 class="justify-content-start common-section-heading">User Configuration</h1>
                 </div>
-                <form  [formGroup]="Frmorgdocchecker">
+                <form  [formGroup]="Frmorgdocchecker" (ngSubmit)="OnSubmit()">
                   <div class="mb-3 row">
                     <div class="col-lg-5">
                         <strong>Min Amount Transaction</strong>
@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-lg-5">
   
-                        <input type="text" id="MinamtTxn" class="form-control"  formControlName="MinamtTxn"  />
+                        <input type="number" min="1" id="MinamtTxn" class="form-control"  formControlName="MinamtTxn"  />
                     </div>
                     
                   </div>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-lg-5">
   
-                        <input type="text" id="MaxamtTxn" class="form-control"  formControlName="MaxamtTxn"  />
+                        <input type="number" id="MaxamtTxn" min="1" class="form-control"  formControlName="MaxamtTxn"  />
                     </div>
                     
                   </div>
@@ -44,7 +44,20 @@
                     </div>
                     <div class="col-lg-5">
   
-                        <input type="text" id="MaxPayinAmt" class="form-control"  formControlName="MaxPayinAmt"  />
+                        <input type="number" id="MaxPayinAmt" min="1" class="form-control"  formControlName="MaxPayinAmt"  />
+                    </div>
+                    
+                  </div>
+                  <div class="mb-3 row">
+                    <div class="col-lg-5">
+                        <strong>Allowed Payin count</strong>
+                    </div>
+                    <div class="col-lg-2">
+  :
+                    </div>
+                    <div class="col-lg-5">
+  
+                        <input type="number" id="MaxPayincount" min="0" class="form-control"  formControlName="MaxPayincount"  />
                     </div>
                     
                   </div>
@@ -56,8 +69,6 @@
   :
                     </div>
                     <div class="col-lg-5">
-  
-                        <label class="form-label select-label">Charge Dedcution Type </label>
                         <select class="select form-control"   name="Chargeddtype" [(ngModel)]="selectedvalcrg"  formControlName="Chargeddtype"  >
                           <option [value]="0">--Charge Deduction Type--</option>
                           @for (item of Modeldatach; track $index) {
@@ -67,6 +78,51 @@
                         </select> 
                     </div>
                     
+                  </div>
+                  <div class="mb-3 row">
+                    <div class="col-lg-5">
+                        <strong>Plan Master</strong>
+                    </div>
+                    <div class="col-lg-2">
+  :
+                    </div>
+                    <div class="col-lg-5">
+                        <select class="select form-control"   name="PlanId" [(ngModel)]="selectedPlan"  formControlName="PlanId"  >
+                          <option [value]="0">--Select Plan--</option>
+                          @for (item of PlanModel; track $index) {
+                            <option  [value]="item.PlanId"  selected="item.PlanId=selectedPlan">{{item.PlanName}}</option>
+                          }
+                         
+                        </select> 
+                    </div>
+                    
+                  </div>
+                  <div class="mb-3 row">
+                    <div class="col-lg-5">
+                        <strong>Same Pain Amount Allowed</strong>
+                    </div>
+                    <div class="col-lg-2">
+  :
+                    </div>
+                    <div class="col-lg-5">
+                        <select class="select form-control"   name="spayinamount" [(ngModel)]="selectedsame"  formControlName="spayinamount"  >
+                          <option [value]="0" selected="selectedsame">No</option>
+                          <option  [value]="1"  >Yes</option>
+                         
+                        </select> 
+                    </div>
+                    
+                  </div>
+                  <div class="mb-3 row">
+                    <div class="col-lg-5">
+
+                    </div>
+                    <div class="col-lg-2">
+                      <button type="submit" class="btn--base">Update</button>
+                    </div>
+                    <div class="col-lg-5">
+                      <button type="button" class="btn--base" (click)="BacktoPre()">Back</button>
+                    </div>
                   </div>
                  
                 </form>
