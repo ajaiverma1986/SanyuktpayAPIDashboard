@@ -78,18 +78,17 @@ export class OrgConfigurationComponent extends BasecomponentComponent implements
     this.users.GetAllUserConfigration(this.UserId).subscribe({
       next: (data) => {
         this.Modeldata = data.Result;
-
         if (this.Modeldata.length > 0) {
           this.selectedPlan = this.Modeldata[0].PlanId;
           this.selectedvalcrg = this.Modeldata[0].ChargeTypeOn;
           this.Frmorgdocchecker.setValue({
             MinamtTxn: this.Modeldata[0].MinTxn,
             MaxamtTxn: this.Modeldata[0].MaxTxn,
-            MaxPayinAmt: this.Modeldata[0].MaxPayinAmount,
-            MaxPayincount: this.Modeldata[0].MaxNoOfCountPayin,
             PlanId: this.Modeldata[0].PlanId,
             Chargeddtype: this.Modeldata[0].ChargeTypeOn,
-            spayinamount: this.Modeldata[0].SameAmountPayinAllowed
+            spayinamount: this.Modeldata[0].SameAmountPayinAllowed,
+            MaxPayinAmt: this.Modeldata[0].MaxPayinamount ?? null,
+            MaxPayincount: this.Modeldata[0].MaxNoofcountPayin ?? null
           });
         }
       }

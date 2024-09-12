@@ -30,8 +30,8 @@ export class UserConfigurationResponse {
     MaxTxn!: number;
     ChargeTypeOn!: number;
     ChargeDeductionType!: string;
-    MaxPayinAmount!: number;
-    MaxNoOfCountPayin!: number;
+    MaxPayinamount!: number;
+    MaxNoofcountPayin!: number;
     SameAmountPayinAllowed!: number;
     PlanId!: number;
     PlanName!: string;

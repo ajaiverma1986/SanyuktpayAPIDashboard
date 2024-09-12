@@ -52,6 +52,7 @@ import { AddTransactionslabComponent } from './component/Configuration/add-trans
 import { OrglistComponent } from './component/UserManager/orglist/orglist.component';
 import { OrgKycCheckerComponent } from './component/UserManager/org-kyc-checker/org-kyc-checker.component';
 import { OrgConfigurationComponent } from './component/UserManager/org-configuration/org-configuration.component';
+import { UserConfigurationComponent } from './component/Onboarding/user-configuration/user-configuration.component';
 
 
 export const routes: Routes = [
@@ -109,6 +110,7 @@ export const routes: Routes = [
       {path: 'Orglistcmp', component: OrglistComponent,title:"Configuration"},
       {path: 'Orgkycchk', component: OrgKycCheckerComponent,title:"Onbaording"},
       {path: 'Orgconfg', component: OrgConfigurationComponent,title:"Onbaording"},
+      {path: 'Orgconfguser', component: UserConfigurationComponent,title:"Onbaording"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
