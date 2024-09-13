@@ -70,6 +70,10 @@ apiurl=environment.baseurl;
     let headers: HttpHeaders = this.getDefaultHeader2();
     return this.http.get<SimpleResponse>(this.apiurl + "/MasterData/UserTypeList",  {headers: headers});
   }
+  UserTypeAdminList(): Observable<SimpleResponse> {
+    let headers: HttpHeaders = this.getDefaultHeader2();
+    return this.http.get<SimpleResponse>(this.apiurl + "/MasterData/UserTypeAdminList",  {headers: headers});
+  }
   DemographicDataListByPincode(Pincode:string): Observable<SimpleResponse> {
     let headers: HttpHeaders = this.getDefaultHeader2();
     return this.http.get<SimpleResponse>(this.apiurl + "/MasterData/DemographicDataListByPincode?Pincode="+Pincode,  {headers: headers});

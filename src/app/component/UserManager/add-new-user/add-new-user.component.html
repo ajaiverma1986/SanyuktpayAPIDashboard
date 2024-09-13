@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="common-margin">
+      <div class="justify-content-center row">
+        <div class="col-lg-7 col-md-12 col">
+          <div class="form-wrap-card card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                    <h1 class="justify-content-start common-section-heading">Add User</h1>
+                </div>
+                <form [formGroup]="frmAddUser" (ngSubmit)="OnDataSubmit()">
+                  <div class="mb-3 row">
+                      <div class="col">
+                        <label class="form-label select-label">User Type</label>
+                        <select class="select form-control"   name="ApplicationID" formControlName="UserTypeId" >
+                          <option [value]="0">--Select USer Type--</option>
+                          @for (item of Modeldata; track $index) {
+                            <option  [value]="item.UserTypeId"  selected="item.UserTypeId=selectedValue">{{item.UserTypeName}}</option>
+                          }
+                         
+                        </select>
+                        
+                      </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <div class="col">
+                        <label class="form-label" for="AccessID">User Code</label>
+                         <input type="text" class="form-control" id="AccessID" name="AccessID" placeholder="AccessID" formControlName="AccessID" >
+                           
+                         
+                    </div>
+                </div>
+                 
+                  <div class="mb-3 row">
+                      <div class="col">
+                          <label class="form-label" for="Passwor">Password</label>
+                           <input type="password" class="form-control" id="Passwor" name="Passwor" placeholder="Password" formControlName="Passwor" >
+                             
+                          
+                      </div>
+                  </div>
+                  <div class="mb-3 row">
+                      <div class="col">
+                          <label class="form-label" for="ConfirmPass">Confirm Password</label>
+                           <input type="password" class="form-control" id="ConfirmPass" name="ConfirmPass" placeholder="Confirm Password" formControlName="ConfirmPass" >
+                             
+                         
+                      </div>
+                  </div>
+                 
+                  <button  id="btncreate" name="btncreate"  class="btn--base" >Create</button>
+                  
+              </form>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

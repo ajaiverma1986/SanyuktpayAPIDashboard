@@ -101,7 +101,15 @@ export class UserConfigurationRequest {
     SameAmountPayinAllowed!: number;
     PlanId!: number;
 }
-
-
+export class ActivateAPIUserRequest {
+    UserId!: number;
+    Status!: number;
+    Reason!: string;
+}
+export class ActivateAPIUserMasterRequest {
+    UserMasterId!: number;
+    Status!: number;
+    Reason!: string;
+}
 
 

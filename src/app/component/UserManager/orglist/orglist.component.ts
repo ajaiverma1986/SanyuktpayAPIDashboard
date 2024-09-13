@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
-import { MasterDataService } from '../../../services/master-data.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common'
@@ -9,11 +8,10 @@ import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MatIcon, MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TransactionsService } from '../../../services/ApplicationServices/transactions.service';
 import { PayinRequestListResponse } from '../../../RequestModel/TransactionResponse';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
-import { ListOrganisationDetailRequest } from '../../../RequestModel/UserRequest';
+import { ActivateAPIUserRequest, ListOrganisationDetailRequest } from '../../../RequestModel/UserRequest';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { Router } from '@angular/router';
 
@@ -27,9 +25,11 @@ import { Router } from '@angular/router';
 })
 export class OrglistComponent extends BasecomponentComponent implements OnInit {
   Modeldata!: PayinRequestListResponse[];
-  displayedColumns: string[] = ['Usercode', 'OrganisationName', 'ContactPerson', 'MobileNo', 'EmailId','StatusName', 'UpdatedOn', 'UpdatedBy','actions',];
+  displayedColumns: string[] = ['Usercode', 'OrganisationName', 'ContactPerson', 'MobileNo', 'EmailId', 'StatusName', 'UpdatedOn', 'UpdatedBy', 'actions',];
   Model: ListOrganisationDetailRequest = new ListOrganisationDetailRequest();
   FrmUserMgr!: FormGroup;
+  ModelAct: ActivateAPIUserRequest = new ActivateAPIUserRequest();
+  UserIdn!: number;
 
   length!: number;
   pageSize = 5;
@@ -43,7 +43,7 @@ export class OrglistComponent extends BasecomponentComponent implements OnInit {
 
   pageEvent!: PageEvent;
 
-  constructor(private router:Router, private fb: FormBuilder, private usrser: UserMasterService, toast: ToastrService, private dialog: MatDialog) {
+  constructor(private router: Router, private fb: FormBuilder, private usrser: UserMasterService, toast: ToastrService, private dialog: MatDialog) {
     super(toast);
     this.createForm();
   }
@@ -55,7 +55,7 @@ export class OrglistComponent extends BasecomponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+
     this.getPageData(1);
   }
   getPageData(pagenum: number) {
@@ -63,8 +63,8 @@ export class OrglistComponent extends BasecomponentComponent implements OnInit {
     this.Model.PageNo = pagenum;
     this.Model.PageSize = this.pageSize;
     this.Model.UserId = 0;
-    this.Model.EmailId=this.FrmUserMgr.get("EmailId")?.value;
-    this.Model.MobileNo=this.FrmUserMgr.get("Mobileno")?.value;
+    this.Model.EmailId = this.FrmUserMgr.get("EmailId")?.value;
+    this.Model.MobileNo = this.FrmUserMgr.get("Mobileno")?.value;
     this.usrser.ListOrganisationDetails(this.Model).subscribe({
       next: (data) => {
         this.Modeldata = data.Result;
@@ -88,11 +88,11 @@ export class OrglistComponent extends BasecomponentComponent implements OnInit {
   }
 
   onSubmit() {
-    this.Model.UserId=0;
+    this.Model.UserId = 0;
     this.Model.PageNo = 1;
     this.Model.PageSize = 10;
-    this.Model.EmailId=this.FrmUserMgr.get("EmailId")?.value;
-    this.Model.MobileNo=this.FrmUserMgr.get("Mobileno")?.value;
+    this.Model.EmailId = this.FrmUserMgr.get("EmailId")?.value;
+    this.Model.MobileNo = this.FrmUserMgr.get("Mobileno")?.value;
     this.usrser.ListOrganisationDetails(this.Model).subscribe({
       next: (data) => {
         this.Modeldata = data.Result;
@@ -101,12 +101,30 @@ export class OrglistComponent extends BasecomponentComponent implements OnInit {
     });
 
   }
- 
-  OnViewdocuments(UserId:any){
-    this.router.navigateByUrl('/Dashboard/Orgkycchk?UserId='+UserId+'&ado=1');
+
+  OnViewdocuments(UserId: any) {
+    this.router.navigateByUrl('/Dashboard/Orgkycchk?UserId=' + UserId + '&ado=1');
   }
-  Onviewconfiguration(UserId:any){
-    this.router.navigateByUrl('/Dashboard/Orgconfg?UserId='+UserId+'&ado=1');
+  Onviewconfiguration(UserId: any) {
+    this.router.navigateByUrl('/Dashboard/Orgconfg?UserId=' + UserId + '&ado=1');
+  }
+  OnActivateDeactivated(UserId: any,status:number) {
+    this.ModelAct.Reason = "";
+    this.ModelAct.Status = status;
+    this.ModelAct.UserId = UserId;
+    this.usrser.ActivateDeactivateApiUser(this.ModelAct).subscribe({
+      next: (data) => {
+        this.UserIdn = Number(data.Result);
+        if (this.UserIdn > 0) {
+          this.onSubmit();
+          this.showToaster(1, "Status Changed successfully", "User  Manager")
+        }
+        else {
+          this.onSubmit();
+          this.showToaster(1, "Status not  Changed successfully", "User  Manager")
+        }
+      }
+    });
   }
 
 

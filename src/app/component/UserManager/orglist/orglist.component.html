@@ -95,8 +95,16 @@
                         <th mat-header-cell *matHeaderCellDef>Actions </th>
                         <mat-cell *matCellDef="let element">
                          
-                          <button type="button" class="btn--base" (click)="OnViewdocuments(element.UserId)">Documents</button>
-                          <button type="button" class="btn--base" (click)="Onviewconfiguration(element.UserId)">Configuration</button>
+                          <button type="button" class="btn btn-primary" (click)="OnViewdocuments(element.UserId)">Documents</button>&nbsp;&nbsp;&nbsp;
+                          <button type="button" class="btn btn-primary" (click)="Onviewconfiguration(element.UserId)">Configuration</button>&nbsp;&nbsp;&nbsp;
+                          @if(element.StatusName=="Activated"){
+                            <button type="button" class="btn btn-danger" (click)="OnActivateDeactivated(element.UserId,2)">De-Activated</button>
+                          }
+                          @else {
+                            <button type="button" class="btn btn-primary" (click)="OnActivateDeactivated(element.UserId,1)">Activate</button>
+                          }
+                         
+                         
                         </mat-cell>
                       </ng-container>
   

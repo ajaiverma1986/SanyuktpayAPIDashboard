@@ -2,7 +2,7 @@ import { Injectable, SimpleChange } from '@angular/core';
 import { BaseserviceService } from '../baseservice.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { CreateApplicationRequest, CreateNewUserRequest, SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
-import { ApproveRejectUserDocumentRequest, CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, ListOrganisationDetailRequest, UploadOrgLogo1, UserConfigurationRequest } from '../../RequestModel/UserRequest';
+import { ActivateAPIUserMasterRequest, ActivateAPIUserRequest, ApproveRejectUserDocumentRequest, CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, ListOrganisationDetailRequest, UploadOrgLogo1, UserConfigurationRequest } from '../../RequestModel/UserRequest';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
 import { ListResponse } from '../../RequestModel/BaseResponse';
@@ -119,5 +119,13 @@ export class UserMasterService {
 
     return this.apiconnector.PostAPI("/User/UpDateUserConfigrationDetails", PostData);
   }
- 
+  ActivateDeactivateApiUser(PostData: ActivateAPIUserRequest): Observable<SimpleResponse> {
+
+    return this.apiconnector.PostAPI("/User/ActivateDeactivateApiUser", PostData);
+  }
+  ActivateDeactivateUserMaster(PostData: ActivateAPIUserMasterRequest): Observable<SimpleResponse> {
+
+    return this.apiconnector.PostAPI("/User/ActivateDeactivateUserMaster", PostData);
+  }
+  
 }
