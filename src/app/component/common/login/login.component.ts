@@ -5,6 +5,7 @@ import { RouterModule, Router } from '@angular/router';
 import { LoginServiceService } from '../../../services/common/login-service.service';
 import { NavHeaderComponent } from "../nav-header/nav-header.component";
 import { FooterComponent } from "../footer/footer.component";
+import { ListUserMasterResponse } from '../../../ResponseModel/UserResponse';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,9 @@ import { FooterComponent } from "../footer/footer.component";
 })
 export class LoginComponent {
 
-errors:any;
+  Model: ListUserMasterResponse = new ListUserMasterResponse();
+
+  errors: any;
   constructor(private fb: FormBuilder, private loginService: LoginServiceService, private router: Router) {
     this.createForm();
   }
@@ -34,12 +37,12 @@ errors:any;
 
 
   onSubmit() {
-    
+
     this.loginService.login(this.loginForm.get("Usercode")?.value, this.loginForm.get('password')?.value).subscribe({
       next: (authorization) => {
         if (authorization.HasError) {
           sessionStorage.setItem("isloginvalid", "0")
-          this.errors=authorization.Errors;
+          this.errors = authorization.Errors;
           alert(this.errors[0].ErrorMessage);
         } else {
 
@@ -47,7 +50,22 @@ errors:any;
           sessionStorage.setItem("Display Name", authorization.DisplayName);
           sessionStorage.setItem("UserToken", authorization.UserToken);
           sessionStorage.setItem("Has error", authorization.HasError);
-          this.router.navigate(['/Dashboard/ParProfile']);
+          sessionStorage.setItem("Uname", this.loginForm.get("Usercode")?.value);
+
+          this.loginService.GetUserDetails(this.loginForm.get("Usercode")?.value).subscribe({
+            next: (data) => {
+              this.Model = data.Result;
+              if (this.Model.UserTypeId == 3) {
+                this.router.navigate(['/Dashboard/ParProfile']);
+              }
+              else {
+                this.router.navigate(['/Dashboard/UserProfile']);
+              }
+            }
+          });
+
+         
+
         }
       },
       error: (error) => {

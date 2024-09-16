@@ -103,4 +103,7 @@ export class PayinRequestReportComponent extends BasecomponentComponent implemen
     });
 
   }
+  ExportToExcel(){
+    this.exportAsExcelFile(this.Modeldata,"PayinReport");
+  }
 }

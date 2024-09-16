@@ -116,7 +116,9 @@ export class ListUserMasterRequest extends ListRequest {
     EmailId!: string;
     UserMasterId!: number; 
 }
-
+export class ListUserAddressRequest extends ListRequest {
+    UserId!: number; 
+}
 
 
 

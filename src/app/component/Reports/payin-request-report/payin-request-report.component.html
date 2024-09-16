@@ -6,7 +6,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h1 class="justify-content-start common-section-heading">Statement Report</h1>
+                                <h1 class="justify-content-start common-section-heading">Pay in Report</h1>
                             </div>
                             <form (ngSubmit)="onSubmit()" [formGroup]="frmStatementRpt">
                                 
@@ -47,7 +47,10 @@
                                 <div class="mb-3 row">
                                     <div class="col">
 
-                                        <button type="submit" class="btn--base">Search</button>
+                                        <button type="submit" class="btn--base">Search</button>&nbsp;&nbsp;&nbsp;
+                                        <button type="button" class="btn--base" (click)="ExportToExcel()">Export To Excel
+
+                                        </button>
                                     </div>
 
                                 </div>

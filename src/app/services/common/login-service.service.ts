@@ -34,4 +34,9 @@ apiUrl=environment.baseurl;
     let headers: HttpHeaders = this.getDefaultHeader();
     return this.http.post<SimpleResponse>(this.apiUrl + "/User/CreateOrgAPIPartner", regdata,  {headers: headers});
   }
+  GetUserDetails(UserName:string): Observable<SimpleResponse> {
+   
+    let headers: HttpHeaders = this.getDefaultHeader();
+    return this.http.get<SimpleResponse>(this.apiUrl + "/User/GetUserMasterDetailsforConfig?UserName="+UserName,  {headers: headers});
+  }
 }

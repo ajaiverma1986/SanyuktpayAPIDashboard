@@ -52,3 +52,25 @@ export class ListUserMasterResponse {
     Status!: number;
 
 }
+export class UserAddressListResponse {
+    UserAddressID!: number;
+    UserID!: number;
+    AddressTypeId!: number;
+    PincodeDataId!: number;
+    Address1!: string;
+    Address2!: string;
+    Address3!: string;
+    AddressTypeName!: string;
+    StatusName!: string;
+    AreaName!: string;
+    SubDistrictName!: string;
+    DistrictName!: string;
+    StateName!: string;
+    CreatedBy!: string;
+    Pincode!: string;
+    UpdatedBy!: string;
+    CreatedOn?: Date;
+    UpdatedOn?: Date;
+    Status!: number;
+
+}

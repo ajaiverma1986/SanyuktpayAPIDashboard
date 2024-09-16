@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AddressTypeListResponse, PincodeDataResponse } from '../../../RequestModel/MasterDatarESPONSE';
 import { CreateUserDetailAddressRequest } from '../../../RequestModel/UserRequest';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 
@@ -27,7 +28,7 @@ export class UserAddressComponent extends BasecomponentComponent implements OnIn
   ModelDataPin!:PincodeDataResponse[];
   
   
-  constructor(private mstdataservice: MasterDataService, private frmBuilder: FormBuilder, private users: UserMasterService,toster:ToastrService) {
+  constructor(private mstdataservice: MasterDataService,private routs:Router, private frmBuilder: FormBuilder, private users: UserMasterService,toster:ToastrService) {
     super(toster)
     this.createForm();
   }
@@ -70,13 +71,14 @@ export class UserAddressComponent extends BasecomponentComponent implements OnIn
     this.Model.Address2 = this.frmUserAddress.get("Address2")?.value;
     this.Model.Address3 = this.frmUserAddress.get("Address3")?.value;
     this.Model.Pincode = this.frmUserAddress.get("Pincode")?.value;
-    this.Model.userId = 2;
+    this.Model.userId = 0;
 
     this.users.AddUserAddress(this.Model).subscribe({
       next: (SimpleResponse) => {
         this.UserId = Number(SimpleResponse.Result);
         if (this.UserId > 0) {
           this.showToaster(1,"Record Saved Successfully","Partner Onboarding");
+          this.frmUserAddress.reset();
         }
         else
         {
@@ -87,5 +89,7 @@ export class UserAddressComponent extends BasecomponentComponent implements OnIn
       }
     });
   }
-
+  BacktoPre(){
+    this.routs.navigate(['/Dashboard/usraddlist']);
+  }
 }

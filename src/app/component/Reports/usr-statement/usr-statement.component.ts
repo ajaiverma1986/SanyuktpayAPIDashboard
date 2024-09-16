@@ -104,5 +104,7 @@ export class UsrStatementComponent extends BasecomponentComponent implements OnI
     });
 
   }
-
+  ExportToExcel(){
+    this.exportAsExcelFile(this.Modeldata,"Statement");
+  }
 }

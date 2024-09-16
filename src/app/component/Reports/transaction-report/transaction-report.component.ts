@@ -113,4 +113,7 @@ export class TransactionReportComponent extends BasecomponentComponent implement
     });
 
   }
+  ExportToExcel(){
+    this.exportAsExcelFile(this.Modeldata,"TransactionReport");
+  }
 }

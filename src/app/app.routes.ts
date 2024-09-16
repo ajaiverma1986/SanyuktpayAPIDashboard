@@ -55,6 +55,8 @@ import { OrgConfigurationComponent } from './component/UserManager/org-configura
 import { UserConfigurationComponent } from './component/Onboarding/user-configuration/user-configuration.component';
 import { AddNewUserComponent } from './component/UserManager/add-new-user/add-new-user.component';
 import { UserMasterListComponent } from './component/UserManager/user-master-list/user-master-list.component';
+import { UserProfileComponent } from './component/common/user-profile/user-profile.component';
+import { ListUserAddressComponent } from './component/Onboarding/list-user-address/list-user-address.component';
 
 
 export const routes: Routes = [
@@ -115,6 +117,8 @@ export const routes: Routes = [
       {path: 'Orgconfguser', component: UserConfigurationComponent,title:"Onbaording"},
       {path: 'AddNewUserd', component: AddNewUserComponent,title:"User Manager"},
       {path: 'UserMasterlst', component: UserMasterListComponent,title:"User Manager"},
+      {path: 'UserProfile', component: UserProfileComponent,title:"User Manager"},
+      {path: 'usraddlist', component: ListUserAddressComponent,title:"User Manager"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
