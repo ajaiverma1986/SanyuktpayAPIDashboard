@@ -111,5 +111,12 @@ export class ActivateAPIUserMasterRequest {
     Status!: number;
     Reason!: string;
 }
+export class ListUserMasterRequest extends ListRequest {
+    MobileNo!: string;
+    EmailId!: string;
+    UserMasterId!: number; 
+}
+
+
 
 

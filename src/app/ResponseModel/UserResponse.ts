@@ -37,3 +37,18 @@ export class UserConfigurationResponse {
     PlanName!: string;
 
 }
+export class ListUserMasterResponse {
+    UserMasterID!: number;
+    UserTypeId!: number;
+    UserTypename!: string;
+    UserName!: string;
+    OrganisationName!: string;
+    ContactPerson!: string;
+    MobileNo!: string;
+    EmailId!: string;
+    // UpdatedOn?: Date; // Uncomment if needed
+    UpdatedBy!: string;
+    StatusName!: string;
+    Status!: number;
+
+}

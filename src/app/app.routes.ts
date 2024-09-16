@@ -54,6 +54,7 @@ import { OrgKycCheckerComponent } from './component/UserManager/org-kyc-checker/
 import { OrgConfigurationComponent } from './component/UserManager/org-configuration/org-configuration.component';
 import { UserConfigurationComponent } from './component/Onboarding/user-configuration/user-configuration.component';
 import { AddNewUserComponent } from './component/UserManager/add-new-user/add-new-user.component';
+import { UserMasterListComponent } from './component/UserManager/user-master-list/user-master-list.component';
 
 
 export const routes: Routes = [
@@ -113,6 +114,7 @@ export const routes: Routes = [
       {path: 'Orgconfg', component: OrgConfigurationComponent,title:"Onbaording"},
       {path: 'Orgconfguser', component: UserConfigurationComponent,title:"Onbaording"},
       {path: 'AddNewUserd', component: AddNewUserComponent,title:"User Manager"},
+      {path: 'UserMasterlst', component: UserMasterListComponent,title:"User Manager"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
