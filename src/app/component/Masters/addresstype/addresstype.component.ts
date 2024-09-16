@@ -1,30 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormBuilder,Validator, Validators} from '@angular/forms'
+import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms'
 import { MasterDataService } from '../../../services/master-data.service';
 import { SimpleResponse, AddressTypeListResponse } from '../../../RequestModel/MasterDatarESPONSE';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableModule} from '@angular/material/table';
-import {MatCardModule} from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-addresstype',
   standalone: true,
-  imports: [MatPaginatorModule,MatTableModule,MatCardModule],
+  imports: [MatPaginatorModule, MatTableModule, MatCardModule],
   templateUrl: './addresstype.component.html',
   styleUrl: './addresstype.component.scss'
 })
-export class AddresstypeComponent implements OnInit {
+export class AddresstypeComponent extends BasecomponentComponent implements OnInit {
 
-  listdata:any;
+  listdata: any;
   Modeldata!: AddressTypeListResponse[];
-  constructor(private mstdataservice:MasterDataService){}
-  displayedColumns: string[] = ['AddressTypeId','AddressTypeName','StatusName',];
+  constructor(private mstdataservice: MasterDataService, toast: ToastrService) {
+    super(toast);
+  }
+  displayedColumns: string[] = ['AddressTypeId', 'AddressTypeName', 'StatusName',];
+  //displayedColumns: string[] = [];
   dataSource = this.Modeldata;
 
   ngOnInit(): void {
     this.mstdataservice.AdressTypeList().subscribe({
-      next:(SimpleResponse)=>{
-        this.Modeldata=SimpleResponse.Result;
-        console.log(this.Modeldata);
+      next: (SimpleResponse) => {
+        this.Modeldata = SimpleResponse.Result;
+        //   for( let v in this.Modeldata[0]){
+        //     this.displayedColumns.push(v);
+        // }
+
       }
     });
   }

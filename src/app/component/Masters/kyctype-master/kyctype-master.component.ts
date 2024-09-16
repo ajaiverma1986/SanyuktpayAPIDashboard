@@ -9,6 +9,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
+import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -18,7 +20,7 @@ import {FormsModule} from '@angular/forms';
   templateUrl: './kyctype-master.component.html',
   styleUrl: './kyctype-master.component.scss'
 })
-export class KYCTypeMasterComponent implements OnInit {
+export class KYCTypeMasterComponent extends BasecomponentComponent implements OnInit {
   listdata:any;
   Modeldata!: CompanyTypeMasterResponse[];
   companytypeid!: string;
@@ -27,7 +29,9 @@ export class KYCTypeMasterComponent implements OnInit {
   Modelusertype!:UserTypeListResponse[];
 
 
-  constructor(private mstdataservice:MasterDataService){}
+  constructor(private mstdataservice:MasterDataService,toast:ToastrService){
+    super(toast);
+  }
   displayedColumns: string[] = ['KycTypeID','UserTypeName','CompanyTypeName','KycTypeName'];
   dataSource = this.Modeldata;
 

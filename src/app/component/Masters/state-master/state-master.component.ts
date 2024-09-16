@@ -6,6 +6,8 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-state-master',
@@ -14,7 +16,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   templateUrl: './state-master.component.html',
   styleUrl: './state-master.component.scss'
 })
-export class StateMasterComponent implements OnInit {
+export class StateMasterComponent extends BasecomponentComponent implements OnInit {
   listdata:any;
   Modeldata!: StateListResponse[];
 
@@ -22,7 +24,9 @@ export class StateMasterComponent implements OnInit {
   isLoadingResults = true;
   isRateLimitReached = false;
 
-  constructor(private mstdataservice:MasterDataService){}
+  constructor(private mstdataservice:MasterDataService,toast:ToastrService){
+super(toast);
+  }
   displayedColumns: string[] = ['StateID','StateCode','StateName',];
   dataSource = this.Modeldata;
 

@@ -5,6 +5,8 @@ import { SimpleResponse,PlanMasterListResponse, CompanyTypeMasterResponse } from
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
+import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-gender',
@@ -13,10 +15,12 @@ import {MatCardModule} from '@angular/material/card';
   templateUrl: './gender.component.html',
   styleUrl: './gender.component.scss'
 })
-export class GenderComponent implements OnInit {
+export class GenderComponent extends BasecomponentComponent implements OnInit {
   listdata:any;
   Modeldata!: CompanyTypeMasterResponse[];
-  constructor(private mstdataservice:MasterDataService){}
+  constructor(private mstdataservice:MasterDataService,toast:ToastrService){
+super(toast);
+  }
   displayedColumns: string[] = ['GenderId','GenderName',];
   dataSource = this.Modeldata;
 

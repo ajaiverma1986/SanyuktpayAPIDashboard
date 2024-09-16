@@ -5,6 +5,8 @@ import { SimpleResponse,PlanMasterListResponse, CompanyTypeMasterResponse } from
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
+import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-marital-status',
@@ -13,11 +15,13 @@ import {MatCardModule} from '@angular/material/card';
   templateUrl: './marital-status.component.html',
   styleUrl: './marital-status.component.scss'
 })
-export class MaritalStatusComponent implements OnInit {
+export class MaritalStatusComponent extends BasecomponentComponent implements OnInit {
 
   listdata:any;
   Modeldata!: CompanyTypeMasterResponse[];
-  constructor(private mstdataservice:MasterDataService){}
+  constructor(private mstdataservice:MasterDataService,toast:ToastrService){
+    super(toast);
+  }
   displayedColumns: string[] = ['MaritalStatusID','MaritalStatusName',];
   dataSource = this.Modeldata;
 

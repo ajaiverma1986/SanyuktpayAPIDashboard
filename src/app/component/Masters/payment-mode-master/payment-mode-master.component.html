@@ -1,64 +1,95 @@
-<mat-card appearance="outlined">
-    <mat-card-title style=" background-color: #3f51b5;color: white;">Payment Mode Master</mat-card-title>
-    <br>
-    <mat-card-content>
-        <form>
-            <mat-form-field>
-              <mat-label>Select Chanel</mat-label>
-              <mat-select [(ngModel)]="selectedValue" name="state" (ngModelChange)="GetDistrict()">
-                @for (chanel of Modeldata; track chanel) {
-                  <mat-option [value]="chanel.PaymentChanelID">{{chanel.PaymentChanelName}}</mat-option>
-                }
-              </mat-select>
-            </mat-form-field>
-           
-          </form>
-    </mat-card-content>
-</mat-card>
+<div class="container">
+  <div class="common-margin">
+    <div class="justify-content-center row">
+      <div class="col-lg-12 col-md-12 col">
+        <div class="form-wrap-card card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h1 class="justify-content-start common-section-heading">Payment Mode Master</h1>
+              </div>
+              <form>
+                <div class="mb-3 row">
+                  <div class="col-lg-6">
+                    <label class="form-label select-label">Select Payment Chanel</label>
+                    <select class="select form-control"   name="Bankname" [(ngModel)]="selectedValue" (change)="GetDistrict()" >
+                      <option [value]="0">--Select Bank--</option>
+                      @for (item of Modeldata; track $index) {
+                        <option  [value]="item.PaymentChanelID"  selected="item.PaymentChanelID=selectedValue">{{item.PaymentChanelName}}</option>
+                      }
+                     
+                    </select>
+
+                  </div>
+                  <div class="col-lg-6">
+                    <button type="button" class="btn--base" (click)="GetDistrict()">Search</button>
+                  </div>
+
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <mat-divider></mat-divider>
 
-<mat-card appearance="outlined">
-    <mat-card-title style=" background-color: #3f51b5;color: white;">Payment Mode List</mat-card-title>
-    <br>
-    <mat-card-content>
-  @if (Modeldistrict!=null) {
-  
-  <table mat-table [dataSource]="Modeldistrict" class="mat-elevation-z8">
-  
-     
-      <ng-container matColumnDef="PaymentModeID">
-        <th mat-header-cell *matHeaderCellDef> Id </th>
-        <td mat-cell *matCellDef="let element"> {{element.PaymentModeID}} </td>
-      </ng-container>
-    
-      
+<div class="container">
+  <div class="common-margin">
+    <div class="justify-content-center row">
+      <div class="col-lg-12 col-md-12 col">
+        <div class="form-wrap-card card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h1 class="justify-content-start common-section-heading">District List</h1>
+              </div>
 
-      <ng-container matColumnDef="PaymentChanelName">
-        <th mat-header-cell *matHeaderCellDef> District Code </th>
-        <td mat-cell *matCellDef="let element"> {{element.PaymentChanelName}} </td>
-      </ng-container>
-     
-      <ng-container matColumnDef="PaymentModeName">
-        <th mat-header-cell *matHeaderCellDef> Payment Mode Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.PaymentModeName}} </td>
-      </ng-container>
+              <mat-card-content>
+                @if (Modeldistrict!=null) {
+                
+                <table mat-table [dataSource]="Modeldistrict" class="mat-elevation-z8">
+                
+                   
+                    <ng-container matColumnDef="PaymentModeID">
+                      <th mat-header-cell *matHeaderCellDef> Id </th>
+                      <td mat-cell *matCellDef="let element"> {{element.PaymentModeID}} </td>
+                    </ng-container>
+                  
+                    
+              
+                    <ng-container matColumnDef="PaymentChanelName">
+                      <th mat-header-cell *matHeaderCellDef> District Code </th>
+                      <td mat-cell *matCellDef="let element"> {{element.PaymentChanelName}} </td>
+                    </ng-container>
+                   
+                    <ng-container matColumnDef="PaymentModeName">
+                      <th mat-header-cell *matHeaderCellDef> Payment Mode Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.PaymentModeName}} </td>
+                    </ng-container>
+              
+                    <ng-container matColumnDef="StatusName">
+                      <th mat-header-cell *matHeaderCellDef> Status </th>
+                      <td mat-cell *matCellDef="let element"> {{element.StatusName}} </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+                  
+                }
+                </mat-card-content>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-      <ng-container matColumnDef="StatusName">
-        <th mat-header-cell *matHeaderCellDef> Status </th>
-        <td mat-cell *matCellDef="let element"> {{element.StatusName}} </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    
-  }
-  </mat-card-content>
-  <mat-card-footer>
-  <mat-paginator [length]="100"
-                [pageSize]="10"
-                [pageSizeOptions]="[2, 10, 25, 100]"
-                aria-label="Select page" dataSource="Modeldata" >
-  </mat-paginator>
-  </mat-card-footer>
-  </mat-card>

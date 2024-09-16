@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { SimpleResponse } from '../RequestModel/MasterDatarESPONSE';
+import { DistrictListRequest, PincodeDataRequest, SimpleResponse } from '../RequestModel/MasterDatarESPONSE';
 import { Observable } from 'rxjs/internal/Observable';
+import { ListResponse } from '../RequestModel/BaseResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,10 @@ apiurl=environment.baseurl;
     let headers: HttpHeaders = this.getDefaultHeader2();
     return this.http.get<SimpleResponse>(this.apiurl + "/MasterData/DistrictList?StateId="+StateId,  {headers: headers});
   }
+  DistrictMasterList(postdata:DistrictListRequest): Observable<ListResponse> {
+    let headers: HttpHeaders = this.getDefaultHeader2();
+    return this.http.post<ListResponse>(this.apiurl + "/MasterData/DistrictMasterList",postdata,  {headers: headers});
+  }
   KycTypeList(CompanyTypeId:string,UserTypeID :string): Observable<SimpleResponse> {
     let headers: HttpHeaders = this.getDefaultHeader2();
     return this.http.get<SimpleResponse>(this.apiurl + "/MasterData/KycTypeList?CompanyTypeId="+CompanyTypeId+"&UserTypeID="+UserTypeID,  {headers: headers});
@@ -77,6 +82,10 @@ apiurl=environment.baseurl;
   DemographicDataListByPincode(Pincode:string): Observable<SimpleResponse> {
     let headers: HttpHeaders = this.getDefaultHeader2();
     return this.http.get<SimpleResponse>(this.apiurl + "/MasterData/DemographicDataListByPincode?Pincode="+Pincode,  {headers: headers});
+  }
+  DemographicDataListByPincodeList(postdata:PincodeDataRequest): Observable<ListResponse> {
+    let headers: HttpHeaders = this.getDefaultHeader2();
+    return this.http.post<ListResponse>(this.apiurl + "/MasterData/DemographicDataListByPincodeList",postdata,  {headers: headers});
   }
   ListLedegrType(): Observable<SimpleResponse> {
     let headers: HttpHeaders = this.getDefaultHeader2();

@@ -96,4 +96,7 @@ export class CreateAPIUserComponent extends BasecomponentComponent implements On
 
     });
   }
+  BackToPre(){
+    this.addnew=false;
+  }
 }

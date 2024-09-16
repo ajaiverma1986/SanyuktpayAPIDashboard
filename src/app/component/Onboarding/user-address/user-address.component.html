@@ -1,90 +1,139 @@
-<section class="get-in-touch">
-    <h1 class="title">Add Address</h1>
-    <form class="contact-form row" [formGroup]="frmUserAddress" (ngSubmit)="OnsubmitUserAddress()">
+<div class="container">
+   <div class="common-margin">
+      <div class="justify-content-center row">
+         <div class="col-lg-7 col-md-12 col">
+            <div class="form-wrap-card card">
+               <div class="card-body">
+                  <div class="row">
+                     <div class="col">
+                        <h1 class="justify-content-start common-section-heading">Add Address</h1>
+                     </div>
+                     <form [formGroup]="frmUserAddress" (ngSubmit)="OnsubmitUserAddress()">
+                        <div class="mb-3 row">
+                           <div class="col">
+                              <label for="AddressTypeId">Address Type</label>
+                              <select class="form-select" name="ddladdresstype" formControlName="AddressTypeId">
+                                 <option [value]="0">--Select Address Type--</option>
+                                 @for (item of Modeldata; track $index) {
+                                 <option [value]="item.AddressTypeId" selected="item.AddressTypeId=selectedValue">
+                                    {{item.AddressTypeName}}</option>
+                                 }
 
-      <div class="row">
-         <div class="form-field col-lg-6">
-            <label for="AddressTypeId">Address Type</label>
-            <select class="form-select"   name="ddladdresstype" formControlName="AddressTypeId" >
-              <option [value]="0">--Select Address Type--</option>
-              @for (item of Modeldata; track $index) {
-                <option  [value]="item.AddressTypeId"  selected="item.AddressTypeId=selectedValue">{{item.AddressTypeName}}</option>
-              }
-             
-            </select>
-          
-         </div>
-         <div *ngIf="frmUserAddress.controls['AddressTypeId'].invalid && (frmUserAddress.controls['AddressTypeId'].dirty || frmUserAddress.controls['AddressTypeId'].touched)" class="form-field col-lg-6 ">
-           <div *ngIf="frmUserAddress.controls['AddressTypeId'].errors?.['required']" class="text-danger">
-            Address Type is Required
-            </div>
-        </div>
-      </div>
-      <div class="row">
-         <div class="form-field col-lg-6 ">
-            <label  for="txtpincode">Pin code</label>
-            <input id="txtpincode" class="input-text js-input" type="text" formControlName="Pincode" (change)="OnChanges()" >
-           
-         </div>
-         <div *ngIf="frmUserAddress.controls['Pincode'].invalid && (frmUserAddress.controls['Pincode'].dirty || frmUserAddress.controls['Pincode'].touched)" class="form-field col-lg-6 ">
-           <div *ngIf="frmUserAddress.controls['Pincode'].errors?.['required']" class="text-danger">
-            Pincode is Required
-            </div>
-        </div>
-      </div>
+                              </select>
+                              <div
+                                 *ngIf="frmUserAddress.controls['AddressTypeId'].invalid && (frmUserAddress.controls['AddressTypeId'].dirty || frmUserAddress.controls['AddressTypeId'].touched)"
+                                 class="form-field col-lg-6 ">
+                                 <div *ngIf="frmUserAddress.controls['AddressTypeId'].errors?.['required']"
+                                    class="text-danger">
+                                    Address Type is Required
+                                 </div>
+                              </div>
 
-      <div class="row">
-         <div class="form-field col-lg-6 ">
-            <label  for="PincodeDataId">Area</label>
-            <select class="form-select"   name="ddlarea" formControlName="PincodeDataId" >
-                <option [value]="0">--Select Area --</option>
-                @for (item of ModelDataPin; track $index) {
-                  <option  [value]="item.PincodeDataId"  selected="item.AddressTypeId=selectedValue">{{item.AreaName}}</option>
-                }
-               
-              </select>
-           </div>
-           <div *ngIf="frmUserAddress.controls['PincodeDataId'].invalid && (frmUserAddress.controls['PincodeDataId'].dirty || frmUserAddress.controls['PincodeDataId'].touched)" class="form-field col-lg-6 ">
-            <div *ngIf="frmUserAddress.controls['PincodeDataId'].errors?.['required']" class="text-danger">
-             Area  is Required
-             </div>
-         </div>
-      </div>
-      <div class="row">
-         <div class="form-field col-lg-6 ">
-            <label  for="txtaddress1">Address1</label>
-            <input id="txtaddress1" class="input-text js-input" type="text" formControlName="Address1">
-            
-         </div>
-         <div *ngIf="frmUserAddress.controls['Address1'].invalid && (frmUserAddress.controls['Address1'].dirty || frmUserAddress.controls['Address1'].touched)" class="mt-2">
-           <div *ngIf="frmUserAddress.controls['Address1'].errors?.['required']" class="text-danger">
-           Address1  is Required
+                           </div>
+                        </div>
+                        <div class="mb-3 row">
+                           <div class="col">
+                              <label for="txtpincode">Pin code</label>
+                              <input id="txtpincode" class="form-control" type="text" formControlName="Pincode"
+                                 (change)="OnChanges()">
+
+                           </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                           <div class="col">
+                              <label class="form-label" for="Passwor">Password</label>
+                              <input type="password" class="form-control" id="Passwor" name="Passwor"
+                                 placeholder="Password" formControlName="Passwor">
+
+
+                           </div>
+                        </div>
+                        <div class="mb-3 row">
+                           <div class="col">
+                              <label class="form-label" for="ConfirmPass">Confirm Password</label>
+                              <input type="password" class="form-control" id="ConfirmPass" name="ConfirmPass"
+                                 placeholder="Confirm Password" formControlName="ConfirmPass">
+
+                              <div
+                                 *ngIf="frmUserAddress.controls['Pincode'].invalid && (frmUserAddress.controls['Pincode'].dirty || frmUserAddress.controls['Pincode'].touched)"
+                                 class="form-field col-lg-6 ">
+                                 <div *ngIf="frmUserAddress.controls['Pincode'].errors?.['required']"
+                                    class="text-danger">
+                                    Pincode is Required
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="mb-3 row">
+                           <div class="col">
+                              <label for="PincodeDataId">Area</label>
+                              <select class="form-select" name="ddlarea" formControlName="PincodeDataId">
+                                 <option [value]="0">--Select Area --</option>
+                                 @for (item of ModelDataPin; track $index) {
+                                 <option [value]="item.PincodeDataId" selected="item.AddressTypeId=selectedValue">
+                                    {{item.AreaName}}</option>
+                                 }
+
+                              </select>
+                              <div
+                                 *ngIf="frmUserAddress.controls['PincodeDataId'].invalid && (frmUserAddress.controls['PincodeDataId'].dirty || frmUserAddress.controls['PincodeDataId'].touched)"
+                                 class="form-field col-lg-6 ">
+                                 <div *ngIf="frmUserAddress.controls['PincodeDataId'].errors?.['required']"
+                                    class="text-danger">
+                                    Area is Required
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="mb-3 row">
+                           <div class="col">
+                              <label for="txtaddress1">Address1</label>
+                              <input id="txtaddress1" class="form-control" type="text"
+                                 formControlName="Address1">
+
+                              <div
+                                 *ngIf="frmUserAddress.controls['Address1'].invalid && (frmUserAddress.controls['Address1'].dirty || frmUserAddress.controls['Address1'].touched)"
+                                 class="mt-2">
+                                 <div *ngIf="frmUserAddress.controls['Address1'].errors?.['required']"
+                                    class="text-danger">
+                                    Address1 is Required
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="mb-3 row">
+                           <div class="col">
+                              <label for="txtaddress2">Address2</label>
+                              <input id="txtaddress2" class="form-control" type="text"
+                                 formControlName="Address2">
+
+
+                           </div>
+                        </div>
+                        <div class="mb-3 row">
+                           <div class="col">
+                              <label for="txtaddress3">Address3</label>
+                              <input id="txtaddress3" class="form-control" type="text"
+                                 formControlName="Address3">
+
+                           </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                           <div class="col">
+                              <input class="submit-btn" class="btn--base" type="submit"
+                                 [disabled]="frmUserAddress.status == 'INVALID'" value="Submit">
+
+                           </div>
+                        </div>
+
+
+                     </form>
+                  </div>
+               </div>
             </div>
-        </div>
-      </div>
-      <div class="row">
-         <div class="form-field col-lg-6">
-            <label  for="txtaddress2">Address2</label>
-            <input id="txtaddress2" class="input-text js-input" type="text" formControlName="Address2">
-            
-           </div>
-           <div class="form-field col-lg-6"></div>
-      </div>
-      <div class="row">
-         <div class="form-field col-lg-6">
-            <label  for="txtaddress3">Address3</label>
-            <input id="txtaddress3" class="input-text js-input" type="text" formControlName="Address3">
-           
-           </div>
-           <div class="form-field col-lg-6"></div>
-      </div>
-       
-      <div class="row">
-         <div class="form-field col-lg-12">
-            <input class="submit-btn" class="btn btn-primary" type="submit" [disabled]="frmUserAddress.status == 'INVALID'" value="Submit">
          </div>
       </div>
-       
-    </form>
- </section>
- 
+   </div>
+</div>

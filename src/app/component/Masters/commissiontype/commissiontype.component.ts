@@ -5,6 +5,8 @@ import { SimpleResponse,PlanMasterListResponse } from '../../../RequestModel/Mas
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
+import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -14,15 +16,15 @@ import {MatCardModule} from '@angular/material/card';
   templateUrl: './commissiontype.component.html',
   styleUrl: './commissiontype.component.scss'
 })
-export class CommissiontypeComponent implements OnInit {
+export class CommissiontypeComponent extends BasecomponentComponent implements OnInit {
 
   frmcomtype!:FormGroup;
   listdata:any;
   Modeldata!: PlanMasterListResponse[];
 
 
-  constructor(private frmbuilder:FormBuilder,private mstdataservice:MasterDataService){
-
+  constructor(private frmbuilder:FormBuilder,private mstdataservice:MasterDataService, toast: ToastrService){
+super(toast);
   }
   displayedColumns: string[] = ['PlanID', 'StatusName', 'PlanName'];
   dataSource = this.Modeldata;

@@ -7,6 +7,8 @@ import { UserMasterService } from '../../../services/ApplicationServices/user-ma
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApplicationListResponse, CreateApplicationRequest } from '../../../RequestModel/MasterDatarESPONSE';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-create-app',
@@ -25,7 +27,7 @@ export class CreateAppComponent extends BasecomponentComponent implements OnInit
   Model: CreateApplicationRequest = new CreateApplicationRequest();
   AppId!: string;
 
-  constructor(private userser: UserMasterService, private fb: FormBuilder, toast: ToastrService) {
+  constructor(private userser: UserMasterService, private fb: FormBuilder, toast: ToastrService,private routs:Router) {
     super(toast);
     this.createForm();
   }
@@ -73,5 +75,8 @@ export class CreateAppComponent extends BasecomponentComponent implements OnInit
 
     });
   }
-
+  BacktoPre(){
+   // this.routs.navigate(['/Dashboard/APIuser']);
+   this.addnew=false;
+  }
 }

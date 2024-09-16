@@ -1,42 +1,56 @@
+<div class="container">
+  <div class="common-margin">
+    <div class="justify-content-center row">
+      <div class="col-lg-12 col-md-12 col">
+        <div class="form-wrap-card card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h1 class="justify-content-start common-section-heading">Company Type List</h1>
+              </div>
 
-<mat-card appearance="outlined">
-    <mat-card-title style=" background-color: #3f51b5;color: white;margin-left: 30px;">Company Type List</mat-card-title>
-    <br>
-    <mat-card-content>
-  @if (Modeldata!=null) {
-  
-  <table mat-table [dataSource]="Modeldata" class="mat-elevation-z8">
-  
-     
-      <ng-container matColumnDef="CompnayTypeId">
-        <th mat-header-cell *matHeaderCellDef> Compnay Id </th>
-        <td mat-cell *matCellDef="let element"> {{element.CompnayTypeId}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="CompanyTypeName">
-        <th mat-header-cell *matHeaderCellDef> Company Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.CompanyTypeName}} </td>
-      </ng-container>
-    
-     
-      <ng-container matColumnDef="StatusName">
-        <th mat-header-cell *matHeaderCellDef> Status </th>
-        <td mat-cell *matCellDef="let element"> {{element.StatusName}} </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    
-  }
-  </mat-card-content>
-  <mat-card-footer>
-  <mat-paginator [length]="100"
-                [pageSize]="10"
-                [pageSizeOptions]="[2, 10, 25, 100]"
-                aria-label="Select page" dataSource="Modeldata" >
-  </mat-paginator>
-  </mat-card-footer>
-  </mat-card>
-    
-  
+
+              <mat-card appearance="outlined">
+   
+                <mat-card-content>
+              @if (Modeldata!=null) {
+              
+              <table mat-table [dataSource]="Modeldata" class="mat-elevation-z8">
+              
+                 
+                  <ng-container matColumnDef="CompnayTypeId">
+                    <th mat-header-cell *matHeaderCellDef> Compnay Id </th>
+                    <td mat-cell *matCellDef="let element"> {{element.CompnayTypeId}} </td>
+                  </ng-container>
+                
+                  <ng-container matColumnDef="CompanyTypeName">
+                    <th mat-header-cell *matHeaderCellDef> Company Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.CompanyTypeName}} </td>
+                  </ng-container>
+                
+                 
+                  <ng-container matColumnDef="StatusName">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.StatusName}} </td>
+                  </ng-container>
+                
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                
+              }
+              </mat-card-content>
+             
+              </mat-card>
+                
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

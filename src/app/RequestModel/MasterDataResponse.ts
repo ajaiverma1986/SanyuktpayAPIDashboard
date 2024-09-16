@@ -1,3 +1,5 @@
+import { ListRequest } from "./BaseRequest";
+
 export class BaseResponse {
     public HasError!: boolean;
     public Errors!: ErrorResponse[];
@@ -160,4 +162,12 @@ export class CreateNewUserRequest {
     LastName!: string;
     Password!: string;
     AccessID!:string;
+}
+export class PincodeDataRequest extends ListRequest {
+    Pincode!: string;
+   
+}
+export class DistrictListRequest extends ListRequest {
+    StateId!: number;
+   
 }

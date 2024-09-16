@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormBuilder,Validator, Validators} from '@angular/forms'
 import { MasterDataService } from '../../../services/master-data.service';
-import { SimpleResponse, BankListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import {  BankListResponse } from '../../../RequestModel/MasterDatarESPONSE';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
+import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-bank-masterr',
@@ -13,11 +14,13 @@ import {MatCardModule} from '@angular/material/card';
   templateUrl: './bank-masterr.component.html',
   styleUrl: './bank-masterr.component.scss'
 })
-export class BankMasterrComponent implements OnInit {
+export class BankMasterrComponent extends BasecomponentComponent  implements OnInit {
 
   listdata:any;
   Modeldata!: BankListResponse[];
-  constructor(private mstdataservice:MasterDataService){}
+  constructor(private mstdataservice:MasterDataService,toast:ToastrService){
+super(toast);
+  }
   displayedColumns: string[] = ['BankID','BankName','StatusName',];
   dataSource = this.Modeldata;
 
@@ -25,7 +28,7 @@ export class BankMasterrComponent implements OnInit {
     this.mstdataservice.BankList().subscribe({
       next:(SimpleResponse)=>{
         this.Modeldata=SimpleResponse.Result;
-        console.log(this.Modeldata);
+       
       }
     });
   }
