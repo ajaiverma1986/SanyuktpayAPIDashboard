@@ -119,6 +119,10 @@ export class ListUserMasterRequest extends ListRequest {
 export class ListUserAddressRequest extends ListRequest {
     UserId!: number; 
 }
+export class ChangePasswordRequest {
+    UserName!: string;
+    Password!: string;
+}
 
 
 

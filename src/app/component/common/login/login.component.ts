@@ -55,6 +55,8 @@ export class LoginComponent {
           this.loginService.GetUserDetails(this.loginForm.get("Usercode")?.value).subscribe({
             next: (data) => {
               this.Model = data.Result;
+              sessionStorage.setItem("uttt", this.Model.UserTypeId.toString());
+
               if (this.Model.UserTypeId == 3) {
                 this.router.navigate(['/Dashboard/ParProfile']);
               }

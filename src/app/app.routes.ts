@@ -57,6 +57,7 @@ import { AddNewUserComponent } from './component/UserManager/add-new-user/add-ne
 import { UserMasterListComponent } from './component/UserManager/user-master-list/user-master-list.component';
 import { UserProfileComponent } from './component/common/user-profile/user-profile.component';
 import { ListUserAddressComponent } from './component/Onboarding/list-user-address/list-user-address.component';
+import { ChangePasswordComponent } from './component/common/change-password/change-password.component';
 
 
 export const routes: Routes = [
@@ -119,6 +120,7 @@ export const routes: Routes = [
       {path: 'UserMasterlst', component: UserMasterListComponent,title:"User Manager"},
       {path: 'UserProfile', component: UserProfileComponent,title:"User Manager"},
       {path: 'usraddlist', component: ListUserAddressComponent,title:"User Manager"},
+      {path: 'chngpassword', component: ChangePasswordComponent,title:"User Manager"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
