@@ -1,5 +1,4 @@
 
-<app-header></app-header>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" opened="true">
     
@@ -32,6 +31,15 @@
       <mat-icon>menu</mat-icon>
       </button>
       <span>{{apptitle}}</span>
+      <span style="flex: 1 1 auto;"></span>
+    <button mat-icon-button [matMenuTriggerFor]="dropdownMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #dropdownMenu="matMenu">
+      <button mat-menu-item>{{username}}</button>
+      <hr>
+      <button mat-menu-item (click)="Logout()">Logout</button>
+    </mat-menu>
     </mat-toolbar>
     <div class="content">
      <router-outlet></router-outlet>

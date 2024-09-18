@@ -74,3 +74,16 @@ export class UserAddressListResponse {
     Status!: number;
 
 }
+export class GetIPAddressResponse {
+    IPAddressId!: number;
+    ApplicationId!: number;
+    OrganisationName!: string;
+    ApplicationName!: string;
+    StatusName!: string;
+    CreatedBy!: string;
+    UpdatedBy!: string;
+    IPAddress!: string;
+    CreatedOn?: Date;
+    UpdatedOn?: Date;
+    Status!: number;
+}

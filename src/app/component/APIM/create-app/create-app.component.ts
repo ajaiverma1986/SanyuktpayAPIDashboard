@@ -48,6 +48,7 @@ export class CreateAppComponent extends BasecomponentComponent implements OnInit
   AddNewApplication() {
     this.addnew = true;
   }
+ 
   OnSubmit() {
 
     this.Model.ApplicationDescription = this.frmApp.get("ApplicationDescription")?.value;

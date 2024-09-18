@@ -2,7 +2,7 @@ import { Injectable, SimpleChange } from '@angular/core';
 import { BaseserviceService } from '../baseservice.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { CreateApplicationRequest, CreateNewUserRequest, SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
-import { ActivateAPIUserMasterRequest, ActivateAPIUserRequest, ApproveRejectUserDocumentRequest, ChangePasswordRequest, CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, ListOrganisationDetailRequest, ListUserAddressRequest, ListUserMasterRequest, UploadOrgLogo1, UserConfigurationRequest } from '../../RequestModel/UserRequest';
+import { ActivateAPIUserMasterRequest, ActivateAPIUserRequest, AddIPAddressRequest, ApproveRejectUserDocumentRequest, ChangePasswordRequest, CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, ListOrganisationDetailRequest, ListUserAddressRequest, ListUserMasterRequest, UploadOrgLogo1, UserConfigurationRequest } from '../../RequestModel/UserRequest';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
 import { ListResponse } from '../../RequestModel/BaseResponse';
@@ -138,5 +138,13 @@ export class UserMasterService {
   ChangePassword(PostData: ChangePasswordRequest): Observable<SimpleResponse> {
 
     return this.apiconnector.PostAPI("/User/ChangePassword", PostData);
+  }
+  AddIPAddress(PostData: AddIPAddressRequest): Observable<SimpleResponse> {
+
+    return this.apiconnector.PostAPI("/User/AddIPAddress", PostData);
+  }
+  GetallUserIPAddress(UserId:number): Observable<ListResponse> {
+
+    return this.apiconnector.GetAPI("/User/GetallIPAdress?UserId="+UserId);
   }
 }

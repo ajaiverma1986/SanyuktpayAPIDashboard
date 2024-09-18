@@ -123,6 +123,10 @@ export class ChangePasswordRequest {
     UserName!: string;
     Password!: string;
 }
+export class AddIPAddressRequest {
+    IPAddress!: string;
+    ApplicationId!:number;
+}
 
 
 

@@ -47,7 +47,7 @@
                                     <th mat-header-cell *matHeaderCellDef> API Token </th>
                                     <td mat-cell *matCellDef="let element"> {{element.ApplicationToken}} </td>
                                   </ng-container>
-                               
+                                 
                                 
                                   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                                   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -61,7 +61,8 @@
                          
                           <div class="col" style="text-align: right; margin: 10px;;">
                             <br/>
-                            <button type="button" class="btn--base" (click)="AddNewApplication()">Add New Application</button>
+                            <button type="button" class="btn--base" (click)="AddNewApplication()">Add New</button>
+                            
                           </div>
                           
                         </div>
