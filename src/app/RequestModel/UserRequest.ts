@@ -127,6 +127,14 @@ export class AddIPAddressRequest {
     IPAddress!: string;
     ApplicationId!:number;
 }
-
+export class ApproveRejectIPAddressRequest {
+    IpAddressId!: number;
+    Status!: number;
+}
+export class IPAddressListDetail extends ListRequest {
+    UserId!: number;
+    applicationID!:number;
+    Status!: number;
+}
 
 

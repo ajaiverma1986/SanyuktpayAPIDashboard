@@ -36,6 +36,8 @@ export class AdminDashboardComponent {
   ParMenu!: ApplicationParentMenuResponse[];
   subMenu!: ApplicationMenuResponse[];
   username!: string;
+  UserTypeId!:number;
+  HomeUrl!:string;
 
   constructor(private userser: UserMasterService, private router: Router) {
 
@@ -55,11 +57,14 @@ export class AdminDashboardComponent {
     //this.apptitle="Sanyukt Pay API Dashboard"
     this.apptitle = "API Dashboard"
     this.username = sessionStorage.getItem("Display Name") || 'Sanyukt pay';
+    this.UserTypeId =Number(sessionStorage.getItem("uttt")) || 0;
     this.userser.ListAllAppMenu().subscribe({
       next: (data) => {
         this.ParMenu = data.Result;
       }
     });
+
+    
   }
   Logout() {
     sessionStorage.clear();
@@ -72,6 +77,14 @@ export class AdminDashboardComponent {
         this.subMenu = data.Result;
       }
     });
+  }
+  GotoHome(){
+    if (this.UserTypeId == 3) {
+      this.router.navigate(['/Dashboard/ParProfile']);
+    }
+    else {
+      this.router.navigate(['/Dashboard/UserProfile']);
+    }
   }
 
 }

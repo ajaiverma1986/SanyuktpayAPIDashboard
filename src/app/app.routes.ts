@@ -59,6 +59,7 @@ import { UserProfileComponent } from './component/common/user-profile/user-profi
 import { ListUserAddressComponent } from './component/Onboarding/list-user-address/list-user-address.component';
 import { ChangePasswordComponent } from './component/common/change-password/change-password.component';
 import { IPManagerComponent } from './component/Onboarding/ipmanager/ipmanager.component';
+import { IPAddressWhitelistComponent } from './component/UserManager/ipaddress-whitelist/ipaddress-whitelist.component';
 
 
 export const routes: Routes = [
@@ -123,6 +124,7 @@ export const routes: Routes = [
       {path: 'usraddlist', component: ListUserAddressComponent,title:"User Manager"},
       {path: 'chngpassword', component: ChangePasswordComponent,title:"User Manager"},
       {path: 'addnewIP', component: IPManagerComponent,title:"IP Manager"},
+      {path: 'lstwip', component: IPAddressWhitelistComponent,title:"IP Manager"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
