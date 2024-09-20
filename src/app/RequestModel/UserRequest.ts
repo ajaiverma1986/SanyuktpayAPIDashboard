@@ -54,9 +54,7 @@ export class UserKYYCResponse {
     Status!: number;
 
 }
-interface NgxSpinnerConfig {
-    type?: string;
-  }
+
   export class OriginatorListAccountResponse {
     OriginatorAccountID!: number;
     UserId!: number;

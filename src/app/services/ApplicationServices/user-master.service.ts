@@ -160,4 +160,8 @@ export class UserMasterService {
 
     return this.apiconnector.GetAPI("/User/GetAllapplicationForAdmin?UserId="+UserId);
   }
+  GetUserLogo(UserId:number): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/User/GetUserLogo?UserId="+UserId);
+  }
 }

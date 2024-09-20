@@ -6,11 +6,13 @@ import { LoginServiceService } from '../../../services/common/login-service.serv
 import { NavHeaderComponent } from "../nav-header/nav-header.component";
 import { FooterComponent } from "../footer/footer.component";
 import { ListUserMasterResponse } from '../../../ResponseModel/UserResponse';
+import {MatSliderModule} from '@angular/material/slider';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule, CommonModule, NavHeaderComponent, FooterComponent],
+  imports: [ReactiveFormsModule, RouterModule, CommonModule, NavHeaderComponent, FooterComponent,MatSliderModule,MatProgressSpinnerModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 
@@ -20,7 +22,7 @@ export class LoginComponent {
   Model: ListUserMasterResponse = new ListUserMasterResponse();
 
   errors: any;
-  constructor(private fb: FormBuilder, private loginService: LoginServiceService, private router: Router) {
+  constructor(private fb: FormBuilder, private loginService: LoginServiceService, private router: Router,private loca:Location) {
     this.createForm();
   }
 
@@ -46,6 +48,7 @@ export class LoginComponent {
           alert(this.errors[0].ErrorMessage);
         } else {
 
+          
           sessionStorage.setItem("isloginvalid", "1")
           sessionStorage.setItem("Display Name", authorization.DisplayName);
           sessionStorage.setItem("UserToken", authorization.UserToken);

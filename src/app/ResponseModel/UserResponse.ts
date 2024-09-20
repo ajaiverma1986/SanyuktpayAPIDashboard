@@ -6,8 +6,7 @@ export class PartnerDetailsResponse {
     MobileNo!: string;
     EmailId!: string;
     AvailableLimit?: number;
-
-   
+    LogoUrl!:string
 }
 export class ListOrganisationResponse
 {
@@ -86,4 +85,14 @@ export class GetIPAddressResponse {
     CreatedOn?: Date;
     UpdatedOn?: Date;
     Status!: number;
+}
+export class GetUserLogoRequest {
+    UserId!: number;
+    FileUrl!: string;
+    ContentType!: string;
+    FileBytes!: string;
+    Base64String!: string;
+    MediaContentType!: string;
+    MediaExtension!: string;
+
 }

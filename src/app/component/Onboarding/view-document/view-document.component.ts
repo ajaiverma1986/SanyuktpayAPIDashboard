@@ -18,7 +18,7 @@ export class ViewDocumentComponent implements OnInit {
   action!: string;
   local_data: any;
   imageData: any;
-  sanitizedImageData:any;
+  sanitizedImageData: any;
   userkycdata!: UserKYYCResponse[];
   constructor(
     public dialogRef: MatDialogRef<ViewDocumentComponent>, private usess: UserMasterService, private sanitizer: DomSanitizer,
@@ -29,7 +29,7 @@ export class ViewDocumentComponent implements OnInit {
 
 
   ngOnInit(): void {
-this. getFiles();
+    this.getFiles();
   }
   getFiles() {
     this.usess.ListUserKYCByID(this.local_data).subscribe({
@@ -37,7 +37,7 @@ this. getFiles();
         this.userkycdata = data.Result;
 
         this.usess.DocumentView_Search(this.local_data).subscribe({
-          next:(data1)=>{
+          next: (data1) => {
             this.imageData = 'data:image/png;base64,' + data1.Result.FileBytes;
             this.sanitizedImageData = this.sanitizer.bypassSecurityTrustUrl(this.imageData);
           }
