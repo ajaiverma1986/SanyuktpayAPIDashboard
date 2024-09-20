@@ -109,11 +109,13 @@ export class TransactionReportComponent extends BasecomponentComponent implement
       next: (data) => {
         this.Modeldata = data.Result;
         this.length = data.TotalRecords;
+       
       }
     });
 
   }
   ExportToExcel(){
     this.exportAsExcelFile(this.Modeldata,"TransactionReport");
+ 
   }
 }

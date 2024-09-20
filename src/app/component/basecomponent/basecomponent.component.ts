@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
 
+
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
 
@@ -14,7 +15,7 @@ const EXCEL_EXTENSION = '.xlsx';
   styleUrl: './basecomponent.component.scss'
 })
 export class BasecomponentComponent {
-
+  
   constructor(private toast: ToastrService) {
 
   }
@@ -48,4 +49,5 @@ export class BasecomponentComponent {
     
     FileSaver.saveAs(data,fileName + '_' + new Date().getTime() + EXCEL_EXTENSION);
   }
+  
 }

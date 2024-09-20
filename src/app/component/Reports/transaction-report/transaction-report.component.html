@@ -128,14 +128,12 @@
                                         </ng-container>
                                         <ng-container matColumnDef="BankTxnDatetime">
                                             <th mat-header-cell *matHeaderCellDef> Txn Date </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.BankTxnDatetime |
-                                                date:'dd/MM/yyyy'}} </td>
+                                            <td mat-cell *matCellDef="let element"> {{element.BankTxnDatetime }} </td>
                                         </ng-container>
 
                                         <ng-container matColumnDef="Amount">
                                             <th mat-header-cell *matHeaderCellDef>Amount </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.Amount |
-                                                date:'dd/MM/yyyy'}} </td>
+                                            <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>
                                         </ng-container>
 
 

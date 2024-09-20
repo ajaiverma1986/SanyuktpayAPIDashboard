@@ -22,7 +22,7 @@ export class LoginComponent {
   Model: ListUserMasterResponse = new ListUserMasterResponse();
 
   errors: any;
-  constructor(private fb: FormBuilder, private loginService: LoginServiceService, private router: Router,private loca:Location) {
+  constructor(private fb: FormBuilder, private loginService: LoginServiceService, private router: Router) {
     this.createForm();
   }
 
