@@ -4,12 +4,16 @@
     
     <mat-nav-list>
       <mat-list-item (click)="sidenav.toggle()">
-        <h1>FIA Tech</h1>
+        <img src="../../../../assets/logo1.jpg" alt="Logo" width="150" height="40">
       </mat-list-item>
       @for (item of ParMenu; track $index) {
          <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title>{{item.Title}}</mat-panel-title>
+          <mat-panel-title>
+           
+            {{item.Title}}
+
+          </mat-panel-title>
           
         </mat-expansion-panel-header>
         @if (item.submenu.length>0) {
@@ -31,9 +35,12 @@
       <mat-icon>menu</mat-icon>
       </button>
       <span>{{apptitle}}</span>
+      
       <span style="flex: 1 1 auto;"></span>
     <button mat-icon-button [matMenuTriggerFor]="dropdownMenu">
-      <mat-icon>more_vert</mat-icon>
+      <!-- <mat-icon>more_vert</mat-icon> -->
+      <mat-icon>account_circle</mat-icon>
+      
     </button>
     <mat-menu #dropdownMenu="matMenu">
       <button mat-menu-item>{{username}}</button>
