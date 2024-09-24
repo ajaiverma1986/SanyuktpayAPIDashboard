@@ -12,3 +12,8 @@ export class UserStatementRequest extends ListRequest {
     FromDate?: string;
     ToDate?: string;
 }
+export class GetDayBookRequest {
+    UserID!:number;
+    FromDate?: string;
+    ToDate?: string;
+}

@@ -96,3 +96,11 @@ export class GetUserLogoRequest {
     MediaExtension!: string;
 
 }
+export class GetUserOtherDetailsResponse {
+    OtherDetailId!: number;
+    UserId!: number;
+    Pancard!: string;
+    AadharCard!: string;
+    GSTNo!: string;
+
+}

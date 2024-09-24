@@ -134,5 +134,12 @@ export class IPAddressListDetail extends ListRequest {
     applicationID!:number;
     Status!: number;
 }
+export class AddUserOtherDetailRequest {
+    UserId!: number;
+    Pancard!: string;
+    AadharCard!: string;
+    GstNo!: string;
+
+}
 
 

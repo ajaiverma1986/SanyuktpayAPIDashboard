@@ -33,4 +33,27 @@ export class ListStatementResponse {
     Limit?: number;
     ReferenceId?: string;
 }
+export class TransactionSummaryByUserResponse {
+    ServiceName!: string;
+    RepType!: string;
+    TxnCount!: number;
+    TotalAmount!: number;
+
+}
+export class GetDayBookResponse {
+    ServiceName!: string;
+    PartnerId!: number;
+    OrganisationName!: string;
+    TxnTotalcount!: number;
+    TxntotalAmt!: number;
+    TxnSuccescount!: number;
+    TxnSuccesAmt!: number;
+    TxnPendingcount!: number;
+    TxnPendingAmt!: number;
+    TxnFailurecount!: number;
+    TxnFailureAmt!: number;
+    Surcharge!: number;
+    Commission!: number;
+
+}
 
