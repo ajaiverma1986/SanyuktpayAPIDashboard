@@ -56,4 +56,35 @@ export class GetDayBookResponse {
     Commission!: number;
 
 }
+export class GetFirmDetailByFirmId {
+    Usercode!: string;
+    UserId!: number;
+    OrganisationName!: string;
+    ContactPersonName!: string;
+    AvailableLimit?: number;
+    ThresoldLimit?: number;
+    MobileNo!: string;
+    EmailId!: string;
+    LogoUrl!: string;
+    RemarkReason!: string;
+    Status!: number;
+    StatusName!: string;
+    UserPermaAddress!: string;
+    MaxPayinamount?: number;
+    MaxNoofcountPayin?: number;
+    SameAmountPayinAllowed!: number;
+    SameAmountPayinAllowedText!: string;
+    UserOfficeAddress!: string;
+    MinTxn?: number;
+    MaxTxn?: number;
+    ChargeTypeOn!: number;
+    ChargeDeductionType!: string;
+    PlanId?: number;
+    PlanName!: string;
+    Pancard!: string;
+    AadharCard!: string;
+    MaskedPan!: string;
+    MaskedAadhar!: string;
+    GstNo!: string;
+}
 

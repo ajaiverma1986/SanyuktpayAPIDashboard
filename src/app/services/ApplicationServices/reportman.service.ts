@@ -28,5 +28,9 @@ export class ReportmanService  {
 
     return this.apiconnector.PostAPI("/Transaction/GetDayBookByUserId", PostData);
   }
+  GetallFirmDetail(Userid:number): Observable<SimpleResponse> {
+
+    return this.apiconnector.GetAPI("/Report/GetallFirmDetail?UserID="+Userid);
+  }
 
 }
