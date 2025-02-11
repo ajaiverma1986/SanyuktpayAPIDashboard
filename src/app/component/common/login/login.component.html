@@ -1,66 +1,78 @@
 <app-nav-header></app-nav-header>
 <section class="vh-100 gradient-custom">
-<div class="container py-5 h-80">
-<div class="row justify-content-center align-items-center h-80">
-  <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12">
-    <div class="card shadow">
-        <div class="card-body p-5">
-            <div class="d-flex justify-content-center mb-4">
-                <a href="#">
-                    <img src="assets/logo/Logo.png"  alt="logo" class="desktop-logo" width="200px">
-                    <!-- <img src="assets/logo1.jpg"  alt="logo" class="desktop-logo" width="200px"> -->
-                </a>
-            </div>
-            <p class="h5 fw-semibold mt-3 text-center">Sign In</p>
-           
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <div class="row gy-3">
-                    <div class="col-12 mb-2">
-                        <label for="username" class="form-label text-default">User Name</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" formControlName="Usercode" >
-                        <div></div>
-                    </div>
-                    <div *ngIf="loginForm.controls['Usercode'].invalid && (loginForm.controls['Usercode'].dirty || loginForm.controls['Usercode'].touched)" class="mt-2">
-                        <div *ngIf="loginForm.controls['Usercode'].errors?.['required']" class="text-danger">
-                           Enter The Username
-                         </div>
-                     </div>
-                    <div class="col-12 mb-2">
-                        <label for="password" class="form-label text-default d-block">Password</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" formControlName="password" >
-                            
+    <div class="container py-5 h-80">
+        <div class="row justify-content-center align-items-center h-80">
+            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <div class="d-flex justify-content-center mb-4">
+                            <a href="#">
+                                <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px">
+                                <!-- <img src="assets/logo1.jpg"  alt="logo" class="desktop-logo" width="200px"> -->
+                            </a>
                         </div>
-                        <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="mt-2">
-                            <div *ngIf="loginForm.controls['password'].errors?.['required']" class="text-danger">
-                               Enter The Password
-                             </div>
-                         </div>
-                       
-                    </div>
-                    <div class="col-12 mb-2">
-                        <div class="col-md-12 mb-2">
-                      Don't have an account? <a href="#" class="text-default" routerLink="/PRegister"> Register</a> 
-                        </div>
-                        <div class="col-md-4 mb-2">
+                        <p class="h5 fw-semibold mt-3 text-center">Sign In</p>
 
-                        </div>
-                        <!-- <div class="col-md-4 mb-2">
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <div class="row gy-3">
+                                <div class="col-12 mb-2">
+                                    <label for="username" class="form-label text-default">User Name</label>
+                                    <input type="text" class="form-control" id="username" name="username"
+                                        placeholder="Username" formControlName="Usercode">
+                                    <div></div>
+                                </div>
+                                <div *ngIf="loginForm.controls['Usercode'].invalid && (loginForm.controls['Usercode'].dirty || loginForm.controls['Usercode'].touched)"
+                                    class="mt-2">
+                                    <div *ngIf="loginForm.controls['Usercode'].errors?.['required']"
+                                        class="text-danger">
+                                        Enter The Username
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <label for="password" class="form-label text-default d-block">Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            placeholder="Password" formControlName="password">
+
+                                    </div>
+                                    <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+                                        class="mt-2">
+                                        <div *ngIf="loginForm.controls['password'].errors?.['required']"
+                                            class="text-danger">
+                                            Enter The Password
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="col-md-12 mb-2">
+                                        Don't have an account? <a href="#" class="text-default" routerLink="/PRegister">
+                                            Register</a>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+
+                                    </div>
+                                    <!-- <div class="col-md-4 mb-2">
                                 <a href="#" class="text-danger float-end">Forget password ?</a>
                         </div> -->
-                    </div>
+                                </div>
 
+                                <!-- <ngx-spinner type="ball-scale-multiple"></ngx-spinner> -->
+                                <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff"
+                                    type="ball-scale-multiple">
+                                    <p style="font-size: 20px; color: white">Loading...</p>
+                                </ngx-spinner>
+                                <div class="col-12 mb-2 text-center">
+                                    <button id="loginBtn" name="loginBtn" [disabled]="loginForm.status == 'INVALID'"
+                                        class="btn--base">SIGN IN</button>
+                                </div>
+                            </div>
+                        </form>
 
-                    <div class="col-12 mb-2 text-center">
-                        <button  id="loginBtn" name="loginBtn" [disabled]="loginForm.status == 'INVALID'" class="btn--base" >SIGN IN</button>
                     </div>
                 </div>
-            </form>
-            
+            </div>
         </div>
     </div>
-</div>
-</div>
-</div>
 </section>
 <app-footer></app-footer>
