@@ -14,7 +14,6 @@ import { OriginatorListAccountResponse } from '../../../RequestModel/Transaction
 import { OriginatorListAccountRequest } from '../../../RequestModel/TransactionRequest';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { ListPaymentChanelResponse, ListPaymentModeResponse } from '../../../RequestModel/MasterDataResponse';
-import { PayinRequestComponent } from "../payin-request/payin-request.component";
 import { ViewTransactiondocComponent } from '../view-transactiondoc/view-transactiondoc.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -22,7 +21,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-payin-account-list',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, MatPaginatorModule, NgbModule, PayinRequestComponent],
+  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, MatPaginatorModule, NgbModule],
   templateUrl: './payin-account-list.component.html',
   styleUrl: './payin-account-list.component.scss'
 })

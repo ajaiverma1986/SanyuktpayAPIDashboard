@@ -7,22 +7,20 @@ import { CommonModule, formatDate } from '@angular/common'
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MatIcon, MatIconModule } from "@angular/material/icon"
+import {  MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TransactionsService } from '../../../services/ApplicationServices/transactions.service';
 import { PayinRequestListResponse } from '../../../RequestModel/TransactionResponse';
 import { ApproveRejectPayinRequest, ListPayinRequestRequest } from '../../../RequestModel/TransactionRequest';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { PayinRequestComponent } from "../payin-request/payin-request.component";
 import { ViewTransactiondocComponent } from '../view-transactiondoc/view-transactiondoc.component';
 import { MatDialog } from '@angular/material/dialog';
-import { MatCheckbox } from "@angular/material/checkbox"
 
 
 @Component({
   selector: 'app-payin-request-list-admin',
   standalone: true,
-  imports: [CommonModule, MatCheckbox, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, MatPaginatorModule, NgbModule, PayinRequestComponent],
+  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIconModule, MatPaginatorModule, NgbModule],
   templateUrl: './payin-request-list-admin.component.html',
   styleUrl: './payin-request-list-admin.component.scss'
 })

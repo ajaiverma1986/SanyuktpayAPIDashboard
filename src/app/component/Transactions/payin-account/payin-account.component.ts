@@ -12,7 +12,7 @@ import { CreateOriginatorAccountRequest, OriginatorListAccountResponse } from '.
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MatIcon, MatIconModule } from "@angular/material/icon"
+import {  MatIconModule } from "@angular/material/icon"
 import { ConfigService } from '../../../services/ApplicationServices/config.service';
 import { PaymentAccountsListResponse } from '../../../RequestModel/ConfigRequest';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,7 +22,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-payin-account',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, NgbModule],
+  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIconModule, NgbModule],
   templateUrl: './payin-account.component.html',
   styleUrl: './payin-account.component.scss'
 })

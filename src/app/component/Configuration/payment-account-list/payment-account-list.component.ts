@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common'
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MatIcon, MatIconModule } from "@angular/material/icon"
+import {  MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { Router } from '@angular/router';
@@ -16,7 +16,7 @@ import { ChangePaymentAccStatusRequest, PaymentAccountsListResponse } from '../.
 @Component({
   selector: 'app-payment-account-list',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, MatPaginatorModule, NgbModule],
+  imports: [CommonModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIconModule, MatPaginatorModule, NgbModule],
   templateUrl: './payment-account-list.component.html',
   styleUrl: './payment-account-list.component.scss'
 })

@@ -20,7 +20,7 @@ import { ApplicationMenuResponse, ApplicationParentMenuResponse } from '../../..
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, MatMenuModule, HeaderComponent, NavHeaderComponent, FooterComponent, NavigationComponent, MatButtonModule, MatIconModule, MatSidenavModule, MatToolbarModule, CommonModule, MatListModule,
+  imports: [RouterOutlet, RouterLink, MatMenuModule, FooterComponent, MatButtonModule, MatIconModule, MatSidenavModule, MatToolbarModule, CommonModule, MatListModule,
     MatExpansionModule
 
   ],

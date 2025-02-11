@@ -5,14 +5,14 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common'
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
-import { MatIcon, MatIconModule } from "@angular/material/icon";
+import {  MatIconModule } from "@angular/material/icon";
 import { UserConfigurationResponse } from '../../../ResponseModel/UserResponse';
 
 
 @Component({
   selector: 'app-user-configuration',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatCardModule, MatIcon, MatIconModule],
+  imports: [CommonModule, MatTableModule, MatCardModule, MatIconModule],
   templateUrl: './user-configuration.component.html',
   styleUrl: './user-configuration.component.scss'
 })

@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common'
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
-import { MatIcon, MatIconModule } from "@angular/material/icon";
+import {  MatIconModule } from "@angular/material/icon";
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserConfigurationResponse } from '../../../ResponseModel/UserResponse';
 import { ChargedeductionTypeListResponse, PlanMasterListDataResponse } from '../../../ResponseModel/ConfigurationResponse';
@@ -17,7 +17,7 @@ import { UserConfigurationRequest } from '../../../RequestModel/UserRequest';
 @Component({
   selector: 'app-org-configuration',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, MatIcon, MatIconModule],
+  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, MatIconModule],
   templateUrl: './org-configuration.component.html',
   styleUrl: './org-configuration.component.scss'
 })

@@ -7,7 +7,7 @@ import { CommonModule, formatDate } from '@angular/common'
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MatIcon, MatIconModule } from "@angular/material/icon"
+import {  MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { ReportmanService } from '../../../services/ApplicationServices/reportman.service';
@@ -17,7 +17,7 @@ import {  ListStatementResponse } from '../../../ResponseModel/ReportResponse';
 @Component({
   selector: 'app-usr-statement',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, MatPaginatorModule, NgbModule],
+  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIconModule, MatPaginatorModule, NgbModule],
   templateUrl: './usr-statement.component.html',
   styleUrl: './usr-statement.component.scss'
 })

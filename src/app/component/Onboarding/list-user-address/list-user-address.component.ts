@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common'
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MatIcon, MatIconModule } from "@angular/material/icon"
+import {  MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {  ListUserAddressRequest } from '../../../RequestModel/UserRequest';
@@ -16,7 +16,7 @@ import { UserAddressListResponse } from '../../../ResponseModel/UserResponse';
 @Component({
   selector: 'app-list-user-address',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, MatPaginatorModule, NgbModule],
+  imports: [CommonModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIconModule, MatPaginatorModule, NgbModule],
   templateUrl: './list-user-address.component.html',
   styleUrl: './list-user-address.component.scss'
 })
