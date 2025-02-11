@@ -171,3 +171,7 @@ export class DistrictListRequest extends ListRequest {
     StateId!: number;
    
 }
+export class GenderResponse{
+    GenderId!:number;
+    GenderName!:string
+}

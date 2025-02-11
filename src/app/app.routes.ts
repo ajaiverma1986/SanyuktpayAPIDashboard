@@ -60,6 +60,7 @@ import { ListUserAddressComponent } from './component/Onboarding/list-user-addre
 import { ChangePasswordComponent } from './component/common/change-password/change-password.component';
 import { IPManagerComponent } from './component/Onboarding/ipmanager/ipmanager.component';
 import { IPAddressWhitelistComponent } from './component/UserManager/ipaddress-whitelist/ipaddress-whitelist.component';
+import { CreatemdsComponent } from './component/Outletmgr/createmds/createmds.component';
 
 
 export const routes: Routes = [
@@ -125,6 +126,7 @@ export const routes: Routes = [
       {path: 'chngpassword', component: ChangePasswordComponent,title:"User Manager"},
       {path: 'addnewIP', component: IPManagerComponent,title:"IP Manager"},
       {path: 'lstwip', component: IPAddressWhitelistComponent,title:"IP Manager"},
+      {path: 'CreateMds', component: CreatemdsComponent,title:"Master Distributor"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';

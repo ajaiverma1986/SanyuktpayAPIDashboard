@@ -141,5 +141,25 @@ export class AddUserOtherDetailRequest {
     GstNo!: string;
 
 }
+export class CreateNewOutLetRequest {
+    UserTypeId!: number;
+    FirstName!: string;
+    MiddleName!: string;
+    LastName!: string;
+    GenderID!: number;
+    OrganisationName!: string;
+    MobileNo!: string;
+    EmailId!: string;
+    ParentID!: number | 0;
+}
 
-
+export class ListRetailorRequest extends ListRequest {
+    MobileNo!: string;
+    Usercode!: string;
+    EmailId!: string;
+    UserId!: number | null;
+    ParentID!: number | null;
+    UserTypeId!: number | null;
+    Status!: number | null;
+    ParentCode!: string;
+}

@@ -2,7 +2,7 @@ import { Injectable, SimpleChange } from '@angular/core';
 import { BaseserviceService } from '../baseservice.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { CreateApplicationRequest, CreateNewUserRequest, SimpleResponse } from '../../RequestModel/MasterDataResponse';
-import { ActivateAPIUserMasterRequest, ActivateAPIUserRequest, AddIPAddressRequest, AddUserOtherDetailRequest, ApproveRejectIPAddressRequest, ApproveRejectUserDocumentRequest, ChangePasswordRequest, CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, IPAddressListDetail, ListOrganisationDetailRequest, ListUserAddressRequest, ListUserMasterRequest, UploadOrgLogo1, UserConfigurationRequest } from '../../RequestModel/UserRequest';
+import { ActivateAPIUserMasterRequest, ActivateAPIUserRequest, AddIPAddressRequest, AddUserOtherDetailRequest, ApproveRejectIPAddressRequest, ApproveRejectUserDocumentRequest, ChangePasswordRequest, CreateNewOutLetRequest, CreateOriginatorAccountRequest, CreateUserDetailAddressRequest, CreateUserDetailKyc, CreateUserWithLogoRequest, IPAddressListDetail, ListOrganisationDetailRequest, ListRetailorRequest, ListUserAddressRequest, ListUserMasterRequest, UploadOrgLogo1, UserConfigurationRequest } from '../../RequestModel/UserRequest';
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
 import { ListResponse } from '../../RequestModel/BaseResponse';
@@ -171,5 +171,13 @@ export class UserMasterService {
   AddUserOtherDetails(PostData: AddUserOtherDetailRequest): Observable<SimpleResponse> {
 
     return this.apiconnector.PostAPI("/User/AddUserOtherDetails", PostData);
+  }
+  AddNewOutlet(PostData: CreateNewOutLetRequest): Observable<SimpleResponse> {
+
+    return this.apiconnector.PostAPI("/User/AddNewOutLet", PostData);
+  }
+  ListAllOutltes(postdata:ListRetailorRequest): Observable<ListResponse> {
+
+    return this.apiconnector.PostAPI("/User/GetAllOutLetList",postdata);
   }
 }

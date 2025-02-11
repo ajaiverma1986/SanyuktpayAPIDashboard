@@ -104,3 +104,18 @@ export class GetUserOtherDetailsResponse {
     GSTNo!: string;
 
 }
+export class ListOutletResponse {
+    UserId!: number;
+    Usercode!: string;
+    ParentCode!: string;
+    OrganisationName!: string;
+    ContactPerson!: string;
+    AvailableLimit!: number | 0;
+    ThresoldLimit!: number | 0;
+    MobileNo!: string;
+    EmailId!: string;
+    UpdatedOn!: string | null;
+    UpdatedBy!: string;
+    StatusName!: string;
+    Status!: number | 0 ;
+}

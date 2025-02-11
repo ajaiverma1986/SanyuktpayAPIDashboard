@@ -27,7 +27,7 @@ super(toast);
     this.mstdataservice.GenderList().subscribe({
       next:(SimpleResponse)=>{
         this.Modeldata=SimpleResponse.Result;
-        console.log(this.Modeldata);
+        
       }
     });
   }
