@@ -13,7 +13,7 @@ import { TransactionsService } from '../../../services/ApplicationServices/trans
 import { PayinRequestListResponse } from '../../../RequestModel/TransactionResponse';
 import { ListPayinRequestRequest } from '../../../RequestModel/TransactionRequest';
 import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
-import { ListPaymentChanelResponse, ListPaymentModeResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { ListPaymentChanelResponse, ListPaymentModeResponse } from '../../../RequestModel/MasterDataResponse';
 import { PayinRequestComponent } from "../payin-request/payin-request.component";
 import { ViewTransactiondocComponent } from '../view-transactiondoc/view-transactiondoc.component';
 import { MatDialog } from '@angular/material/dialog';

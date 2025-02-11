@@ -10,7 +10,6 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { MatIcon, MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { MatDialog } from '@angular/material/dialog';
 import { ReportmanService } from '../../../services/ApplicationServices/reportman.service';
 import { TxnListRequest } from '../../../RequestModel/ReportRequest';
 import { AllTransactionListResponse } from '../../../ResponseModel/ReportResponse';

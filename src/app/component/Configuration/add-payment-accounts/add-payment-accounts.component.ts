@@ -1,28 +1,26 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { MasterDataService } from '../../../services/master-data.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common'
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {  HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.development';
-import {  BankListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import {  BankListResponse } from '../../../RequestModel/MasterDataResponse';
 import {  OriginatorListAccountResponse } from '../../../RequestModel/UserRequest';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MatIcon, MatIconModule } from "@angular/material/icon"
+import {  MatIconModule } from "@angular/material/icon"
 import { ConfigService } from '../../../services/ApplicationServices/config.service';
 import { AddPaymentAccountMasterRequest, ChangePaymentAccStatusRequest, PaymentAccountsListResponse } from '../../../RequestModel/ConfigRequest';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TransactionsService } from '../../../services/ApplicationServices/transactions.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-payment-accounts',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, NgbModule],
+  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIconModule, NgbModule],
   templateUrl: './add-payment-accounts.component.html',
   styleUrl: './add-payment-accounts.component.scss'
 })

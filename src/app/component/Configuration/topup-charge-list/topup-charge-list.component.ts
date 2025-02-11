@@ -7,10 +7,10 @@ import { CommonModule, formatDate } from '@angular/common'
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MatIcon, MatIconModule } from "@angular/material/icon"
+import {  MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { agencyMasterResponse, ServiceListResponse, serviceTypeListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import {  ServiceListResponse, serviceTypeListResponse } from '../../../RequestModel/MasterDataResponse';
 import {  TopupChargeRequest } from '../../../RequestModel/ConfigRequest';
 import { ConfigService } from '../../../services/ApplicationServices/config.service';
 import { CalculationMasterResponse, PlanMasterListDataResponse, SlabTypeListResponse, TopupChargeResponse } from '../../../ResponseModel/ConfigurationResponse';
@@ -19,7 +19,7 @@ import { CalculationMasterResponse, PlanMasterListDataResponse, SlabTypeListResp
 @Component({
   selector: 'app-topup-charge-list',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, MatPaginatorModule, NgbModule],
+  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIconModule, MatPaginatorModule, NgbModule],
   templateUrl: './topup-charge-list.component.html',
   styleUrl: './topup-charge-list.component.scss'
 })

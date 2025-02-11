@@ -4,7 +4,7 @@ import {   FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common'
-import { CompanyTypeMasterResponse, KycTypeMasterListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { CompanyTypeMasterResponse, KycTypeMasterListResponse } from '../../../RequestModel/MasterDataResponse';
 import { ApproveRejectUserDocumentRequest, UserKYYCResponse } from '../../../RequestModel/UserRequest';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';

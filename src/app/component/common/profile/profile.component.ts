@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { PartnerDetailsResponse } from '../../../ResponseModel/UserResponse';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';

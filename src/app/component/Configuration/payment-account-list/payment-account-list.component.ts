@@ -7,7 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MatIcon, MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { ConfigService } from '../../../services/ApplicationServices/config.service';
 import { ChangePaymentAccStatusRequest, PaymentAccountsListResponse } from '../../../RequestModel/ConfigRequest';

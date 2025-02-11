@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseserviceService } from '../baseservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
+import { SimpleResponse } from '../../RequestModel/MasterDataResponse';
 import { AddPaymentRequestRequest, ApproveRejectOriAccountRequest, ApproveRejectPayinRequest, ListPayinRequestRequest, OriginatorListAccountforadminRequest, OriginatorListAccountRequest } from '../../RequestModel/TransactionRequest';
 import { ListResponse } from '../../RequestModel/BaseResponse';
 

@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonModule, formatDate } from '@angular/common'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.development';
-import {  ListPaymentModeResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import {  ListPaymentModeResponse } from '../../../RequestModel/MasterDataResponse';
 import { OriginatorListAccountResponse } from '../../../RequestModel/UserRequest';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';

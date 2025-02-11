@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormsModule, NgForm } from '@angular/forms';
+import {  FormsModule, NgForm } from '@angular/forms';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { ToastrService } from 'ngx-toastr';
-import { AddressTypeListResponse, ApplicationListResponse, PincodeDataResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { ApplicationListResponse } from '../../../RequestModel/MasterDataResponse';
 import { AddIPAddressRequest, ApproveRejectIPAddressRequest } from '../../../RequestModel/UserRequest';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';

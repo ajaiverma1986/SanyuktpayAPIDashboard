@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
-import { ListUserMasterResponse, PartnerDetailsResponse } from '../../../ResponseModel/UserResponse';
+import { ListUserMasterResponse } from '../../../ResponseModel/UserResponse';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';

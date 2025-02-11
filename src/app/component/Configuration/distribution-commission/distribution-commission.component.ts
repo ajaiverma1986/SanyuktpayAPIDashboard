@@ -3,15 +3,14 @@ import { BasecomponentComponent } from '../../basecomponent/basecomponent.compon
 import { MasterDataService } from '../../../services/master-data.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { CommonModule, formatDate } from '@angular/common'
+import { CommonModule } from '@angular/common'
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MatIcon, MatIconModule } from "@angular/material/icon"
+import {  MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PayinRequestListResponse } from '../../../RequestModel/TransactionResponse';
-import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
-import { agencyMasterResponse, ListPaymentChanelResponse, ListPaymentModeResponse, ServiceListResponse, serviceTypeListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { agencyMasterResponse, ServiceListResponse, serviceTypeListResponse } from '../../../RequestModel/MasterDataResponse';
 import { CommissionDistributionRequest } from '../../../RequestModel/ConfigRequest';
 import { ConfigService } from '../../../services/ApplicationServices/config.service';
 import { CalculationMasterResponse, CommissionDistributionResponse, PlanMasterListDataResponse } from '../../../ResponseModel/ConfigurationResponse';
@@ -19,7 +18,7 @@ import { CalculationMasterResponse, CommissionDistributionResponse, PlanMasterLi
 @Component({
   selector: 'app-distribution-commission',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, MatPaginatorModule, NgbModule],
+  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIconModule, MatPaginatorModule, NgbModule],
   templateUrl: './distribution-commission.component.html',
   styleUrl: './distribution-commission.component.scss'
 })

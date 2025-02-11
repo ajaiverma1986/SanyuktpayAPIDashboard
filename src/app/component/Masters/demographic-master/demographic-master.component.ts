@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms'
 import { MasterDataService } from '../../../services/master-data.service';
-import { DistrictListResponse, SimpleResponse, PincodeDataResponse, PincodeDataRequest } from '../../../RequestModel/MasterDatarESPONSE';
-import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import {  PincodeDataResponse, PincodeDataRequest } from '../../../RequestModel/MasterDataResponse';
+import {  MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import {  MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';

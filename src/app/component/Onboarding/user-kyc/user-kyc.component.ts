@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { MasterDataService } from '../../../services/master-data.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.development';
-import { CompanyTypeMasterResponse, KycTypeMasterListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { CompanyTypeMasterResponse, KycTypeMasterListResponse } from '../../../RequestModel/MasterDataResponse';
 import { UserKYYCResponse } from '../../../RequestModel/UserRequest';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
@@ -15,7 +15,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxSpinnerService } from "ngx-spinner";
 import { MatIcon, MatIconModule } from "@angular/material/icon"
 import { PopupserviceService } from '../../../services/common/popupservice.service';
-import { MatDialog, MatDialogConfig,MatDialogModule } from "@angular/material/dialog";
+import { MatDialog,MatDialogModule } from "@angular/material/dialog";
 import { ViewDocumentComponent } from '../view-document/view-document.component'
 import { MatTable } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';

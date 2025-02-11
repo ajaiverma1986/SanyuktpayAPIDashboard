@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { ToastrService } from 'ngx-toastr';
-import { ApplicationListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { ApplicationListResponse } from '../../../RequestModel/MasterDataResponse';
 import { ApproveRejectIPAddressRequest, IPAddressListDetail, ListOrganisationDetailRequest } from '../../../RequestModel/UserRequest';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';

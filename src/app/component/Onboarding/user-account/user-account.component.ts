@@ -3,7 +3,7 @@ import { BasecomponentComponent } from '../../basecomponent/basecomponent.compon
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MasterDataService } from '../../../services/master-data.service';
-import { BankListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { BankListResponse } from '../../../RequestModel/MasterDataResponse';
 import { CommonModule } from '@angular/common';
 import { CreateOriginatorAccountRequest } from '../../../RequestModel/UserRequest';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';

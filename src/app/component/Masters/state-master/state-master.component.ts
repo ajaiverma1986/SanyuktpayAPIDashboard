@@ -1,9 +1,8 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import {FormGroup,FormBuilder,Validator, Validators} from '@angular/forms'
+import {  Component, OnInit } from '@angular/core';
 import { MasterDataService } from '../../../services/master-data.service';
-import { SimpleResponse, StateListResponse } from '../../../RequestModel/MasterDatarESPONSE';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {  StateListResponse } from '../../../RequestModel/MasterDataResponse';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';

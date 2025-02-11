@@ -3,7 +3,7 @@ import { BaseserviceService } from '../baseservice.service';
 import { GetDayBookRequest, TxnListRequest, UserStatementRequest } from '../../RequestModel/ReportRequest';
 import { Observable } from 'rxjs';
 import { ListResponse } from '../../RequestModel/BaseResponse';
-import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
+import { SimpleResponse } from '../../RequestModel/MasterDataResponse';
 
 @Injectable({
   providedIn: 'root'

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseserviceService } from '../baseservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
+import { SimpleResponse } from '../../RequestModel/MasterDataResponse';
 import { AddPaymentAccountMasterRequest, AddTxnslabRequest, ChangePaymentAccStatusRequest, CommissionDistributionRequest, TopupChargeRequest, TransactionslabRequest } from '../../RequestModel/ConfigRequest';
 
 @Injectable({

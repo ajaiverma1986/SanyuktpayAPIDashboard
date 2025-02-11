@@ -6,14 +6,13 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common'
 import {  HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.development';
-import {  agencyMasterResponse, PlanMasterListResponse, ServiceListResponse, serviceTypeListResponse } from '../../../RequestModel/MasterDatarESPONSE';
-import {  OriginatorListAccountResponse } from '../../../RequestModel/UserRequest';
+import {  agencyMasterResponse, PlanMasterListResponse, ServiceListResponse, serviceTypeListResponse } from '../../../RequestModel/MasterDataResponse';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MatIcon, MatIconModule } from "@angular/material/icon"
+import {  MatIconModule } from "@angular/material/icon"
 import { ConfigService } from '../../../services/ApplicationServices/config.service';
-import { AddPaymentAccountMasterRequest, AddTxnslabRequest, ChangePaymentAccStatusRequest, PaymentAccountsListResponse } from '../../../RequestModel/ConfigRequest';
+import {  AddTxnslabRequest } from '../../../RequestModel/ConfigRequest';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { CalculationMasterResponse, SlabTypeListResponse } from '../../../ResponseModel/ConfigurationResponse';
@@ -21,7 +20,7 @@ import { CalculationMasterResponse, SlabTypeListResponse } from '../../../Respon
 @Component({
   selector: 'app-add-transactionslab',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, NgbModule],
+  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIconModule, NgbModule],
   templateUrl: './add-transactionslab.component.html',
   styleUrl: './add-transactionslab.component.scss'
 })

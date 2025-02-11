@@ -3,11 +3,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import { FormBuilder } from '@angular/forms';
-import { ConfigService } from '../../../services/ApplicationServices/config.service';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { ToastrService } from 'ngx-toastr';
-import {  ChargedeductionTypeListResponse } from '../../../ResponseModel/ConfigurationResponse';
-import { ServiceListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { ServiceListResponse } from '../../../RequestModel/MasterDataResponse';
 import { MasterDataService } from '../../../services/master-data.service';
 
 @Component({

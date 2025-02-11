@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplicationListResponse, CreateNewUserRequest, UserrListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { ApplicationListResponse, CreateNewUserRequest, UserrListResponse } from '../../../RequestModel/MasterDataResponse';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';

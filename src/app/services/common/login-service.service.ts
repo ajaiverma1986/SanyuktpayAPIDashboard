@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginRequest, RegisterUserRequest } from '../../RequestModel/LoginRequest';
 import { Authorization } from '../../RequestModel/Authorization';
 import { Observable } from 'rxjs';
-import { SimpleResponse } from '../../RequestModel/MasterDatarESPONSE';
+import { SimpleResponse } from '../../RequestModel/MasterDataResponse';
 
 @Injectable({
   providedIn: 'root'

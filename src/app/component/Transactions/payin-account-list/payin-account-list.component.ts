@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { MasterDataService } from '../../../services/master-data.service';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { CommonModule, formatDate } from '@angular/common'
+import { CommonModule } from '@angular/common'
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -13,7 +13,7 @@ import { TransactionsService } from '../../../services/ApplicationServices/trans
 import { OriginatorListAccountResponse } from '../../../RequestModel/TransactionResponse';
 import { OriginatorListAccountRequest } from '../../../RequestModel/TransactionRequest';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { ListPaymentChanelResponse, ListPaymentModeResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { ListPaymentChanelResponse, ListPaymentModeResponse } from '../../../RequestModel/MasterDataResponse';
 import { PayinRequestComponent } from "../payin-request/payin-request.component";
 import { ViewTransactiondocComponent } from '../view-transactiondoc/view-transactiondoc.component';
 import { MatDialog } from '@angular/material/dialog';

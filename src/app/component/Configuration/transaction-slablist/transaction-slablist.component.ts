@@ -7,10 +7,10 @@ import { CommonModule } from '@angular/common'
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { MatIcon, MatIconModule } from "@angular/material/icon"
+import {  MatIconModule } from "@angular/material/icon"
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { agencyMasterResponse, PlanMasterListResponse, ServiceListResponse, serviceTypeListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { agencyMasterResponse, PlanMasterListResponse, ServiceListResponse, serviceTypeListResponse } from '../../../RequestModel/MasterDataResponse';
 import { TransactionslabRequest } from '../../../RequestModel/ConfigRequest';
 import { ConfigService } from '../../../services/ApplicationServices/config.service';
 import { CalculationMasterResponse, SlabTypeListResponse, TransactionslabResponse } from '../../../ResponseModel/ConfigurationResponse';
@@ -20,7 +20,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-transaction-slablist',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIcon, MatIconModule, MatPaginatorModule, NgbModule],
+  imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIconModule, MatPaginatorModule, NgbModule],
   templateUrl: './transaction-slablist.component.html',
   styleUrl: './transaction-slablist.component.scss'
 })

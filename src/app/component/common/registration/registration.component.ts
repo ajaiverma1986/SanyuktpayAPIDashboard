@@ -1,12 +1,10 @@
-import { CommonModule, LowerCasePipe } from '@angular/common';
-import { Component, OnInit, SimpleChange } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl, AbstractControl } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { LoginServiceService } from '../../../services/common/login-service.service';
 import { RegisterUserRequest } from '../../../RequestModel/LoginRequest';
-import { SimpleResponse } from '../../../RequestModel/MasterDatarESPONSE';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+import {  ToastrService } from 'ngx-toastr';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
-import { HeaderComponent } from "../header/header.component";
 import { NavHeaderComponent } from "../nav-header/nav-header.component";
 import { FooterComponent } from "../footer/footer.component";
 
@@ -14,7 +12,7 @@ import { FooterComponent } from "../footer/footer.component";
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, HeaderComponent, HeaderComponent, NavHeaderComponent, FooterComponent],
+  imports: [ReactiveFormsModule, CommonModule, NavHeaderComponent, FooterComponent],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss'
 })

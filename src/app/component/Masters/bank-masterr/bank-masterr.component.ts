@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MasterDataService } from '../../../services/master-data.service';
-import {  BankListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import {  BankListResponse } from '../../../RequestModel/MasterDataResponse';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';

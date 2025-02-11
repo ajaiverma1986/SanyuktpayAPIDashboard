@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { DistrictListRequest, PincodeDataRequest, SimpleResponse } from '../RequestModel/MasterDatarESPONSE';
+import { DistrictListRequest, PincodeDataRequest, SimpleResponse } from '../RequestModel/MasterDataResponse';
 import { Observable } from 'rxjs/internal/Observable';
 import { ListResponse } from '../RequestModel/BaseResponse';
 

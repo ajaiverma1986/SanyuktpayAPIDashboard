@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MasterDataService } from '../../../services/master-data.service';
-import { UserTypeListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { UserTypeListResponse } from '../../../RequestModel/MasterDataResponse';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CreateUserWithLogoRequest } from '../../../RequestModel/UserRequest';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';

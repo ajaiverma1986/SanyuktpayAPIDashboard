@@ -1,14 +1,14 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BasecomponentComponent } from '../../basecomponent/basecomponent.component';
 import { MasterDataService } from '../../../services/master-data.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { ToastrService } from 'ngx-toastr';
-import { CommonModule, formatDate } from '@angular/common'
+import { CommonModule } from '@angular/common'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment.development';
-import {  BankListResponse, ListPaymentModeResponse } from '../../../RequestModel/MasterDatarESPONSE';
-import { CreateOriginatorAccountRequest, OriginatorListAccountResponse, UserKYYCResponse } from '../../../RequestModel/UserRequest';
+import {  BankListResponse } from '../../../RequestModel/MasterDataResponse';
+import { CreateOriginatorAccountRequest, OriginatorListAccountResponse } from '../../../RequestModel/UserRequest';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { NgxSpinnerModule } from "ngx-spinner";

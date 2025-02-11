@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ApplicationListResponse, CreateApplicationRequest } from '../../../RequestModel/MasterDatarESPONSE';
+import { ApplicationListResponse, CreateApplicationRequest } from '../../../RequestModel/MasterDataResponse';
 import { Router } from '@angular/router';
 
 

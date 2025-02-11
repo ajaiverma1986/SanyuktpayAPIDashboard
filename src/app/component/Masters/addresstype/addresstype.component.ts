@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms'
 import { MasterDataService } from '../../../services/master-data.service';
-import { SimpleResponse, AddressTypeListResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import {  AddressTypeListResponse } from '../../../RequestModel/MasterDataResponse';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';

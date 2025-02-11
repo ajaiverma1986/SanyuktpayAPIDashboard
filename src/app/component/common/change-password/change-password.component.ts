@@ -4,7 +4,7 @@ import { BasecomponentComponent } from '../../basecomponent/basecomponent.compon
 import { MasterDataService } from '../../../services/master-data.service';
 import { UserMasterService } from '../../../services/ApplicationServices/user-master.service';
 import { ToastrService } from 'ngx-toastr';
-import { AddressTypeListResponse, PincodeDataResponse } from '../../../RequestModel/MasterDatarESPONSE';
+import { AddressTypeListResponse } from '../../../RequestModel/MasterDataResponse';
 import { ChangePasswordRequest } from '../../../RequestModel/UserRequest';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
