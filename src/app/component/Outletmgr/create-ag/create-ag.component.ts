@@ -18,21 +18,25 @@ import { ListResponse } from '../../../RequestModel/BaseResponse';
 
 
 @Component({
-  selector: 'app-createmds',
+  selector: 'app-create-ag',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatCardModule, NgxSpinnerModule, MatIconModule, MatPaginatorModule, NgbModule],
-  templateUrl: './createmds.component.html',
-  styleUrl: './createmds.component.scss'
+  templateUrl: './create-ag.component.html',
+  styleUrl: './create-ag.component.scss'
 })
-export class CreatemdsComponent extends BasecomponentComponent implements OnInit {
+export class CreateAGComponent extends BasecomponentComponent implements OnInit {
   Model: CreateNewOutLetRequest = new CreateNewOutLetRequest();
   ModelList: ListResponse = new ListResponse();
   Modeldata: SimpleResponse = new SimpleResponse();
   frmmds!: FormGroup;
   selectedvalue!: string
+  selectedvalueparent!: string
+  selectedvalueDS!:string;
   Addnew: boolean = false;
   genderdata!: GenderResponse[];
   outletresp!: ListOutletResponse[];
+  mdslist!: ListOutletResponse[];
+  dslist!: ListOutletResponse[];
   ModelReq: ListRetailorRequest = new ListRetailorRequest();
   displayedColumns: string[] = ['UserId', 'Usercode', 'ContactPerson', 'EmailId', 'MobileNo', 'OrganisationName', 'ParentCode', 'StatusName', 'AvailableLimit', 'ThresoldLimit',];
 
@@ -49,7 +53,6 @@ export class CreatemdsComponent extends BasecomponentComponent implements OnInit
   pageEvent!: PageEvent;
 
 
-
   constructor(private mds: MasterDataService, private usrser: UserMasterService, private fb: FormBuilder, toast: ToastrService) {
     super(toast);
     this.createForm();
@@ -62,19 +65,42 @@ export class CreatemdsComponent extends BasecomponentComponent implements OnInit
       GenderID: ['', [Validators.required]],
       OrganisationName: [''],
       MobileNo: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      EmailId: ['', [Validators.required, Validators.email]]
+      EmailId: ['', [Validators.required, Validators.email]],
+      MDSID: ['', [Validators.required]],
+      ParentID: ['', [Validators.required]]
     });
   }
   AddNewRequest() {
     this.Addnew = true;
   }
   ngOnInit(): void {
-
+    this.selectedvalueparent = "0";
     this.selectedvalue = "0";
-
+this.selectedvalueDS="0";
     this.ListGender();
+    this.GetMDS();
     this.getPageData(1);
   }
+  GetMDS() {
+    this.ModelReq.UserTypeId = 5;
+    this.ModelReq.Status = 0;
+    this.usrser.ListAllOutltes(this.ModelReq).subscribe({
+      next: (data) => {
+        this.mdslist = data.Result;
+      }
+    });
+  }
+  OnchangeMDS() {
+    this.ModelReq.UserTypeId = 6;
+    this.ModelReq.Status = 0;
+    this.ModelReq.ParentID=Number(this.selectedvalueparent);
+    this.usrser.ListAllOutltes(this.ModelReq).subscribe({
+      next: (data) => {
+        this.dslist = data.Result;
+      }
+    });
+  }
+
   ListGender() {
     this.mds.GenderList().subscribe({
       next: (SimpleResponse) => {
@@ -83,11 +109,10 @@ export class CreatemdsComponent extends BasecomponentComponent implements OnInit
     });
   }
   GetAllData() {
-    this.ModelReq.UserTypeId = 5;
     this.usrser.ListAllOutltes(this.ModelReq).subscribe({
       next: (data) => {
-        this.outletresp = data.Result;
-
+        this.ModelList.Result = data.Result;
+        
       }
     });
   }
@@ -95,7 +120,7 @@ export class CreatemdsComponent extends BasecomponentComponent implements OnInit
   getPageData(pagenum: number) {
     this.ModelReq.PageNo = pagenum;
     this.ModelReq.PageSize = this.pageSize;
-    this.ModelReq.UserTypeId = 5;
+    this.ModelReq.UserTypeId = 7;
     this.usrser.ListAllOutltes(this.ModelReq).subscribe({
       next: (data) => {
         this.outletresp = data.Result;
@@ -113,6 +138,7 @@ export class CreatemdsComponent extends BasecomponentComponent implements OnInit
   GoToBack() {
     this.Addnew = false;
   }
+
   onSubmit() {
     this.Model.EmailId = this.frmmds.get("EmailId")?.value;
     this.Model.FirstName = this.frmmds.get("FirstName")?.value;
@@ -120,8 +146,8 @@ export class CreatemdsComponent extends BasecomponentComponent implements OnInit
     this.Model.MiddleName = this.frmmds.get("MiddleName")?.value;
     this.Model.MobileNo = this.frmmds.get("MobileNo")?.value;
     this.Model.OrganisationName = this.frmmds.get("OrganisationName")?.value;
-    this.Model.ParentID = 0;
-    this.Model.UserTypeId = 5;
+    this.Model.ParentID = Number(this.frmmds.get("ParentID")?.value);
+    this.Model.UserTypeId = 7;
     this.Model.GenderID = Number(this.frmmds.get("GenderID")?.value);
 
     this.usrser.AddNewOutlet(this.Model).subscribe({
@@ -129,10 +155,10 @@ export class CreatemdsComponent extends BasecomponentComponent implements OnInit
         this.Modeldata = data;
 
         if (Number(this.Modeldata.Result) > 0) {
-          this.showToaster(1, "MDS Successfully Created", "User Master");
-          this.frmmds.reset(this.frmmds.value);
           this.getPageData(1);
           this.Addnew = false;
+          this.showToaster(1, "MDS Successfully Created", "User Master");
+          this.frmmds.reset(this.frmmds.value);
         }
         else {
           this.showToaster(3, this.Modeldata.Errors[0].ErrorMessage.toString(), "User Master");
@@ -141,6 +167,7 @@ export class CreatemdsComponent extends BasecomponentComponent implements OnInit
     });
 
   }
+
   getInvalidControls() {
     const invalidControls = [];
     const controls = this.frmmds.controls;
@@ -151,5 +178,4 @@ export class CreatemdsComponent extends BasecomponentComponent implements OnInit
     }
     return invalidControls;
   }
-
 }

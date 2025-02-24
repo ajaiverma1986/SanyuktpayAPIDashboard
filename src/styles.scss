@@ -63,7 +63,14 @@ $secondary: #AC4CBC;
   flex: 0 0 100%;
   max-width: 100%;
 }
+.error-summary {
+  color: red;
+  font-weight: bold;
+}
 
+small {
+  color: red;
+}
 
 @media only screen and (min-width : 320px)  and (max-width: 480px) {
   .dash-col-40 {

@@ -61,6 +61,8 @@ import { ChangePasswordComponent } from './component/common/change-password/chan
 import { IPManagerComponent } from './component/Onboarding/ipmanager/ipmanager.component';
 import { IPAddressWhitelistComponent } from './component/UserManager/ipaddress-whitelist/ipaddress-whitelist.component';
 import { CreatemdsComponent } from './component/Outletmgr/createmds/createmds.component';
+import { CreateDSComponent } from './component/Outletmgr/create-ds/create-ds.component';
+import { CreateAGComponent } from './component/Outletmgr/create-ag/create-ag.component';
 
 
 export const routes: Routes = [
@@ -127,6 +129,8 @@ export const routes: Routes = [
       {path: 'addnewIP', component: IPManagerComponent,title:"IP Manager"},
       {path: 'lstwip', component: IPAddressWhitelistComponent,title:"IP Manager"},
       {path: 'CreateMds', component: CreatemdsComponent,title:"Master Distributor"},
+      {path: 'Createds', component: CreateDSComponent,title:"Distributor"},
+      {path: 'CreateAg', component: CreateAGComponent,title:"Retailor"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
