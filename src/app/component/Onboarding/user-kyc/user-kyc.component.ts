@@ -145,8 +145,11 @@ export class UserKYCComponent extends BasecomponentComponent implements OnInit {
   
     
   }
-  RemoveDocument() {
-    
+  RemoveDocument(id :string) {
+    if(confirm("Are you sure to delete")) {
+      console.log("Implement delete functionality here");
+    }
   }
+ 
 
 }

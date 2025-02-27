@@ -129,11 +129,11 @@
                       
                       <th mat-header-cell *matHeaderCellDef>Actions </th>
                       <mat-cell *matCellDef="let element" >
-                        <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn" (click)="OpenModel(element.UserKYCID)">
-                          <mat-icon>delete</mat-icon>
+                        <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn" (click)="RemoveDocument(element.UserKYCID)">
+                          <mat-icon style="color:red;">delete</mat-icon>
                         </button>
                         <button mat-icon-button matTooltip="Click to view" class="iconbutton" color="warn" (click)="OpenModel(element.UserKYCID)">
-                          <mat-icon>folder</mat-icon>
+                          <mat-icon style="color: #F8D775;">folder</mat-icon>
                         </button>
                         
                       </mat-cell>
