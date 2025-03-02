@@ -63,6 +63,7 @@ import { IPAddressWhitelistComponent } from './component/UserManager/ipaddress-w
 import { CreatemdsComponent } from './component/Outletmgr/createmds/createmds.component';
 import { CreateDSComponent } from './component/Outletmgr/create-ds/create-ds.component';
 import { CreateAGComponent } from './component/Outletmgr/create-ag/create-ag.component';
+import { RoleManagerComponen } from './component/AccessManager/role-manager/role-manager.component';
 
 
 export const routes: Routes = [
@@ -131,6 +132,7 @@ export const routes: Routes = [
       {path: 'CreateMds', component: CreatemdsComponent,title:"Master Distributor"},
       {path: 'Createds', component: CreateDSComponent,title:"Distributor"},
       {path: 'CreateAg', component: CreateAGComponent,title:"Retailor"},
+      {path: 'RoleMgr', component: RoleManagerComponen,title:"Role Manager"},
     ]
   },
   { path: '**', pathMatch: 'full',  component: PageNofoundComponent }, 
