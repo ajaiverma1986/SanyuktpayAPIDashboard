@@ -1,4 +1,5 @@
 
+@if (this.isOtp==0) {
 <section class="vh-100 gradient-custom">
     <div class="container py-5 h-80">
         <div class="row justify-content-center align-items-center h-80">
@@ -12,7 +13,7 @@
                         </div>
                         <p class="h5 fw-semibold mt-3 text-center">Register</p>
 
-                        <form [formGroup]="frmregister1" (ngSubmit)="onSubmit()" >
+                        <form [formGroup]="frmregister1" (ngSubmit)="onSubmitMobile()" >
                             <div class="row gy-3">
                                 <div class="col-12 mb-2">
                                     <label for="MobileNo" class="form-label text-default">Mobile</label>
@@ -44,3 +45,193 @@
         </div>
     </div>
 </section>
+}
+@else if (this.isOtp==1) {
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-80">
+        <div class="row justify-content-center align-items-center h-80">
+            <div class="col-xl-5 col-lg-5 col-md-6 col-sm-8 col-12">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <div class="d-flex justify-content-center mb-4">
+                            <a href="#">
+                                <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px">
+                            </a>
+                        </div>
+                        <p class="h5 fw-semibold mt-3 text-center">Verify OTP</p>
+
+                        <form [formGroup]="frmrverifyotp" (ngSubmit)="onVerifyOTP()" >
+                            <div class="row gy-3">
+                                <div class="col-12 mb-2">
+                                    <label for="MobileNo" class="form-label text-default">OTP</label>
+                                    <ng-otp-input formControlName="ngOtpInput" [config]="{ length: 6 }"></ng-otp-input>
+                                    
+                                </div>
+                               
+                               
+                                <div class="col-12 mb-2">
+                                    <div class="col-md-12 mb-2">
+                                      Already have Account? <a href="#" class="text-default" routerLink="/login">
+                                            Login</a> 
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+
+                                    </div>
+                                  
+                                </div>
+                                <div class="col-12 mb-2 text-center">
+                                    <button type="submit" class="btn--base" >Continue</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+}
+@else if (this.isOtp==2) {
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-80">
+            <div class="row justify-content-center align-items-center h-80">
+                <div class="col-xl-5 col-lg-5 col-md-6 col-sm-8 col-12">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <div class="d-flex justify-content-center mb-4">
+                                <a href="#">
+                                    <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px">
+                                </a>
+                            </div>
+                            <p class="h5 fw-semibold mt-3 text-center">Verify OTP</p>
+    
+                            <form [formGroup]="FrmUserType" (ngSubmit)="SubmitUserType()" >
+                                <div class="row gy-3">
+                                    <div class="col-12 mb-2">
+                                        <label for="MobileNo" class="form-label text-default">OTP</label>
+                                        <label class="form-label select-label">UserType</label>
+                                        <select class="select form-control" name="GenderId" [(ngModel)]="selectedvalue"
+                                          formControlName="GenderId">
+                                          <option [value]="0">--Select User Type--</option>
+                                          <!-- @for (item of genderdata; track $index) {
+                                          <option [value]="item.GenderId" selected="item.GenderId=selectedvalue">{{item.GenderName}}
+                                          </option>
+                                          } -->
+                    
+                                        </select>
+                                        
+                                    </div>
+                                   
+                                   
+                                    <div class="col-12 mb-2">
+                                        <div class="col-md-12 mb-2">
+                                          Already have Account? <a href="#" class="text-default" routerLink="/login">
+                                                Login</a> 
+                                        </div>
+                                        <div class="col-md-4 mb-2">
+    
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="col-12 mb-2 text-center">
+                                        <button type="submit" class="btn--base" >Continue</button>
+                                    </div>
+                                </div>
+                            </form>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+@else if (this.isOtp==3) {
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-80">
+            <div class="row justify-content-center align-items-center h-80">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-12">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <div class="d-flex justify-content-center mb-4">
+                                <a href="#">
+                                    <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px">
+                                </a>
+                            </div>
+                            <p class="h5 fw-semibold mt-3 text-center">PAN Verification</p>
+    
+                            <form [formGroup]="frmPanDetails" (ngSubmit)="SubmitPanDetail()" >
+                                <div class="row gy-3">
+                                    <div class="col-10 mb-2">
+                                        <label class="form-label select-label">Pan No</label>
+                                        <input type="text" class="form-control" id="PanNo" name="PanNo"
+                                        placeholder="PanNo" formControlName="PanNo" minlength="10" maxlength="10">
+                                    </div>
+                                    <div class="col-2 mb-2">
+                                        <button type="button" class="btn--base" >Verify</button>
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="form-label select-label">Name</label>
+                                        <input type="text" class="form-control" id="Name" name="Name"
+                                        placeholder="Name" formControlName="Name" >
+                                    </div>
+                                    <div class="col-2 mb-2">
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="form-label select-label">DOB</label>
+                                        <input type="text" class="form-control" id="dob" name="dob"
+                                        placeholder="dob" formControlName="dob" >
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="form-label select-label">Gender</label>
+                                        <input type="text" class="form-control" id="GenderID" name="GenderID"
+                                        placeholder="GenderID" formControlName="GenderID" >
+                                    </div>
+                                    <div class="col-2 mb-2">
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="form-label select-label">Email</label>
+                                        <input type="text" class="form-control" id="Email" name="Email"
+                                        placeholder="Email" formControlName="Email" >
+                                    </div>
+                                    <div class="col-12 mb-2">
+                                        <label class="form-label select-label">Address</label>
+                                        <input type="text" class="form-control" id="Addresss" name="Addresss"
+                                        placeholder="Addresss" formControlName="Addresss">
+                                    </div>
+
+                                    <div class="col-4 mb-2">
+                                        <img [src]="this.pic" (error)="setDefaultPic()" width="200px" height="200px">
+                                        
+                                    </div>
+                                    <div class="col-2 mb-2">
+                                        
+                                        <button type="button" class="btn--base" >Upload</button>
+                                    </div>
+
+
+                                    <div class="col-12 mb-2">
+                                        <div class="col-md-12 mb-2">
+                                          Already have Account? <a href="#" class="text-default" routerLink="/login">
+                                                Login</a> 
+                                        </div>
+                                        <div class="col-md-4 mb-2">
+    
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="col-12 mb-2 text-center">
+                                        <button type="submit" class="btn--base" >Continue</button>
+                                    </div>
+                                </div>
+                            </form>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
