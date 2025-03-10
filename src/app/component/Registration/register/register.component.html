@@ -1,0 +1,46 @@
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-80">
+        <div class="row justify-content-center align-items-center h-80">
+            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <div class="d-flex justify-content-center mb-4">
+                            <a href="#">
+                                <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px">
+                            </a>
+                        </div>
+                        <p class="h5 fw-semibold mt-3 text-center">Register</p>
+
+                        <form [formGroup]="frmregister1" (ngSubmit)="onSubmit()" >
+                            <div class="row gy-3">
+                                <div class="col-12 mb-2">
+                                    <label for="MobileNo" class="form-label text-default">Mobile</label>
+                                    <input type="text" class="form-control" id="MobileNo" name="MobileNo"
+                                        placeholder="MobileNo" formControlName="MobileNo" minlength="10" maxlength="10">
+                                    
+                                </div>
+                               
+                               
+                                <div class="col-12 mb-2">
+                                    <div class="col-md-12 mb-2">
+                                      Already have Account? <a href="#" class="text-default" routerLink="/login">
+                                            Login</a> 
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+
+                                    </div>
+                                  
+                                </div>
+                                <div class="col-12 mb-2 text-center">
+                                    <button type="submit" class="btn--base" >Continue</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
