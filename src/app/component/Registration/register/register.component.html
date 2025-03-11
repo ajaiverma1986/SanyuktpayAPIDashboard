@@ -8,7 +8,7 @@
                     <div class="card-body p-5">
                         <div class="d-flex justify-content-center mb-4">
                             <a href="#">
-                                <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px">
+                                <!-- <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px"> -->
                             </a>
                         </div>
                         <p class="h5 fw-semibold mt-3 text-center">Register</p>
@@ -56,7 +56,7 @@
                     <div class="card-body p-5">
                         <div class="d-flex justify-content-center mb-4">
                             <a href="#">
-                                <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px">
+                                <!-- <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px"> -->
                             </a>
                         </div>
                         <p class="h5 fw-semibold mt-3 text-center">Verify OTP</p>
@@ -102,7 +102,7 @@
                         <div class="card-body p-5">
                             <div class="d-flex justify-content-center mb-4">
                                 <a href="#">
-                                    <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px">
+                                    <!-- <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px"> -->
                                 </a>
                             </div>
                             <p class="h5 fw-semibold mt-3 text-center">Verify OTP</p>
@@ -157,7 +157,7 @@
                         <div class="card-body p-5">
                             <div class="d-flex justify-content-center mb-4">
                                 <a href="#">
-                                    <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px">
+                                    <!-- <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px"> -->
                                 </a>
                             </div>
                             <p class="h5 fw-semibold mt-3 text-center">PAN Verification</p>
@@ -169,8 +169,10 @@
                                         <input type="text" class="form-control" id="PanNo" name="PanNo"
                                         placeholder="PanNo" formControlName="PanNo" minlength="10" maxlength="10">
                                     </div>
-                                    <div class="col-2 mb-2">
-                                        <button type="button" class="btn--base" >Verify</button>
+                                    <div class="col-2 mb-2" style="text-align: center;">
+                                        <br>
+                                        <button type="button" class="btn btn-primary" style="background: #42a8df;" mdbRipple>Verify</button>
+                                       
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="form-label select-label">Name</label>
@@ -202,16 +204,154 @@
                                         placeholder="Addresss" formControlName="Addresss">
                                     </div>
 
-                                    <div class="col-4 mb-2">
-                                        <img [src]="this.pic" (error)="setDefaultPic()" width="200px" height="200px">
+                                    <div class="col-6 mb-2">
+                                        <label class="form-label select-label">Pan Images</label>
+                                        <img [src]="this.pic" (error)="setDefaultPic()" width="300px" height="200px">
+                                        <input type="file" class="form-control" (change)="onFileChange($event)" />
                                         
                                     </div>
                                     <div class="col-2 mb-2">
                                         
-                                        <button type="button" class="btn--base" >Upload</button>
+                                        
                                     </div>
 
 
+                                    <div class="col-12 mb-2">
+                                        <div class="col-md-12 mb-2">
+                                          Already have Account? <a href="#" class="text-default" routerLink="/login">
+                                                Login</a> 
+                                        </div>
+                                        <div class="col-md-4 mb-2">
+    
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="col-12 mb-2 text-center">
+                                        <button type="submit" class="btn--base" >Continue</button>
+                                    </div>
+                                </div>
+                            </form>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+@else if (this.isOtp==4) {
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-80">
+            <div class="row justify-content-center align-items-center h-80">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-12">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <div class="d-flex justify-content-center mb-4">
+                                <a href="#">
+                                    <!-- <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px"> -->
+                                </a>
+                            </div>
+                            <p class="h5 fw-semibold mt-3 text-center">Aadhar Verification</p>
+    
+                            <form [formGroup]="frmAadharDetails" (ngSubmit)="SubmitAadharDetail()" >
+                                <div class="row gy-3">
+                                    <div class="col-10 mb-2">
+                                        <label class="form-label select-label">Aadhar No</label>
+                                        <input type="text" class="form-control" id="AadharNo" name="AadharNo"
+                                        placeholder="AadharNo" formControlName="AadharNo" minlength="10" maxlength="10">
+                                    </div>
+                                    <div class="col-2 mb-2" style="text-align: center;">
+                                        <br>
+                                        <button type="button" class="btn btn-primary" style="background: #42a8df;" mdbRipple>Verify</button>
+                                       
+                                    </div>
+                                    <div class="col-4 mb-2">
+                                        <label class="form-label select-label">Name</label>
+                                        <input type="text" class="form-control" id="aName" name="aName"
+                                        placeholder="aName" formControlName="aName" >
+                                    </div>
+                                   
+                                    <div class="col-4 mb-2">
+                                        <label class="form-label select-label">DOB</label>
+                                        <input type="text" class="form-control" id="adob" name="adob"
+                                        placeholder="adob" formControlName="adob" >
+                                    </div>
+                                    <div class="col-4 mb-2">
+                                        <label class="form-label select-label">Gender</label>
+                                        <input type="text" class="form-control" id="aGenderID" name="aGenderID"
+                                        placeholder="aGenderID" formControlName="aGenderID" >
+                                    </div>
+                                    
+                                    <div class="col-12 mb-2">
+                                        <label class="form-label select-label">Address</label>
+                                        <input type="text" class="form-control" id="aAddresss" name="aAddresss"
+                                        placeholder="aAddresss" formControlName="aAddresss">
+                                    </div>
+
+                                    <div class="col-6 mb-2">
+                                        <label class="form-label select-label">Aadhar Front</label>
+                                        <img [src]="this.pic1" (error)="setDefaultPic()" width="250px" height="200px">
+                                        <input type="file" class="form-control" (change)="onFileChangeaFront($event)" />
+                                        
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <label class="form-label select-label">Aadhar Back</label>
+                                        <img [src]="this.pic2" (error)="setDefaultPic()" width="250px" height="200px">
+                                        <input type="file" class="form-control" (change)="onFileChangeaBack($event)" />
+                                        
+                                    </div>
+                                   
+                                    <div class="col-12 mb-2">
+                                        <div class="col-md-12 mb-2">
+                                          Already have Account? <a href="#" class="text-default" routerLink="/login">
+                                                Login</a> 
+                                        </div>
+                                        <div class="col-md-4 mb-2">
+    
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="col-12 mb-2 text-center">
+                                        <button type="submit" class="btn--base" >Continue</button>
+                                    </div>
+                                </div>
+                            </form>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+@else if (this.isOtp==5) {
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-80">
+            <div class="row justify-content-center align-items-center h-80">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-12">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <div class="d-flex justify-content-center mb-4">
+                                <a href="#">
+                                    <!-- <img src="assets/logo/Logo.png" alt="logo" class="desktop-logo" width="200px"> -->
+                                </a>
+                            </div>
+                            <p class="h5 fw-semibold mt-3 text-center">Email Verification</p>
+    
+                            <form [formGroup]="frmEmailVerification" (ngSubmit)="SubmitEmailDetail()" >
+                                <div class="row gy-3">
+                                    <div class="col-10 mb-2">
+                                        <label class="form-label select-label">Email ID</label>
+                                        <input type="text" class="form-control" id="VEmailID" name="VEmailID"
+                                        placeholder="VEmailID" formControlName="VEmailID" >
+                                    </div>
+                                    <div class="col-2 mb-2" style="text-align: center;">
+                                        <br>
+                                        <button type="button" class="btn btn-primary" style="background: #42a8df;" mdbRipple>Verify</button>
+                                       
+                                    </div>
+                                    
+                                   
                                     <div class="col-12 mb-2">
                                         <div class="col-md-12 mb-2">
                                           Already have Account? <a href="#" class="text-default" routerLink="/login">

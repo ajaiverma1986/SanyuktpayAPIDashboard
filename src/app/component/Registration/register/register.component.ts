@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgOtpInputComponent } from 'ng-otp-input';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, NgOtpInputComponent],
+  imports: [ReactiveFormsModule, CommonModule, NgOtpInputComponent,MatButtonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -17,8 +18,12 @@ export class RegisterComponent implements OnInit {
   frmrverifyotp!: FormGroup;
   FrmUserType!:FormGroup;
   frmPanDetails!:FormGroup;
+  frmAadharDetails!:FormGroup;
+  frmEmailVerification!:FormGroup;
   selectedvalue!:string;
   pic!:string;
+  pic1!:string;
+  pic2!:string;
   constructor(private fb: FormBuilder) {
     this.createForm();
   }
@@ -52,6 +57,21 @@ export class RegisterComponent implements OnInit {
       Addresss: [''],
     });
   }
+  CreateOUserAadharDetailform() {
+    this.frmAadharDetails = this.fb.group({
+      AadharNo: [''],
+      aName: [''],
+      adob: [''],
+      aGenderID: [''],
+      aAddresss: [''],
+    });
+  }
+  CreateOUserEmailDetailform() {
+    this.frmEmailVerification = this.fb.group({
+      VEmailID: [''],
+    
+    });
+  }
   onSubmitMobile() {
     this.isOtp = 1;
     this.CreateOtpForm();
@@ -70,9 +90,28 @@ this.CreateOUserTypeform();
   }
   SubmitPanDetail(){
     this.isOtp=4;
+    this.CreateOUserAadharDetailform();
   }
   setDefaultPic(){
-    this.pic = "assets/images/card/1.png";
+    this.pic = "assets/graybackblank.jpg";
+    this.pic1 = "assets/graybackblank.jpg";
+    this.pic2 = "assets/graybackblank.jpg";
+  }
+  onFileChange(event:any){
+
+  }
+  onFileChangeaFront(event:any){
+    
+  }
+  onFileChangeaBack(event:any){
+
+  }
+  SubmitAadharDetail(){
+    this.isOtp=5;
+
+  }
+  SubmitEmailDetail(){
+this.isOtp=5;
   }
 
 }
