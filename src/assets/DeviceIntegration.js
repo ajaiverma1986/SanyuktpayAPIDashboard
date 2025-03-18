@@ -16,13 +16,12 @@ if (typeof window.DOMParser != "undefined") {
     throw new Error("No XML parser found");
 }
 
-function CaptureFingureMorpho( callback) {
+function CaptureFingureMorpho(callback) {
     var url = "https://localhost:11100/capture";
-   
+
 
     var PIDOPTS = '<PidOptions ver=\"1.0\">' + '<Opts fCount=\"1\" fType=\"2\" iCount=\"\" iType=\"\" pCount=\"\" pType=\"\" format=\"0\" pidVer=\"2.0\" timeout=\"10000\" otp=\"\" wadh="" posh=\"\"/>' + '</PidOptions>';
 
-    console.log(PIDOPTS);
 
     var piddata = '';
     /*
@@ -47,12 +46,10 @@ function CaptureFingureMorpho( callback) {
     xhr.setRequestHeader("Accept", "text/xml");
 
     xhr.onreadystatechange = function () {
-        //if(xhr.readyState == 1 && count == 0){
-        //	fakeCall();
-        //}
+       
         if (xhr.readyState == 4) {
             var status = xhr.status;
-            //parser = new DOMParser();
+          
             if (status == 200) {
                 var test1 = xhr.responseText;
                 var test2 = test1.search("errCode");
@@ -61,15 +58,11 @@ function CaptureFingureMorpho( callback) {
                 var test5 = test1.slice(test4, test6);
                 if (test5 > 0) {
                     piddata = xhr.responseText;
-                    //alert(xhr.responseText);
-                    //document.getElementById('text').value = xhr.responseText;
+
                 }
                 else {
                     piddata = xhr.responseText;
-                    //console.log(xhr.responseText);
                     var xmlDoc = parseXml(piddata);
-
-
                     var devicecode = '';
                     var modelid = '';
                     var rdsid = '';
@@ -129,29 +122,51 @@ function CaptureFingureMorpho( callback) {
                     if (pidataelem) {
                         pidata = pidataelem.childNodes[0].nodeValue + '';
                     }
-                    alert("Captured Successfully");
-
-                    //document.getElementById('text').value = "Captured Successfully";
+                   alert("Captured Successfully");
                 }
-
                 var callBackString = {};
-                callBackString.value1 = devicecode;
-                callBackString.value2 = modelid;
-                callBackString.value3 = rdsid;
-                callBackString.value4 = dpid;
-                callBackString.value5 = ci;
-
-                callBackString.value6 = himacdata;
-                callBackString.value7 = pidata;
-                callBackString.value8 = rdpublickey;
-                callBackString.value9 = skeyvalue;
+                if(devicecode==undefined)
+                {
+                    callBackString.devicecode = "";
+                    callBackString.modelid = "";
+                    callBackString.rdsid = "";
+                    callBackString.dpid = "";
+                    callBackString.ci = "";
+                    callBackString.capturestatus = 0;
+                    callBackString.himacdata = "";
+                    callBackString.pidata = "";
+                    callBackString.rdpublickey = "";
+                    callBackString.skeyvalue = "";
+                }
+               else{
+                callBackString.devicecode = devicecode;
+                callBackString.modelid = modelid;
+                callBackString.rdsid = rdsid;
+                callBackString.dpid = dpid;
+                callBackString.ci = ci;
+                callBackString.capturestatus = 1;
+                callBackString.himacdata = himacdata;
+                callBackString.pidata = pidata;
+                callBackString.rdpublickey = rdpublickey;
+                callBackString.skeyvalue = skeyvalue;
+               }
 
                 if (callback) callback(callBackString);
 
+               
             } else {
-
-                console.log(xhr.response);
-
+                var callBackString = {};
+                callBackString.devicecode = "";
+                callBackString.modelid = "";
+                callBackString.rdsid = "";
+                callBackString.dpid = "";
+                callBackString.ci = "";
+                callBackString.capturestatus = 0;
+                callBackString.himacdata = "";
+                callBackString.pidata = "";
+                callBackString.rdpublickey = "";
+                callBackString.skeyvalue = "";
+                if (callback) callback(callBackString);
             }
         }
 
@@ -163,7 +178,7 @@ function CaptureFingureMorpho( callback) {
 function GetMorphoRDService(callback) {
 
     var url = "https://localhost:11100";
-    
+
 
     var rdservicestatus = 0;
     var xhr;
@@ -178,43 +193,31 @@ function GetMorphoRDService(callback) {
         //other browser
         xhr = new XMLHttpRequest();
     }
-
     xhr.open('RDSERVICE', url, true);
-
     xhr.onreadystatechange = function () {
-        // if(xhr.readyState == 1 && count == 0){
-        //	fakeCall();
-        //}
+
         if (xhr.readyState == 4) {
             var status = xhr.status;
-
             if (status == 200) {
                 rdservicestatus = 1;
-                if (callback) callback(rdservicestatus);
-
-                console.log("RD service status", rdservicestatus);
-                console.log(xhr.responseText);
-
+                var callBackString = {};
+                callBackString.rdservicestatus = rdservicestatus;
+                callBackString.DeviceName = "MORPHO";
+                if (callback) callback(callBackString);
             } else {
                 console.log(xhr.response);
             }
         }
-        else {
-        }
-
     };
-
-    /*setTimeout(function(){
-    xhr.send();},1000);*/
     xhr.send();
 }
 
 
 
 
-function GetMorphoRDDeviceInfo( callback) {
+function GetMorphoRDDeviceInfo(callback) {
     var url = "https://localhost:11100/getDeviceInfo";
-   
+
     var deviceinfostatus = 0;
 
     var xhr;
@@ -239,13 +242,9 @@ function GetMorphoRDDeviceInfo( callback) {
             var status = xhr.status;
 
             if (status == 200) {
-                //alert(xhr.responseText);
-
                 var xmlstr = xhr.responseText;
 
                 var xmlDoc = parseXml(xmlstr);
-
-
                 var addinfo = xmlDoc.getElementsByTagName("additional_info")[0];
 
                 var serialno = '';
@@ -255,11 +254,9 @@ function GetMorphoRDDeviceInfo( callback) {
 
                 var addinfoNodes;
                 if (serialno == '') {
-                     addinfoNodes = addinfo.childNodes;
+                    addinfoNodes = addinfo.childNodes;
                 }
-               
 
-               
                 var rdversion = '';
 
                 var deviceinfo = xmlDoc.getElementsByTagName("DeviceInfo")[0];
@@ -288,21 +285,20 @@ function GetMorphoRDDeviceInfo( callback) {
                 else {
                     deviceinfostatus = 1;
                 }
-                
 
                 var callBackString = {};
-                callBackString.value1 = rdversion;
-                callBackString.value2 = serialno;
-                callBackString.value3 = deviceinfostatus;
-
-
+                callBackString.Rdversion = rdversion;
+                callBackString.serialno = serialno;
+                callBackString.deviceinfostatus = deviceinfostatus;
                 if (callback) callback(callBackString);
-
-                console.log(xhr.responseText);
 
             } else {
 
-                console.log(xhr.response);
+                var callBackString = {};
+                callBackString.Rdversion = "";
+                callBackString.serialno = "";
+                callBackString.deviceinfostatus = 0;
+                if (callback) callback(callBackString);
 
             }
         }
@@ -314,105 +310,9 @@ function GetMorphoRDDeviceInfo( callback) {
     return deviceinfostatus;
 }
 
-function Capture(wadh, callback) {
-    var url = "http://127.0.0.1:11100/capture";
-   
-
-    var XML = '<?xml version="1.0"?> <PidOptions ver="1.0"> <Opts fCount="1" fType="2" iCount="0" pCount="0" pgCount="2" format="1"   pidVer="2.0" timeout="10000" wadh="' + wadh + '" pTimeout="20000" posh="UNKNOWN" env="P" /> <CustOpts><Param name="mantrakey" value="" /></CustOpts> </PidOptions>';
-
-    //console.log(PIDOPTS);
-
-    var piddata = '';
-    /*
-    format=\"0\"     --> XML
-    format=\"1\"     --> Protobuf
-    */
-    var xhr;
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE ");
-
-    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer, return version number
-    {
-        //IE browser
-        xhr = new ActiveXObject("Microsoft.XMLHTTP");
-    } else {
-        //other browser
-        xhr = new XMLHttpRequest();
-    }
-
-    xhr.open('CAPTURE', url, true);
-    xhr.setRequestHeader("Content-Type", "text/xml");
-    xhr.setRequestHeader("Accept", "text/xml");
-
-    xhr.onreadystatechange = function () {
-        //if(xhr.readyState == 1 && count == 0){
-        //	fakeCall();
-        //}
-        if (xhr.readyState == 4) {
-            var status = xhr.status;
-            //parser = new DOMParser();
-            if (status == 200) {
-                var test1 = xhr.responseText;
-                var test2 = test1.search("errCode");
-                var test6 = getPosition(test1, '"', 2);
-                var test4 = test2 + 9;
-                var test5 = test1.slice(test4, test6);
-                if (test5 > 0) {
-                    piddata = xhr.responseText;
-                    //alert(xhr.responseText);
-                    //document.getElementById('text').value = xhr.responseText;
-                }
-                else {
-                    piddata = xhr.responseText;
-                    //console.log(xhr.responseText);
-                    alert("Captured Successfully");
-
-                    //document.getElementById('text').value = "Captured Successfully";
-                }
-                if (callback) callback(piddata);
-
-            } else {
-
-                console.log(xhr.response);
-
-            }
-        }
-
-    };
-
-    xhr.send(PIDOPTS);
-}
-
 function getPosition(string, subString, index) {
     return string.split(subString, index).join(subString).length;
 }
-
-function fakeCall() {
-    var xhr1;
-    var url = 'http://127.0.0.1:11100/getDeviceInfo';
-
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE ");
-
-    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer, return version number
-    {
-        //IE browser
-        xhr1 = new ActiveXObject("Microsoft.XMLHTTP");
-    } else {
-        //other browser
-        xhr1 = new XMLHttpRequest();
-    }
-
-    xhr1.open('DEVICEINFO', url, true);
-    xhr1.send();
-    count = 1;
-    xhr1.onreadystatechange = function () {
-        if (xhr1.readyState == 4) {
-            xhr1.abort();
-        }
-    };
-}
-
 
 function GetMantraRDService(callback) {
     var SuccessFlag = 0;
@@ -459,20 +359,7 @@ function GetMantraRDService(callback) {
                 var CmbData1 = $($doc).find('RDService').attr('status');
                 var CmbData2 = $($doc).find('RDService').attr('info');
                 if (RegExp('\\b' + 'Mantra' + '\\b').test(CmbData2) == true) {
-                    /*
-                    if ($($doc).find('Interface').eq(0).attr('path') == "/rd/capture") {
-                        MethodCapture = $($doc).find('Interface').eq(0).attr('path');
-                    }
-                    if ($($doc).find('Interface').eq(1).attr('path') == "/rd/capture") {
-                        MethodCapture = $($doc).find('Interface').eq(1).attr('path');
-                    }
-                    if ($($doc).find('Interface').eq(0).attr('path') == "/rd/info") {
-                        MethodInfo = $($doc).find('Interface').eq(0).attr('path');
-                    }
-                    if ($($doc).find('Interface').eq(1).attr('path') == "/rd/info") {
-                        MethodInfo = $($doc).find('Interface').eq(1).attr('path');
-                    }
-                    */
+
                     SuccessFlag = 1;
                 }
             },

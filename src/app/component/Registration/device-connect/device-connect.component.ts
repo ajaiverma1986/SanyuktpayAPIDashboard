@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Console } from 'console';
 
 declare function GetMorphoRDService(callback: (data: any) => void): void;
 declare function GetMorphoRDDeviceInfo(callback: (data: any) => void): void;
@@ -15,7 +16,6 @@ export class DeviceConnectComponent {
 
   handleData(data: any) {
     console.log('Data received from callback:', data);
-    
   }
   ConnectDevice(){
     GetMorphoRDService(this.handleData);
