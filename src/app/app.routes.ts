@@ -65,6 +65,7 @@ import { CreateDSComponent } from './component/Outletmgr/create-ds/create-ds.com
 import { CreateAGComponent } from './component/Outletmgr/create-ag/create-ag.component';
 import { RoleManagerComponen } from './component/AccessManager/role-manager/role-manager.component';
 import { RegisterComponent } from './component/Registration/register/register.component';
+import { DeviceConnectComponent } from './component/Registration/device-connect/device-connect.component';
 
 
 export const routes: Routes = [
@@ -73,6 +74,7 @@ export const routes: Routes = [
   {path: 'forget',component:ForgetpwdComponent,title:"Forget Password"},
   {path: 'PRegister',component:RegistrationComponent,title:"Register"},
   {path: 'register',component:RegisterComponent,title:"Register"},
+  {path: 'ConnectD', component: DeviceConnectComponent,title:"Connection Manager"},
   {path: 'login', canActivate:[AuthGaurdLoginService], component:LoginComponent,title:"Login"},
   {
     path: 'Dashboard', canActivate:[AuthGaurdService], component: AdminDashboardComponent,title:"Dashboard", children: [
@@ -135,6 +137,7 @@ export const routes: Routes = [
       {path: 'Createds', component: CreateDSComponent,title:"Distributor"},
       {path: 'CreateAg', component: CreateAGComponent,title:"Retailor"},
       {path: 'RoleMgr', component: RoleManagerComponen,title:"Role Manager"},
+  
       
     ]
   },

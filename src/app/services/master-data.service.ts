@@ -107,4 +107,10 @@ apiurl=environment.baseurl;
     let headers: HttpHeaders = this.getDefaultHeader2();
     return this.http.get<SimpleResponse>(this.apiurl + "/MasterData/ListAllService?ServiceTypeId="+ServiceTypeId,  {headers: headers});
   }
+  private apiUrl2 = 'https://localhost:11100/RDSERVICE';
+  GetDeviceInfo(): Observable<any> {
+    
+   
+    return this.http.get<any>(this.apiUrl2);
+  }
 }
