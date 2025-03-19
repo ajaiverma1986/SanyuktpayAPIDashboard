@@ -66,6 +66,7 @@ import { CreateAGComponent } from './component/Outletmgr/create-ag/create-ag.com
 import { RoleManagerComponen } from './component/AccessManager/role-manager/role-manager.component';
 import { RegisterComponent } from './component/Registration/register/register.component';
 import { DeviceConnectComponent } from './component/Registration/device-connect/device-connect.component';
+import { FinoMoneyDMTComponent } from './component/Services/PaySprint/FinoDMT/fino-money-dmt/fino-money-dmt.component';
 
 
 export const routes: Routes = [
@@ -137,6 +138,7 @@ export const routes: Routes = [
       {path: 'Createds', component: CreateDSComponent,title:"Distributor"},
       {path: 'CreateAg', component: CreateAGComponent,title:"Retailor"},
       {path: 'RoleMgr', component: RoleManagerComponen,title:"Role Manager"},
+      {path: 'FinDMT', component: FinoMoneyDMTComponent,title:"Money Transfer"},
   
       
     ]
