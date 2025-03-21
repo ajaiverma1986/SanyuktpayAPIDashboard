@@ -22,7 +22,7 @@ export class FinoDMTService {
   }
   RegisterFinoCustomerKyc(PostData: FinoEkycRequestView): Observable<SpBaseResponse> {
 
-    return this.apiconnector.PostAPI("/PaySPMT/GetFinoCustomerDetail", PostData);
+    return this.apiconnector.PostAPI("/PaySPMT/RegisterFinoCustomerKyc", PostData);
   }
   RegisterFinoCustomer(PostData: FinoRegCustomerRequestView): Observable<SpBaseResponse> {
 

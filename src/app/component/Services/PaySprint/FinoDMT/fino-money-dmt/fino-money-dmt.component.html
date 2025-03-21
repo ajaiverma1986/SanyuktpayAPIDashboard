@@ -6,7 +6,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h1 class="justify-content-start common-section-heading">Create  Retailor</h1>
+                  <h1 class="justify-content-start common-section-heading">Fino DMT</h1>
                 </div>
                 <form (ngSubmit)="onSubmit()" [formGroup]="frmVerifyCust">
                   <div class="mb-3 row">
@@ -24,12 +24,18 @@
                           <label class="form-label select-label">Mobile No</label>
                           <input type="text" id="MobileNo" class="form-control" formControlName="MobileNo" />
                         </div>
+                        <div class="col-lg-4">
+                          <button type="submit"  class="btn btn-primary" style="background: #42a8df;" mdbRipple [disabled]="!frmVerifyCust.valid">Find</button>
+                        </div>
                   </div>
                   <div class="mb-3 row">
                     <div class="col">
   
-                      <button type="submit" class="btn--base" [disabled]="!frmVerifyCust.valid">submit</button>
+                      @if (this.respcode!="1") {
+                        <p style="color: red; font-weight: bold;">{{this.strmsg}}</p>
   
+                      }
+                    
                     </div>
   
                   </div>

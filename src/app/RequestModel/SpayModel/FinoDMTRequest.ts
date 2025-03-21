@@ -4,6 +4,8 @@ export class GetCustomerRequestView{
 }
 export class FinoEkycRequestView {
     Mobile!: string;
+    FirstName!:string;
+    LastName!:string;
     TokenData!: string;
     AadharNo!: string;
     PidData!: string;
@@ -82,3 +84,4 @@ export class FinoRefundRequestView {
     otp!: string;
     TokenData!: string;
 }
+ 

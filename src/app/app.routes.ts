@@ -67,6 +67,7 @@ import { RoleManagerComponen } from './component/AccessManager/role-manager/role
 import { RegisterComponent } from './component/Registration/register/register.component';
 import { DeviceConnectComponent } from './component/Registration/device-connect/device-connect.component';
 import { FinoMoneyDMTComponent } from './component/Services/PaySprint/FinoDMT/fino-money-dmt/fino-money-dmt.component';
+import { FinoCustRegisterComponent } from './component/Services/PaySprint/FinoDMT/fino-cust-register/fino-cust-register.component';
 
 
 export const routes: Routes = [
@@ -139,6 +140,7 @@ export const routes: Routes = [
       {path: 'CreateAg', component: CreateAGComponent,title:"Retailor"},
       {path: 'RoleMgr', component: RoleManagerComponen,title:"Role Manager"},
       {path: 'FinDMT', component: FinoMoneyDMTComponent,title:"Money Transfer"},
+      {path: 'FinCustReg', component: FinoCustRegisterComponent,title:"Money Transfer"},
   
       
     ]

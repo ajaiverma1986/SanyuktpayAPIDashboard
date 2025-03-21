@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="common-margin">
+      <div class="justify-content-center row">
+        <div class="col-lg-12 col-md-12 col">
+          <div class="form-wrap-card card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h1 class="justify-content-start common-section-heading">Customer Registration</h1>
+                </div>
+                <form (ngSubmit)="onSubmit()" [formGroup]="frmfinCustReg">
+                  <div class="mb-3 row">
+                    <div *ngIf="frmfinCustReg.invalid && (frmfinCustReg.dirty || frmfinCustReg.touched)">
+                      <p class="error-summary">Please correct the following errors:</p>
+                      <ul>
+                        <li *ngFor="let control of getInvalidControls()">
+                          {{ control }} is invalid.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                 <div class="mb-3 row">
+                      <div class="col-lg-3">
+                          <label class="form-label select-label">First Name</label>
+                          <input type="text" id="FirstName" class="form-control" formControlName="FirstName" />
+                        </div>
+                        <div class="col-lg-3">
+                            <label class="form-label select-label">Last Name</label>
+                            <input type="text" id="LastName" class="form-control" formControlName="LastName" />
+                          </div>
+                          <div class="col-lg-3">
+                            <label class="form-label select-label">Mobile No</label>
+                            <input type="text" id="Mobile" class="form-control" formControlName="Mobile" />
+                          </div>
+                          <div class="col-lg-3">
+                            <label class="form-label select-label">Aadhar No</label>
+                            <input type="text" id="AadharNo" class="form-control" formControlName="AadharNo" />
+                          </div>
+                       
+                  </div>
+                  <div class="mb-3 row">
+                    <div class="col-lg-2">
+                    
+                        <button type="submit"  class="btn btn-primary" style="background: #42a8df;" mdbRipple [disabled]="!frmfinCustReg.valid">Register</button>
+                    
+                       
+                      </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <div class="col">
+  
+                      @if (this.respcode!="1") {
+                        <p style="color: red; font-weight: bold;">{{this.strmsg}}</p>
+  
+                      }
+                    
+                    </div>
+  
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

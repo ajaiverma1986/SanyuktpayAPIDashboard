@@ -199,9 +199,14 @@ function GetMorphoRDService(callback) {
         if (xhr.readyState == 4) {
             var status = xhr.status;
             if (status == 200) {
+                
+                var xmlDoc = parseXml(xhr.responseText);
+             var xxx=    xmlDoc.getElementsByTagName('RDService')[0].getAttribute('status');
+                
                 rdservicestatus = 1;
                 var callBackString = {};
                 callBackString.rdservicestatus = rdservicestatus;
+                callBackString.readyStatus = xxx;
                 callBackString.DeviceName = "MORPHO";
                 if (callback) callback(callBackString);
             } else {

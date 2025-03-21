@@ -5,11 +5,12 @@ import { ToastrService } from 'ngx-toastr';
 import { FinoDMTService } from '../../../../../services/PaysprintServcies/fino-dmt.service';
 import { GetCustomerRequestView } from '../../../../../RequestModel/SpayModel/FinoDMTRequest';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-fino-money-dmt',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './fino-money-dmt.component.html',
   styleUrl: './fino-money-dmt.component.scss'
 })
@@ -18,6 +19,7 @@ export class FinoMoneyDMTComponent extends BasecomponentComponent implements OnI
   CustModel: GetCustomerRequestView = new GetCustomerRequestView();
   frmVerifyCust!:FormGroup;
   strmsg!:string;
+  respcode!:string;
 
   constructor(private routs: Router, private dmt: FinoDMTService,private fb:FormBuilder, toster: ToastrService) {
     super(toster)
@@ -56,13 +58,16 @@ export class FinoMoneyDMTComponent extends BasecomponentComponent implements OnI
       next: (result) => {
 
         this.strmsg=result.message || '';
+        this.respcode=result.response_code || '';
         if(result.response_code=="1")
         {
 this.showToaster(1,this.strmsg,"DMT")
         }
         else
         {
+          
           this.showToaster(3,this.strmsg,"DMT")
+          this.routs.navigate(['/Dashboard/FinCustReg']);
         }
       }
     });
