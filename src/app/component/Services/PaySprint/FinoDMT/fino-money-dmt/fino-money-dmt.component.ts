@@ -10,36 +10,36 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-fino-money-dmt',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './fino-money-dmt.component.html',
   styleUrl: './fino-money-dmt.component.scss'
 })
 export class FinoMoneyDMTComponent extends BasecomponentComponent implements OnInit {
   Usertoken!: string;
   CustModel: GetCustomerRequestView = new GetCustomerRequestView();
-  frmVerifyCust!:FormGroup;
-  strmsg!:string;
-  respcode!:string;
+  frmVerifyCust!: FormGroup;
+  strmsg!: string;
+  respcode!: string;
 
-  constructor(private routs: Router, private dmt: FinoDMTService,private fb:FormBuilder, toster: ToastrService) {
+  constructor(private routs: Router, private dmt: FinoDMTService, private fb: FormBuilder, toster: ToastrService) {
     super(toster)
   }
   ngOnInit(): void {
 
     this.createForm();
     this.GenerateToken();
-  
+
   }
-   createForm() {
-      this.frmVerifyCust = this.fb.group({
-        MobileNo: ['', [Validators.required]],
-      });
-    }
+  createForm() {
+    this.frmVerifyCust = this.fb.group({
+      MobileNo: ['', [Validators.required]],
+    });
+  }
   GenerateToken() {
     this.dmt.GenerateSPAYToken().subscribe({
       next: (data) => {
         this.Usertoken = data.Result;
-        
+
         if (this.Usertoken != "") {
           sessionStorage.setItem("PaySPTOKEN", this.Usertoken);
         }
@@ -53,20 +53,18 @@ export class FinoMoneyDMTComponent extends BasecomponentComponent implements OnI
   GetCustomerDetail() {
     this.CustModel.Mobile = this.frmVerifyCust.get("MobileNo")?.value;
     this.CustModel.TokenData = sessionStorage.getItem("PaySPTOKEN") || '';
-    
+
     this.dmt.GetCustomerDetail(this.CustModel).subscribe({
       next: (result) => {
 
-        this.strmsg=result.message || '';
-        this.respcode=result.response_code || '';
-        if(result.response_code=="1")
-        {
-this.showToaster(1,this.strmsg,"DMT")
+        this.strmsg = result.message || '';
+        this.respcode = result.response_code || '';
+        if (result.response_code == "1") {
+          this.showToaster(1, this.strmsg, "DMT")
         }
-        else
-        {
-          
-          this.showToaster(3,this.strmsg,"DMT")
+        else {
+
+          this.showToaster(3, this.strmsg, "DMT")
           this.routs.navigate(['/Dashboard/FinCustReg']);
         }
       }
@@ -82,7 +80,7 @@ this.showToaster(1,this.strmsg,"DMT")
     }
     return invalidControls;
   }
-  onSubmit(){
+  onSubmit() {
     this.GetCustomerDetail();
   }
 }
