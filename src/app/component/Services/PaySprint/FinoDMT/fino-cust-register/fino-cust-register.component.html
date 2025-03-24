@@ -41,9 +41,16 @@
                   <div class="mb-3 row">
                     <div class="col-lg-2">
                     
+                      @if(this.isCaputure==true)
+                      {
                         <button type="submit"  class="btn btn-primary" style="background: #42a8df;" mdbRipple [disabled]="!frmfinCustReg.valid">Register</button>
-                    
-                       
+                      }
+                       @else {
+                        <button type="button"  class="btn btn-primary" style="background: #42a8df;" mdbRipple (click)="FingerCapure()" >Capture</button>
+                       }
+                      
+                        
+        
                       </div>
                   </div>
                   <div class="mb-3 row">

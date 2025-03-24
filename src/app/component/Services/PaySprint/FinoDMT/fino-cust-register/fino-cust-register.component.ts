@@ -25,6 +25,9 @@ export class FinoCustRegisterComponent extends BasecomponentComponent implements
   strmsg!: string;
   respcode!: string;
   myData: any;
+  isCaputure:boolean=false;
+  rdservicestatus:number=0;
+  devicereadystatus!:string;
 
   constructor(private routs: Router, private dmt: FinoDMTService, private fb: FormBuilder, toster: ToastrService) {
     super(toster)
@@ -38,6 +41,8 @@ export class FinoCustRegisterComponent extends BasecomponentComponent implements
   ConnectDevice() {
     GetMorphoRDService((data: any) => {
       this.myData = data;
+      this.rdservicestatus=this.myData.rdservicestatus;
+      this.devicereadystatus=this.myData.readyStatus;
     });
   }
 
@@ -49,6 +54,8 @@ export class FinoCustRegisterComponent extends BasecomponentComponent implements
   FingerCapure() {
     CaptureFingureMorpho((data: any) => {
       this.myData = data;
+      this.isCaputure=true;
+      
     });
   }
   createForm() {
@@ -60,13 +67,16 @@ export class FinoCustRegisterComponent extends BasecomponentComponent implements
     });
   }
   RegisterCustomerWithKYC() {
-    this.CustModel.Mobile = this.frmfinCustReg.get("Mobile")?.value;
-    this.CustModel.AadharNo = this.frmfinCustReg.get("AadharNo")?.value;
-    this.CustModel.FirstName = this.frmfinCustReg.get("FirstName")?.value;
-    this.CustModel.LastName = this.frmfinCustReg.get("LastName")?.value;
-    this.CustModel.AccessMode = "WEB";
-    this.CustModel.isIris = 2;
-    this.CustModel.TokenData = sessionStorage.getItem("PaySPTOKEN") || '';
+    
+      this.CustModel.PidData=this.myData.pidata;
+      this.CustModel.Mobile = this.frmfinCustReg.get("Mobile")?.value;
+      this.CustModel.AadharNo = this.frmfinCustReg.get("AadharNo")?.value;
+      this.CustModel.FirstName = this.frmfinCustReg.get("FirstName")?.value;
+      this.CustModel.LastName = this.frmfinCustReg.get("LastName")?.value;
+      this.CustModel.AccessMode = "WEB";
+      this.CustModel.isIris = 2;
+      this.CustModel.TokenData = sessionStorage.getItem("PaySPTOKEN") || '';
+    
 
     this.dmt.RegisterFinoCustomerKyc(this.CustModel).subscribe({
       next: (result) => {
@@ -81,6 +91,7 @@ export class FinoCustRegisterComponent extends BasecomponentComponent implements
         }
       }
     });
+   
   }
   getInvalidControls() {
     const invalidControls = [];
@@ -93,10 +104,16 @@ export class FinoCustRegisterComponent extends BasecomponentComponent implements
     return invalidControls;
   }
   onSubmit() {
-    console.log(this.myData);
-    if (this.myData.rdservicestatus == 1) {
-      if (this.myData.readyStatus != "NOTREADY") {
-        this.RegisterCustomerWithKYC();
+    if (this.rdservicestatus == 1) {
+      if (this.devicereadystatus != "NOTREADY") {
+        if(this.isCaputure==true)
+        {
+          this.RegisterCustomerWithKYC();
+        }
+       else
+       {
+        this.showToaster(2, "Fingerprint not capture", "DMT");
+       }
       }
       else {
         this.showToaster(2, "Device Not Connected", "DMT");
