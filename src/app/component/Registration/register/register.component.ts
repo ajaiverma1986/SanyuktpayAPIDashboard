@@ -3,11 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgOtpInputComponent } from 'ng-otp-input';
 import {MatButtonModule} from '@angular/material/button';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MasterDataService } from '../../../services/master-data.service';
+import { ClassListResponse } from '../../../RequestModel/MasterDataResponse';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, NgOtpInputComponent,MatButtonModule],
+  imports: [ReactiveFormsModule, CommonModule, NgOtpInputComponent,MatButtonModule,NgbModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -21,15 +24,24 @@ export class RegisterComponent implements OnInit {
   frmAadharDetails!:FormGroup;
   frmEmailVerification!:FormGroup;
   selectedvalue!:string;
-  pic!:string;
-  pic1!:string;
-  pic2!:string;
-  constructor(private fb: FormBuilder) {
+  selectedDate: any;
+  classlst!:ClassListResponse[];
+  selectedvalueMode:number=0;
+  constructor(private fb: FormBuilder,private mds:MasterDataService) {
     this.createForm();
   }
   ngOnInit(): void {
+    const now = new Date();
 
+    this.selectedDate = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
     sessionStorage.clear();
+
+    this.mds.ClassMasterList().subscribe({
+      next: (data) => {
+        this.classlst = data.Result;
+       
+      }
+    });
   }
   createForm() {
     this.frmregister1 = this.fb.group({
@@ -42,36 +54,18 @@ export class RegisterComponent implements OnInit {
       ngOtpInput: [''],
     });
   }
-  CreateOUserTypeform() {
-    this.FrmUserType = this.fb.group({
-      GenderId: [''],
-    });
-  }
+ 
   CreateOUserPanDetailform() {
     this.frmPanDetails = this.fb.group({
-      PanNo: [''],
-      Name: [''],
+      FristName: [''],
+      LastName: [''],
       dob: [''],
-      GenderID: [''],
-      Email: [''],
-      Addresss: [''],
+      ClassID: [''],
+      Email: ['']
     });
   }
-  CreateOUserAadharDetailform() {
-    this.frmAadharDetails = this.fb.group({
-      AadharNo: [''],
-      aName: [''],
-      adob: [''],
-      aGenderID: [''],
-      aAddresss: [''],
-    });
-  }
-  CreateOUserEmailDetailform() {
-    this.frmEmailVerification = this.fb.group({
-      VEmailID: [''],
-    
-    });
-  }
+ 
+  
   onSubmitMobile() {
     this.isOtp = 1;
     this.CreateOtpForm();
@@ -80,38 +74,14 @@ export class RegisterComponent implements OnInit {
 
   }
   onVerifyOTP() {
-this.isOtp=2;
-this.CreateOUserTypeform();
-  }
-  SubmitUserType(){
-    this.isOtp=3;
     this.CreateOUserPanDetailform();
-    this.setDefaultPic();
+this.isOtp=2;
   }
+  
   SubmitPanDetail(){
-    this.isOtp=4;
-    this.CreateOUserAadharDetailform();
+    this.isOtp=3;
   }
-  setDefaultPic(){
-    this.pic = "assets/graybackblank.jpg";
-    this.pic1 = "assets/graybackblank.jpg";
-    this.pic2 = "assets/graybackblank.jpg";
-  }
-  onFileChange(event:any){
-
-  }
-  onFileChangeaFront(event:any){
-    
-  }
-  onFileChangeaBack(event:any){
-
-  }
-  SubmitAadharDetail(){
-    this.isOtp=5;
-
-  }
-  SubmitEmailDetail(){
-this.isOtp=5;
-  }
-
+  
+  
+ 
 }

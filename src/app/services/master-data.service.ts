@@ -107,4 +107,8 @@ apiurl=environment.baseurl;
     let headers: HttpHeaders = this.getDefaultHeader2();
     return this.http.get<SimpleResponse>(this.apiurl + "/MasterData/ListAllService?ServiceTypeId="+ServiceTypeId,  {headers: headers});
   }
+  ClassMasterList(): Observable<SimpleResponse> {
+    let headers: HttpHeaders = this.getDefaultHeader2();
+    return this.http.get<SimpleResponse>(this.apiurl + "/MasterData/ClassList",  {headers: headers});
+  }
 }

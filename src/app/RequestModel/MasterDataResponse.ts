@@ -175,3 +175,7 @@ export class GenderResponse{
     GenderId!:number;
     GenderName!:string
 }
+export class ClassListResponse{
+    ClassID!:number;
+    ClassName!:string
+}
