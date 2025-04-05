@@ -23,16 +23,16 @@ export class BasecomponentComponent {
 
   showToaster(msgtype: number, messageData: string, messagetitle: string) {
     if (msgtype == 1) {
-      this.toast.success(messageData, messagetitle, { positionClass: 'toast-bottom-right' });
+      this.toast.success(messageData, messagetitle, { positionClass: 'toast-top-right' });
     }
     else if (msgtype == 2) {
-      this.toast.info(messageData, messagetitle, { positionClass: 'toast-bottom-right' });
+      this.toast.info(messageData, messagetitle, { positionClass: 'toast-top-right' });
     }
     else if (msgtype == 3) {
-      this.toast.error(messageData, messagetitle, { positionClass: 'toast-bottom-right' });
+      this.toast.error(messageData, messagetitle, { positionClass: 'toast-top-right' });
     }
     else if (msgtype == 4) {
-      this.toast.warning(messageData, messagetitle, { positionClass: 'toast-bottom-right' });
+      this.toast.warning(messageData, messagetitle, { positionClass: 'toast-top-right' });
     }
 
   }

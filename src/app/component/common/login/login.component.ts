@@ -45,6 +45,7 @@ export class LoginComponent {
 
     this.loginService.login(this.loginForm.get("Usercode")?.value, this.loginForm.get('password')?.value).subscribe({
       next: (authorization) => {
+       
         if (authorization.HasError) {
           sessionStorage.setItem("isloginvalid", "0")
           this.errors = authorization.Errors;
@@ -58,23 +59,8 @@ export class LoginComponent {
           sessionStorage.setItem("UserToken", authorization.UserToken);
           sessionStorage.setItem("Has error", authorization.HasError);
           sessionStorage.setItem("Uname", this.loginForm.get("Usercode")?.value);
-
-          this.loginService.GetUserDetails(this.loginForm.get("Usercode")?.value).subscribe({
-            next: (data) => {
-              this.Model = data.Result;
-              sessionStorage.setItem("uttt", this.Model.UserTypeId.toString());
-
-              if (this.Model.UserTypeId == 3) {
-                this.router.navigate(['/Dashboard/ParProfile']);
-              }
-              else {
-                this.router.navigate(['/Dashboard/UserProfile']);
-              }
-              this.spinner.hide();
-            }
-          });
-
-
+          this.router.navigate(['/Dashboard']);
+          this.spinner.hide();
 
         }
       },

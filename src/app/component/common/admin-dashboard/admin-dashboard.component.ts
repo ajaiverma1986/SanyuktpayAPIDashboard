@@ -55,14 +55,14 @@ export class AdminDashboardComponent {
 
   ngOnInit() {
     //this.apptitle="Sanyukt Pay API Dashboard"
-    this.apptitle = "API Dashboard"
-    this.username = sessionStorage.getItem("Display Name") || 'Sanyukt pay';
+    this.apptitle = "Dashboard"
+    this.username = sessionStorage.getItem("Display Name") || 'EDU MITRA';
     this.UserTypeId =Number(sessionStorage.getItem("uttt")) || 0;
-    this.userser.ListAllAppMenu().subscribe({
-      next: (data) => {
-        this.ParMenu = data.Result;
-      }
-    });
+    // this.userser.ListAllAppMenu().subscribe({
+    //   next: (data) => {
+    //     this.ParMenu = data.Result;
+    //   }
+    // });
 
     
   }
