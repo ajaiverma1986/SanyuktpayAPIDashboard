@@ -65,6 +65,8 @@ import { CreateDSComponent } from './component/Outletmgr/create-ds/create-ds.com
 import { CreateAGComponent } from './component/Outletmgr/create-ag/create-ag.component';
 import { RoleManagerComponen } from './component/AccessManager/role-manager/role-manager.component';
 import { RegisterComponent } from './component/Registration/register/register.component';
+import { StudentMasterListComponent } from './component/Registration/student-master-list/student-master-list.component';
+import { CreateExamtComponent } from './component/ExamMod/create-examt/create-examt.component';
 
 
 export const routes: Routes = [
@@ -135,6 +137,8 @@ export const routes: Routes = [
       {path: 'Createds', component: CreateDSComponent,title:"Distributor"},
       {path: 'CreateAg', component: CreateAGComponent,title:"Retailor"},
       {path: 'RoleMgr', component: RoleManagerComponen,title:"Role Manager"},
+      {path: 'StudList', component: StudentMasterListComponent,title:"Student List"},
+      {path: 'CrTExam', component: CreateExamtComponent,title:"Exam Master"},
       
     ]
   },
